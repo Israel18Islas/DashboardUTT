@@ -22,6 +22,8 @@
         "@inertiajs/progress": "^0.2.7",
         "bootstrap": "^5.2.1",
         "pug": "^3.0.2",
-        "vue": "^3.2.36"
+        "vue": "^3.2.36",
+        "vue3-carousel": "^0.1.46",
+        "vue3-tabs-component": "^1.1.0"
     }
 }
