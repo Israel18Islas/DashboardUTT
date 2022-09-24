@@ -13,6 +13,17 @@
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
+        "bootstrap": "^5.2.1",
+        "pug": "^3.0.2",
+        "vue": "^3.2.36",
+        "vue3-carousel": "^0.1.46",
+        "vue3-tabs-component": "^1.1.0"
     }
 }
