@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 
 
@@ -13,10 +14,13 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-        
+        $usuarios = HTTP::get('https://jsonplaceholder.typicode.com/users');
+        $usuariosArray = $usuarios->json();
+
         return Inertia::render('Dashboard');
+        //return view ('prueba', compact('usuariosArray'));
     }
 
     /**

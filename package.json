@@ -21,8 +21,10 @@
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/progress": "^0.2.7",
         "bootstrap": "^5.2.1",
+        "chart.js": "^3.9.1",
         "pug": "^3.0.2",
         "vue": "^3.2.36",
+        "vue-chartjs": "^4.1.1",
         "vue3-carousel": "^0.1.46",
         "vue3-tabs-component": "^1.1.0"
     }
