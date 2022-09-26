@@ -75,7 +75,7 @@
 
        <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
+                <a class="nav-link" href="#">Active</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -85,6 +85,62 @@
             </li>
 
         </ul>
+
+        <div class="container">
+            <form action="">
+                <div class="d-flex">
+                    <div class="d-grid">
+                        <label for="date">Fecha de Nacimiento:</label>
+                        <input type="text" name="date" id="date" v-model="date" />
+                    </div>
+                    <div class="d-grid">
+                        <label for="age">Edad:</label>
+                        <input type="text" name="age" id="age" v-model="age" />
+                    </div>
+                    <div>
+                        <div>Genero: {{ checkedNames }}</div>
+
+                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                        <label for="jack">Femenino</label>
+
+                        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                        <label for="john">Masculino</label>
+
+                        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                        <label for="john">Otro/No definido</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div>Genero: {{ checkedNames }}</div>
+
+                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                        <label for="jack">Femenino</label>
+
+                        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                        <label for="john">Masculino</label>
+
+                        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                        <label for="john">Otro/No definido</label>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" v-model="name" />
+                </div>
+                <div class="d-grid">
+                    <label for="name">Phone</label>
+                    <input type="text" name="name" id="name" v-model="name" />
+                </div>
+                <div class="d-grid">
+                    <label for="name">Phone</label>
+                    <input type="text" name="name" id="name" v-model="name" />
+                </div>
+            
+            </form>
+            
+
+        </div>
 
     </div>
     
