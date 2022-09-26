@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $usuarios = HTTP::get('https://jsonplaceholder.typicode.com/users');
         $usuariosArray = $usuarios->json();
 
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard',compact('usuariosArray'));
         //return view ('prueba', compact('usuariosArray'));
     }
 

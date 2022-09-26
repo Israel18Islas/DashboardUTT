@@ -1,0 +1,16 @@
+*{
+    color:#606060
+}
+input{
+    background-color:#F4F6FA;
+    border: 2px;
+    height: 42px;
+}
+p{
+    font-size: 14px;
+}
+
+.carousel__slide{
+    display: grid !important;
+    justify-content: inherit !important;
+}
