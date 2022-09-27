@@ -14,3 +14,6 @@ p{
     display: grid !important;
     justify-content: inherit !important;
 }
+.bg-utt{
+    background-color: #691A2D !important;
+}

@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color:#691A2D">
+    <nav class="navbar navbar-expand-lg bg-utt">
         <div class="container-md d-flex justify-content-between">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <div>
-                One of two columns
+                <img src="/images/logo.png" alt="ddd" width="106" >
             </div>
             <div>
                 Login
@@ -23,7 +23,7 @@
         </div>
     </nav>
 
-    <div class="card mx-5 my-5">
+    <div class="card mx-5 mt-5">
         <div class="card-body">
             <h5 class="card-title">Datos del grupo</h5>
             <div class="card-text mt-4">
@@ -53,14 +53,14 @@
         </div>
     </div>
 
-    <div class="card mx-5">
+    <div class="card mx-5 mt-3">
         <div class="card-body">
             <h5 class="card-title">Alumnos</h5>
             <Carousel :settings="settings"  :breakpoints="breakpoints" :wrap-around="true">
                 <Slide  v-for="usuarios in usuariosArray" :key="usuarios">
                 <div class="carousel__item">
-                    <div class="card" style="width: 12rem;">
-                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" height="80" class="card-img-top" alt="...">
+                    <div class="card" style="width: 180px; height: 220px;">
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" height="127" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-title">{{ usuarios.username }}</p>
                             <p class="card-text">{{ usuarios.name }}</p>
@@ -77,21 +77,8 @@
 
         </div>
     </div>
-
-    <div class="card mx-5  mt-5">
+    <div class="card mx-5  mt-3" v-show="activeStep == 'Dashboard'">
         <div class="card-body">
-           <h5 class="card-title">Registro general del alumno</h5>
-        </div>
-
-              
-        <ul class="nav nav-tabs" v-for="step in steps" :key="step.id">
-            <li class="nav-item">
-                <a class="nav-link" :class="{ 'bg-primary': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
-                    {{ step }}
-                </a>
-            </li>
-        </ul>
-        <div class="container my-3" v-show="activeStep == 'Dashboard'">
             <Bar
                 :chart-options="chartOptions"
                 :chart-data="chartData"
@@ -104,6 +91,22 @@
                 :height="height"
             />
         </div>
+    </div>
+
+    <div class="card mx-5  mt-53"  v-show="activeStep != 'Dashboard'">
+        <div class="card-body">
+           <h5 class="card-title">Registro general del alumno</h5>
+        </div>
+
+              
+        <ul class="nav nav-tabs">
+            <li class="nav-item" v-for="step in steps" :key="step.id" >
+                <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
+                    {{ step }}
+                </a>
+            </li>
+        </ul>
+
         <div class="container my-3" v-show="activeStep == 'Datos Personales'">
             <form action="">
                 <div class="container d-flex row">
@@ -208,86 +211,64 @@
                     </div>
                     <div class="container d-flex justify-content-between col-sm-9 row">
 
-                        <div class="right col-4 mt-4">
+                        <div class="right col-3 mt-4">
 
                             <div class="d-grid row mt-4">
-                                <label for="date">Fecha de Nacimiento:</label>
+                                <label for="date">Nombre del padre:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre de la madre:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre del conyuge:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <h5>En caso de emergencia</h5>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre:</label>
                                 <input type="text" name="date" id="date" v-model="date"/>
                             </div>
 
-                            <div class="d-grid mt-4">
-                                <div>Estado civil: {{ checkedNames }}</div>
-                                <div class="d-flex">
-                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                    <label for="jack">Casado</label>
-
-                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                                    <label for="john">Divorciado</label>
-                                </div>
-                            </div>
-
-                            <div class="d-grid mt-4">
-                                <label for="age">Calle y numero:</label>
-                                <input type="text" name="age" id="age" v-model="age" />
-                            </div>
-
-                            <div class="d-grid mt-4">
-                                <label for="age">Correo electronico (personal):</label>
-                                <input type="text" name="age" id="age" v-model="age" />
-                            </div>
-
-                            <div class="d-grid mt-4">
-                                <label for="age">Movil:</label>
-                                <input type="text" name="age" id="age" v-model="age" />
-                            </div>
                             
                         </div>
-                        <div class="center col-4 mt-4">
+                        <div class="center col-3 mt-4">
 
-                            <div class="d-grid mt-4">
-                                <label for="date">Edad:</label>
-                                <input type="text" name="date" id="date" v-model="date" />
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
-
-                            <div class="mt-4">
-                                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                                <label for="mike">Soltero</label>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
-                            <div class="d-grid mt-4">
-                                <label for="age">Colonia:</label>
-                                <input type="text" name="age" id="age" v-model="age" />
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
-                            <div class="d-grid mt-4">
-                                <label for="age">Correo electronico (institucional):</label>
-                                <input type="text" name="age" id="age" v-model="age" />
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
                         </div>
-                        <div class="left col-4 mt-4">
-                            <div class="d-grid mt-4">
-                                <div>Genero: {{ checkedNames }}</div>
-                                <div class="d-flex">
-
-                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                    <label for="jack">Femenino</label>
-
-                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                                    <label for="john">Masculino</label>
-
-                                    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                                    <label for="mike">Otro/No </label>
-                                </div>
+                        <div class="left col-3 mt-4">
+                            
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
-                            <div class="mt-4">
-                                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                                <label for="mike">Union libre</label>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
-                            <div class="d-grid mt-4">
-                                <label for="age">Municipio:</label>
-                                <input type="text" name="age" id="age" v-model="age" />
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
-                            <div class="d-grid mt-4">
-                                <label for="age">Telefono:</label>
-                                <input type="text" name="age" id="age" v-model="age" />
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
                             </div>
                         </div>
                     </div>
@@ -380,7 +361,7 @@ export default {
             'Promedios',
             
 		]
-		const activeStep = ref(steps[0])
+		const activeStep = ref(steps[1])
 
 		const onClickStep = (step) => {
 			console.log(step)
@@ -404,7 +385,7 @@ export default {
         responsive: true
       },
       settings: {
-        itemsToShow: 6,
+        itemsToShow: 7,
         snapAlign: 'center',
         },
         // breakpoints are mobile first
@@ -417,7 +398,7 @@ export default {
         },
         // 1024 and up
         1024: {
-            itemsToShow: 6,
+            itemsToShow: 7,
             snapAlign: 'center',
         },
       },
