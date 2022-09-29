@@ -26,4 +26,8 @@ p{
     box-shadow: 0px 3px 6px #2468A126 !important;
     border-radius: 5px !important;
     opacity: 2 !important;
+
+}
+input{
+    vertical-align: middle;
 }

@@ -57,13 +57,13 @@
         <div class="card-body">
             <h5 class="card-title text-utt">Alumnos</h5>
             <Carousel :settings="settings" class=""  :breakpoints="breakpoints" :wrap-around="true">
-                <Slide  v-for="usuarios in usuariosArray" :key="usuarios">
+                <Slide  v-for="usuario in usuariosArray" :key="usuario">
                 <div class="carousel__item">
-                    <div class="card border-0" style="width: 180px; height: 220px;">
+                    <div class="card border-0" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
                         <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" height="127" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-title">{{ usuarios.username }}</p>
-                            <p class="card-text">{{ usuarios.name }}</p>
+                            <p class="card-title">{{ usuario.username }}</p>
+                            <p class="card-text">{{ usuario.name }}</p>
                         </div>
                     </div>
                     
@@ -77,416 +77,467 @@
 
         </div>
     </div>
-    <!-- <div class="card mx-5  mt-3" v-show="activeStep == 'Dashboard'">
-        <div class="card-body">
-            <Bar
-                :chart-options="chartOptions"
-                :chart-data="chartData"
-                :chart-id="chartId"
-                :dataset-id-key="datasetIdKey"
-                :plugins="plugins"
-                :css-classes="cssClasses"
-                :styles="styles"
-                :width="width"
-                :height="height"
-            />
-        </div>
-    </div> -->
+    
 
-    <div class="card mx-5  mt-5 border-0"  v-show="activeStep != 'Dashboard'">
+    <div class="card mx-5  mt-5 border-0">
+
         <div class="card-body">
            <h5 class="card-title text-utt">Registro general del alumno</h5>
         </div>
-
-              
-        <ul class="nav nav-tabs">
-            <li class="nav-item card-title" v-for="step in steps" :key="step.id" >
-                <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
-                    {{ step }}
+        <!-- <ul class="nav nav-tabs">
+            <li class="nav-item card-title" v-for="option in options" :key="option.id" >
+                <a class="nav-link text-secondary" :class="{ 'fw-border': option == activeOption}" href="#" @click.prevent="onClickOption(step)">
+                    {{ option }}
                 </a>
             </li>
-        </ul>
-
-        <div class="container my-3" v-show="activeStep == 'Datos Personales'">
-            <div class="container d-flex row">
-
-                <div class="avatar m-5 col-sm-2"> 
-                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                </div>
-
-                <div class="container d-flex justify-content-between col-sm-9 row ">
-
-                    <div class="right col-4 mt-4">
-
-                        <div class="d-grid row mt-4">
-                            <label for="date">Fecha de Nacimiento:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <div>Estado civil: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Casado</label>
-
-                                <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                                <label for="john">Divorciado</label>
-                            </div>
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <label for="age">Calle y numero:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <label for="age">Correo electronico (personal):</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <label for="age">Movil:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                        
-                    </div>
-                    <div class="center col-4 mt-4">
-
-                        <div class="d-grid mt-4">
-                            <label for="date">Edad:</label>
-                            <input type="text" name="date" id="date" v-model="date" />
-                        </div>
-
-                        <div class="mt-4">
-                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                            <label for="mike">Soltero</label>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Colonia:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Correo electronico (institucional):</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                    </div>
-                    <div class="left col-4 mt-4">
-                        <div class="d-grid mt-4">
-                            <div>Genero: {{ checkedNames }}</div>
-                            <div class="d-flex">
-
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Femenino</label>
-
-                                <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                                <label for="john">Masculino</label>
-
-                                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                                <label for="mike">Otro/No </label>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                            <label for="mike">Union libre</label>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Municipio:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Telefono:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                    </div>
-                </div>
-
-            </div>            
-
-        </div>
-
-        <div class="container my-3" v-show="activeStep == 'Datos Familiares'">
-            <div class="container d-flex row">
-
-                <div class="avatar m-5 col-sm-2"> 
-                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                </div>
-
-                <div class="container d-flex justify-content-between col-sm-9 row">
-
-                    <div class="right col-3 mt-4">
-
-                        <div class="d-grid row mt-4">
-                            <label for="date">Nombre del padre:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Nombre de la madre:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Nombre del conyuge:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <h5>En caso de emergencia</h5>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Nombre:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-
-                        
-                    </div>
-                    <div class="center col-3 mt-4">
-
-                        <div class="d-grid row mt-4">
-                            <label for="date">Telefono:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Telefono:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Telefono:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Telefono:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                    </div>
-                    <div class="left col-3 mt-4">
-                        
-                        <div class="d-grid row mt-4">
-                            <label for="date">Parentesco:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Parentesco:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Parentesco:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                        <div class="d-grid row mt-4">
-                            <label for="date">Parentesco:</label>
-                            <input type="text" name="date" id="date" v-model="date"/>
-                        </div>
-                    </div>
-                </div>
-
+        </ul> -->
+        <div class="container" v-show="activeOption == 'Dashboard'">
+            <div class="card-body">
+                <Bar
+                    :chart-options="chartOptions"
+                    :chart-data="chartData"
+                    :chart-id="chartId"
+                    :dataset-id-key="datasetIdKey"
+                    :plugins="plugins"
+                    :css-classes="cssClasses"
+                    :styles="styles"
+                    :width="width"
+                    :height="height"
+                />
             </div>
         </div>
+        <div class="container " v-show="activeOption == 'Registro general del alumno'">
 
-        <div class="container my-3" v-show="activeStep == 'Datos Laborales'"> 
-            <div class="container d-flex row">
+            <ul class="nav nav-tabs">
+                <li class="nav-item card-title" v-for="step in steps" :key="step.id" >
+                    <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
+                        {{ step }}
+                    </a>
+                </li>
+            </ul>
 
-                <div class="avatar m-5 col-sm-2"> 
-                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                </div>
+            <div class="container my-3" v-show="activeStep == 'Datos Personales'">
+                <div class="container d-flex row">
 
-                <div class="container d-flex justify-content-between col-sm-9 row ">
-
-                    <div class="right col-4 mt-4">
-
-                        <div class="d-grid mt-4">
-                            <div>Trabajas: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Si</label>
-
-                                <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                                <label for="john">No</label>
-                            </div>
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <div>Razón por la que Trabajas : {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Apoyar Económicamente a la Familia</label>
-
-                            </div>
-                        </div>
-
-                        <p>Empresa</p>
-
-                        <div class="d-grid mt-4">
-                            <label for="age">Nombre:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <label for="age">Telefono:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                        
+                    <div class="avatar m-5 col-sm-2"> 
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
                     </div>
-                    <div class="center col-4 mt-4">
 
-                        <div class="d-grid mt-4">
-                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-                            <label for="mike">No</label>
-                        </div>
+                    <div class="container d-flex justify-content-between col-sm-9 row ">
 
-                        <div class="mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Apoyar Totalmente a la Familia</label>
-                            
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Apoyar Totalmente a la Familia</label>
+                        <div class="right col-4 mt-4">
+
+                            <div class="d-grid row mt-4">
+                                <label for="date">Fecha de Nacimiento:</label>
+                                <input type="text" name="date" id="date" v-model="user.name"/>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <div>Estado civil: {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                    <label for="jack">Casado</label>
+
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Divorciado</label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <label for="age">Calle y numero:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <label for="age">Correo electronico (personal):</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <label for="age">Movil:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
                             
                         </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Domicilio:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
+                        <div class="center col-4 mt-4">
+
+                            <div class="d-grid mt-4">
+                                <label for="date">Edad:</label>
+                                <input type="text" name="date" id="date" v-model="date" />
+                            </div>
+
+                            <div class="mt-4">
+                                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                                <label for="mike">Soltero</label>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Colonia:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Correo electronico (institucional):</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
                         </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Puesto:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
+                        <div class="left col-4 mt-4">
+                            <div class="d-grid mt-4">
+                                <div>Genero: {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <div class="container d-flex">
+                                        <input type="checkbox" id="Femenino"  value="true" v-model="checkedNames">
+                                        <label for="Femenino">Femenino</label>
+                                    </div>
+
+                                    <div class="container d-flex">
+                                        <input type="checkbox" id="john"  v-model="checkedNames">
+                                        <label for="john">Masculino</label>
+                                    </div>
+                                    <div class="container d-flex">
+                                        <input type="checkbox" id="mike" v-model="checkedNames">
+                                        <label for="mike">Otro/No </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                                <label for="mike">Union libre</label>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Municipio:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Telefono:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
                         </div>
-            
                     </div>
-                    <div class="left col-4 mt-4">
-                        <div class="d-grid mt-4">
-                            <div>¿Tu trabajo actual esta relacionado con tu carrera?: {{ checkedNames }}</div>
-                            <div class="d-flex">
 
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Si</label>
+                </div>            
 
+            </div>
+
+            <div class="container my-3" v-show="activeStep == 'Datos Familiares'">
+                <div class="container d-flex row">
+
+                    <div class="avatar m-5 col-sm-2"> 
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
+                    </div>
+
+                    <div class="container d-flex justify-content-between col-sm-9 row">
+
+                        <div class="right col-3 mt-4">
+
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre del padre:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre de la madre:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre del conyuge:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <h5>En caso de emergencia</h5>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Nombre:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+
+                            
+                        </div>
+                        <div class="center col-3 mt-4">
+
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Telefono:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                        </div>
+                        <div class="left col-3 mt-4">
+                            
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                            <div class="d-grid row mt-4">
+                                <label for="date">Parentesco:</label>
+                                <input type="text" name="date" id="date" v-model="date"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container my-3" v-show="activeStep == 'Datos Laborales'"> 
+                <div class="container d-flex row">
+
+                    <div class="avatar m-5 col-sm-2"> 
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
+                    </div>
+
+                    <div class="container d-flex justify-content-between col-sm-9 row ">
+
+                        <div class="right col-4 mt-4">
+
+                            <div class="d-grid mt-4">
+                                <div>Trabajas: {{ checkedNames }}</div>
+                                <div class="continer d-flex">
+                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                    <label for="jack">Si</label>
+
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <div>Razón por la que Trabajas : {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                    <label for="jack">Apoyar Económicamente a la Familia</label>
+
+                                </div>
+                            </div>
+
+                            <p>Empresa</p>
+
+                            <div class="d-grid mt-4">
+                                <label for="age">Nombre:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <label for="age">Telefono:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+                            
+                        </div>
+                        <div class="center col-4 mt-4">
+
+                            <div class="d-grid mt-4 container">
+                                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                                <label for="mike">No</label>
+                            </div>
+
+                            <div class="mt-4">
                                 <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                                <label for="john">No</label>
-
+                                <label for="john">Apoyar Totalmente a la Familia</label>
+                                
+                                <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                <label for="john">Apoyar Totalmente a la Familia</label>
+                                
                             </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Domicilio:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Puesto:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+                
                         </div>
-                        <div class="mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Sostenerme Totalmente</label>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <input type="text" name="age" id="age" v-model="age" />
-                        </div>
-                        <div class="d-grid mt-4">
-                            <label for="age">Departamento:</label>
-                            <input type="text" name="age" id="age" v-model="age" />
+                        <div class="left col-4 mt-4">
+                            <div class="d-grid mt-4">
+                                <div>¿Tu trabajo actual esta relacionado con tu carrera?: {{ checkedNames }}</div>
+                                <div class="d-flex">
+
+                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                    <label for="jack">Si</label>
+
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">No</label>
+
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                <label for="john">Sostenerme Totalmente</label>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
+                            <div class="d-grid mt-4">
+                                <label for="age">Departamento:</label>
+                                <input type="text" name="age" id="age" v-model="age" />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div> 
-        </div>
+                </div> 
+            </div>
 
-        <div class="container my-3" v-show="activeStep == 'Datos Economicos'">
-            <div class="container d-flex row">
+            <div class="container my-3" v-show="activeStep == 'Datos Economicos'">
+                <div class="container d-flex row">
 
-                <div class="avatar m-5 col-sm-2"> 
-                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                </div>
-
-                <div class="container d-flex justify-content-between col-sm-9 row ">
-
-                    <div class="right col-4 mt-4">
-
-                        <div class="d-grid mt-4">
-                            <div>Vive con: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Ambos Padres</label>
-
-                            </div>
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <div>Vivienda: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Propia</label>
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Rentada</label>
-                            </div>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <div>¿Quien es tu principal apoyo econimico?: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Padre</label>
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Madre</label>
-                            </div>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <div>Ingresos Familiares: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Menos de $5,000</label>
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">$5,000 A $10,000</label>
-                            </div>
-                        </div>
-                        
+                    <div class="avatar m-5 col-sm-2"> 
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
                     </div>
-                    <div class="center col-4 mt-4">
 
-                        <div class="d-grid mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Uno de los Padres</label>
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Pareja</label>
-                        </div>
+                    <div class="container d-flex justify-content-between col-sm-9 row ">
 
-                        <div class="mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Prestada</label>
+                        <div class="right col-4 mt-4">
+
+                            <div class="d-grid mt-4">
+                                <div>Vive con: {{ checkedNames }}</div>
+                                <div class="continer">
+                                    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                    <label for="jack">Ambos Padres</label>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <div>Vivienda: {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <div class="container">
+                                        <div class="container-body p-0">
+                                            <input class="p-0" type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                            <label for="jack">Propia</label>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">Rentada</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <div>¿Quien es tu principal apoyo econimico?: {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <div class="continer">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">Padre</label>
+                                    </div>
+                                    <div class="continer">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">Madre</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <div>Ingresos Familiares: {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <div class="continer">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">Menos de $5,000</label>
+                                    </div>
+                                    <div class="container">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">$5,000 A $10,000</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div class="d-grid mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Hermano(a)</label>
+                        <div class="center col-4 mt-4">
+
+                            <div class="d-grid mt-4 d-flex">
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Uno de los Padres</label>
+                                </div>
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Pareja</label>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 d-flex">
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Prestada</label>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 d-flex">
+                                <div class="continer">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Hermano(a)</label>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 d-flex">
+                                <div class="continer">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">$10,000 A $15,000</label>
+                                </div>
+                            </div>
+                
                         </div>
-                        <div class="d-grid mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">$10,000 A $15,000</label>
-                        </div>
-            
-                    </div>
-                    <div class="left col-4 mt-4">
-                         <div class="d-grid mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Solo(a)</label>
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Otro Familiar</label>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <div>Transporte: {{ checkedNames }}</div>
-                            <div class="d-flex">
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Propia</label>
-                                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-                                <label for="jack">Pubico</label>
+                        <div class="left col-4 mt-4">
+                            <div class="d-grid mt-4 d-flex">
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Solo(a)</label>
+                                </div>
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Otro Familiar</label>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <div>Transporte: {{ checkedNames }}</div>
+                                <div class="d-flex">
+                                    <div class="container">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">Propia</label>
+                                    </div>
+                                    <div class="container">
+                                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                                        <label for="jack">Pubico</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 d-flex">
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Cónyuge</label>
+                                </div>
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Otro Familiar</label>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 d-flex">
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">$10,000 A $15,000</label>
+                                </div>
+                                <div class="container">
+                                    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                                    <label for="john">Más de $15,000</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-grid mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Cónyuge</label>
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Otro Familiar</label>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">$10,000 A $15,000</label>
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-                            <label for="john">Más de $15,000</label>
-                        </div>
                     </div>
-                </div>
 
-            </div> 
-        </div>
-        <div v-show="activeStep == 'Datos Escolares'">
-            <p>Escolares</p>
-        </div>
-        <div v-show="activeStep == 'Promedios'">
-            <p>Promedios    </p>
+                </div> 
+            </div>
+            <div v-show="activeStep == 'Datos Escolares'">
+                <p>Escolares</p>
+            </div>
+            <div v-show="activeStep == 'Promedios'">
+                <p>Promedios    </p>
+            </div>
         </div>
 
     </div>
@@ -532,11 +583,11 @@ export default {
     },
     width: {
       type: Number,
-      default: 400
+      default: 100
     },
     height: {
       type: Number,
-      default: 400
+      default: 100
     },
     cssClasses: {
       default: '',
@@ -553,24 +604,39 @@ export default {
   },
   setup(props) {
     const steps = [
-            'Datos Personales',
-			'Datos Familiares',
-			'Datos Laborales',
-            'Datos Economicos',
-            'Datos Escolares',
-            'Promedios',
-            
-		]
-		const activeStep = ref(steps[1])
+        'Datos Personales',
+        'Datos Familiares',
+        'Datos Laborales',
+        'Datos Economicos',
+        'Datos Escolares',
+        'Promedios',
+        
+    ]
+    const activeStep = ref(steps[0])
 
-		const onClickStep = (step) => {
-			console.log(step)
-			activeStep.value = step
-		}
+    const onClickStep = (step) => {
+        console.log(step)
+        activeStep.value = step
+    }
+    const options = [
+        'Dashboard',
+        'Registro general del alumno'
+        
+    ]
+    const activeOption = ref(options[0])
+
+    const onClickOption = (option) => {
+        console.log(option)
+        onClickOption.value = option
+    }
+
     return{
         steps,
         activeStep,
-        onClickStep
+        onClickStep,
+        options,
+        activeOption,
+        onClickOption
     }
     
   },
@@ -579,7 +645,7 @@ export default {
     return {
       chartData: {
         labels: [ 'January', 'February', 'March' ],
-        datasets: [ { data: [40, 20, 12], backgroundColor: '#691A2D', } ]
+        datasets: [ { data: [40, 20, 12], backgroundColor: '#691A2D',height:`${100}px`,width:`${100}px`, } ]
       },
       chartOptions: {
         responsive: true
@@ -602,7 +668,19 @@ export default {
             snapAlign: 'center',
         },
       },
+      user:{
+        show:false
+      }
       
+    }
+  },
+  methods: {
+    
+    onClickData(data){
+        console.log(data)
+        this.user = data
+        this.activeOption = 'Registro general del alumno'
+        console.log(this.activeOption)
     }
   },
 };
