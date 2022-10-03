@@ -1,10 +1,8 @@
 *{
-    color:#606060;
+    color:#606060
 }
-
-body{ 
-    background-color:#F6F5F5 !important;
-
+body{
+    background-color: #F2F4F5 !important;
 }
 input{
     background-color:#F4F6FA;
@@ -12,7 +10,6 @@ input{
     height: 42px;
     vertical-align: middle;
 }
-
 p{
     font-size: 14px;
 }
@@ -21,15 +18,12 @@ p{
     display: grid !important;
     justify-content: inherit !important;
 }
-
 .bg-utt{
     background-color: #691A2D !important;
 }
-
 .text-utt{
     color: #691A2D !important;
 }
-
 .card{
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box !important;
     background: #FFFFFF 0% 0% no-repeat padding-box !important;
@@ -38,8 +32,10 @@ p{
     opacity: 2 !important;
 
 }
-#bar-chart{
-    width:900px !important;
-    height:620px !important;
-    margin: auto !important;
+
+.grey-bg {  
+    background-color: #F5F7FA;
 }
+
+
+

@@ -4,8 +4,7 @@
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -25,7 +24,7 @@
 
     <div class="card mx-5 mt-5 border-0">
         <div class="card-body">
-            <h5 class="card-title text-utt">Datos del grupo</h5>
+            <h5 class="card-title text-utt fw-bolder">Datos del grupo</h5>
             <div class="card-text mt-4">
                <div class="row">
                     <div class="col-sm-5 col-lg-6">
@@ -54,25 +53,27 @@
     </div>
 
     <div class="card mx-5 mt-3 border-0">
-        <h5 class="card-title text-utt">Alumnos</h5>
-        <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true">
-            <Slide  v-for="usuario in usuariosArray" :key="usuario" >
-            <div class="carousel__item">
-                <div class="card border-0 p-2" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
-                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" height="127" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">{{ usuario.username }}</p>
-                        <p class="card-text">{{ usuario.name }}</p>
+        <div class="card-body">
+            <h5 class="card-title text-utt fw-bolder">Alumnos</h5>
+            <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true">
+                <Slide  v-for="usuario in usuariosArray" :key="usuario" class="mb-3">
+                <div class="carousel__item">
+                    <div class="card border-0 p-2" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" height="127" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-title">{{ usuario.username }}</p>
+                            <p class="card-text">{{ usuario.name }}</p>
+                        </div>
                     </div>
+
                 </div>
+                </Slide>
 
-            </div>
-            </Slide>
-
-            <template #addons>
-                <Navigation  class="bg-utt"/>
-            </template>
-        </Carousel>
+                <template #addons>
+                    <Navigation  class="bg-utt"/>
+                </template>
+            </Carousel>
+        </div>
 
     </div>
 
@@ -81,25 +82,16 @@
 
         <div v-show="activeOption == 'Dashboard'" class="d-flex justify-content-between">
 
-            <div class="card border-0" v-show="activeOption == 'Dashboard'" style="width:1000px; height:620px;">
-                <Bar
-                    :chart-options="chartOptions"
-                    :chart-data="chartData"
-                    :chart-id="chartId"
-                    :dataset-id-key="datasetIdKey"
-                    :plugins="plugins"
-                    :css-classes="cssClasses"
-                    :styles="styles"
-                    :width="width"
-                    :height="height"
-                />
+            <div class="card border-0" style="width:1000px; height:500px;" v-show="activeOption == 'Dashboard'">
+                <canvas id="barChar"></canvas>
             </div>
 
             <div  class=" border-0" v-show="activeOption == 'Dashboard'">
-                <div class="card border-0 mb-3" style="width:400px; height:200px;">
-                    kk
+                <div class="card border-0 mb-3 d-flex " style="width:300px; height:200px;">
+                    245
+                    <i class="fa-solid fa-house"></i>
                 </div>
-                <div class="card border-0" style="width:400px; height:400px;">
+                <div class="card border-0" style="width:300px; height:300px;">
                     <canvas id="myChart"></canvas>
                 </div>
                 
@@ -543,7 +535,7 @@
 
     </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 
@@ -607,6 +599,7 @@ export default {
   },
   
   mounted() {
+
     console.log(this.activeOption);
     console.log('Component mount');
     const ctx = document.getElementById('myChart');
@@ -633,7 +626,44 @@ export default {
         type: 'doughnut',
         data: data,
     });
-myChart;
+
+    myChart;
+
+    const ctx2 = document.getElementById('barChar').getContext('2d');
+
+    const barChar = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    barChar;
+    
 
   },
   setup(props) {
