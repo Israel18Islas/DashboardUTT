@@ -19603,7 +19603,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
       datasets: [{
         label: 'My First Dataset',
         data: [200, 50, 100],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+        backgroundColor: ['rgb(26, 105, 47)', 'rgb(47, 26, 105)', 'rgb(86, 26, 105)'],
         hoverOffset: 4
       }]
     };
@@ -19620,8 +19620,8 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5],
-          backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
-          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+          backgroundColor: ['rgba(105, 26, 45)', 'rgba(166, 41, 71)', 'rgba(146, 36, 63)', 'rgba(125, 31, 54)'],
+          borderColor: ['rgba(105, 26, 45)', 'rgba(166, 41, 71)', 'rgba(146, 36, 63)', 'rgba(125, 31, 54)'],
           borderWidth: 1
         }]
       },
@@ -19663,21 +19663,6 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
   },
   data: function data() {
     return {
-      chartData: {
-        labels: ['January', 'February', 'March'],
-        datasets: [{
-          data: [40, 20, 12],
-          backgroundColor: '#691A2D',
-          width: {
-            type: Number,
-            "default": 400
-          },
-          height: {
-            type: Number,
-            "default": 400
-          }
-        }]
-      },
       chartOptions: {
         responsive: true
       },
@@ -19693,9 +19678,13 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
           itemsToShow: 1,
           snapAlign: 'center'
         },
+        500: {
+          itemsToShow: 2,
+          snapAlign: 'center'
+        },
         // 1024 and up
         1024: {
-          itemsToShow: 6,
+          itemsToShow: 5,
           snapAlign: 'center'
         }
       },
@@ -19801,8 +19790,7 @@ var _hoisted_7 = {
 var _hoisted_8 = ["onClick"];
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg",
-  height: "127",
+  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU",
   "class": "card-img-top",
   alt: "..."
 }, null, -1
@@ -19822,14 +19810,10 @@ var _hoisted_13 = {
   "class": "mx-5 mt-4 mb-5"
 };
 var _hoisted_14 = {
-  "class": "d-flex justify-content-between"
+  "class": "d-lg-flex justify-content-between"
 };
 var _hoisted_15 = {
-  "class": "card border-0",
-  style: {
-    "width": "1000px",
-    "height": "500px"
-  }
+  "class": "card border-0 col-lg-9 mb-2"
 };
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
@@ -19840,112 +19824,99 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_17 = [_hoisted_16];
 var _hoisted_18 = {
-  "class": "border-0"
+  "class": "border-0 col-lg-3 ms-1 mb-2"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card border-0 mb-3 d-flex",
-  style: {
-    "width": "300px",
-    "height": "200px"
-  }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 245 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa-solid fa-house"
-})], -1
-/* HOISTED */
-);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"card card-stats mb-3 border-0\"><div class=\"card-body\"><div class=\"\"><div class=\"row d-lg-flex\"><div class=\"col-lg-auto m-auto col-sm-2\"><span class=\"fw-bolder fs-4\">Alumnos</span><div class=\"icon icon-shape m-auto\" style=\"font-size:6rem;\"><i class=\"fa-sharp fa-solid fa-chart-line\" style=\"color:#691A2D;\"></i><!-- &lt;i class=&quot;fas fa-chart-pie &quot; style=&quot;color:#691A2D;&quot;&gt;&lt;/i&gt; --></div></div><div class=\"col-lg-auto my-auto me-5 col-sm-2\"><div class=\"col\"><h5 class=\"card-title text-muted mb-0\">Mujeres</h5><span class=\"h2 font-weight-bold mb-0 fw-bolder\" style=\"color:#691A2D;\">5</span></div><div class=\"col\"><h5 class=\"card-title text-muted mb-0\">Hombres</h5><span class=\"h2 font-weight-bold mb-0 fw-bolder\" style=\"color:#691A2D;\">23</span></div></div></div></div></div></div><div class=\"card border-0\"><canvas id=\"myChart\"></canvas></div>", 2);
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card border-0",
-  style: {
-    "width": "300px",
-    "height": "300px"
-  }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
-  id: "myChart"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_21 = [_hoisted_19, _hoisted_20];
+var _hoisted_21 = [_hoisted_19];
 var _hoisted_22 = {
   "class": "card border-0"
 };
 var _hoisted_23 = {
-  "class": "nav nav-tabs"
+  "class": "nav nav-tabs mt-4"
 };
 var _hoisted_24 = ["onClick"];
 var _hoisted_25 = {
-  "class": "container my-3"
+  "class": "d-lg-flex"
 };
 var _hoisted_26 = {
-  "class": "container d-flex row"
+  "class": "avatar col-sm-2 text-center m-auto",
+  style: {
+    "width": "20%"
+  }
 };
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "avatar m-5 col-sm-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg",
-  alt: "",
   width: "200",
   height: "200"
-})], -1
+}, null, -1
 /* HOISTED */
 );
 
 var _hoisted_28 = {
-  "class": "container d-flex justify-content-between col-sm-9 row"
-};
-var _hoisted_29 = {
-  "class": "right col-4 mt-4"
-};
-var _hoisted_30 = {
-  "class": "d-grid row mt-4"
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
 };
 
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Fecha de Nacimiento:", -1
-/* HOISTED */
-);
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"calleNumero\">Fecha de nacimiento:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mb-3\"><div>Estado civil: </div><div class=\"d-flex justify-content-between\"><div><input type=\"checkbox\" id=\"casado\" value=\"casado\"><label for=\"casado\">Casado</label></div><div><input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\"><label for=\"divorciado\">Divorciado</label></div></div></div><div class=\"d-grid mb-3\"><label for=\"calleNumero\">Calle y numero:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mb-3\"><label for=\"email\">Correo electronico (personal):</label><input type=\"text\" name=\"email\" id=\"email\"></div><div class=\"d-grid mb-3\"><label for=\"movil\">Movil:</label><input type=\"text\" name=\"movil\" id=\"movil\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Edad:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"text-center mb-3\"><div>.</div><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">Soltero</label></div><div class=\"d-grid mb-3\"><label for=\"colonia\">Colonia:</label><input type=\"text\" name=\"colonia\" id=\"colonia\"></div><div class=\"d-grid mb-3\"><label for=\"institucional\">Correo electronico (institucional):</label><input type=\"text\" name=\"institucional\" id=\"institucional\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>Genero: </div><div class=\"d-flex justify-content-between\"><div><input type=\"checkbox\" id=\"Femenino\" value=\"true\"><label for=\"Femenino\">Femenino</label></div><div><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Masculino</label></div><div><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Otro</label></div></div></div><div class=\"d-grid mb-3\"><div class=\"text-center\"><div>.</div><input type=\"checkbox\" id=\"UnionLibre\" value=\"true\"><label for=\"UnionLibre\">Union libre</label></div></div><div class=\"d-grid mb-3\"><label for=\"municipio\">Municipio:</label><input type=\"text\" name=\"municipio\" id=\"municipio\"></div><div class=\"d-grid mb-3\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div></div><div class=\"\"><button type=\"button\" class=\"btn bg-utt text-white btn-lg\"> Siguiente </button></div>", 2);
 
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mt-4\"><div>Estado civil: </div><div class=\"d-flex\"><input type=\"checkbox\" id=\"casado\" value=\"casado\"><label for=\"casado\">Casado</label><input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\"><label for=\"divorciado\">Divorciado</label></div></div><div class=\"d-grid mt-4\"><label for=\"calleNumero\">Calle y numero:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mt-4\"><label for=\"email\">Correo electronico (personal):</label><input type=\"text\" name=\"email\" id=\"email\"></div><div class=\"d-grid mt-4\"><label for=\"movil\">Movil:</label><input type=\"text\" name=\"movil\" id=\"movil\"></div>", 4);
+var _hoisted_31 = [_hoisted_29];
+var _hoisted_32 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
 
-var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"center col-4 mt-4\"><div class=\"d-grid mt-4\"><label for=\"date\">Edad:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"mt-4\"><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">Soltero</label></div><div class=\"d-grid mt-4\"><label for=\"colonia\">Colonia:</label><input type=\"text\" name=\"colonia\" id=\"colonia\"></div><div class=\"d-grid mt-4\"><label for=\"institucional\">Correo electronico (institucional):</label><input type=\"text\" name=\"institucional\" id=\"institucional\"></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mt-4\"><div>Genero: </div><div class=\"d-flex\"><div class=\"container d-flex\"><input type=\"checkbox\" id=\"Femenino\" value=\"true\"><label for=\"Femenino\">Femenino</label></div><div class=\"container d-flex\"><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Masculino</label></div><div class=\"container d-flex\"><input type=\"checkbox\" id=\"mike\"><label for=\"mike\">Otro/No </label></div></div></div><div class=\"mt-4\"><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">Union libre</label></div><div class=\"d-grid mt-4\"><label for=\"municipio\">Municipio:</label><input type=\"text\" name=\"municipio\" id=\"municipio\"></div><div class=\"d-grid mt-4\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div>", 2);
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Nombre del padre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Nombre de la madre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Nombre del conyuge:</label><input type=\"text\" name=\"date\" id=\"date\"></div><h5>En caso de emergencia</h5><div class=\"d-grid mb-3\"><label for=\"date\">Nombre:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div></div>", 1);
 
+var _hoisted_34 = [_hoisted_33];
+var _hoisted_35 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>Trabajas: </div><div><input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\"><label for=\"trabajas-si\">Si</label></div></div><div class=\"d-grid mb-3\"><div>Razón por la que Trabajas : </div><div><input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\"><label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label></div></div><p>Empresa</p><div class=\"d-grid mb-3\"><label for=\"name\">Nombre:</label><input type=\"text\" name=\"name\" id=\"name\"></div><div class=\"d-grid mb-3\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">No</label></div><div><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div class=\"d-grid mb-3\"><label for=\"domicilio\">Domicilio:</label><input type=\"text\" name=\"domicilio\" id=\"domicilio\"></div><div class=\"d-grid mb-3\"><label for=\"puesto\">Puesto:</label><input type=\"text\" name=\"puesto\" id=\"puesto\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>¿Tu trabajo actual esta relacionado con tu carrera?: </div><div class=\"d-flex\"><input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\"><label for=\"tabajas-si\">Si</label><input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\"><label for=\"trabajo-no\">No</label></div></div><div class=\"mt-4\"><input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\"><label for=\"sostenerme\">Sostenerme Totalmente</label></div><div class=\"d-grid mb-3\"><input type=\"text\" name=\"total\" id=\"total\"></div><div class=\"d-grid mb-3\"><label for=\"departamento\">Departamento:</label><input type=\"text\" name=\"departamento\" id=\"departamento\"></div></div></div>", 1);
+
+var _hoisted_37 = [_hoisted_36];
 var _hoisted_38 = {
-  "class": "container my-3"
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
 };
 
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex row\"><div class=\"avatar m-5 col-sm-2\"><img src=\"https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg\" alt=\"\" width=\"200\" height=\"200\"></div><div class=\"container d-flex justify-content-between col-sm-9 row\"><div class=\"right col-3 mt-4\"><div class=\"d-grid row mt-4\"><label for=\"date\">Nombre del padre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Nombre de la madre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Nombre del conyuge:</label><input type=\"text\" name=\"date\" id=\"date\"></div><h5>En caso de emergencia</h5><div class=\"d-grid row mt-4\"><label for=\"date\">Nombre:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"center col-3 mt-4\"><div class=\"d-grid row mt-4\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"left col-3 mt-4\"><div class=\"d-grid row mt-4\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row mt-4\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div></div></div>", 1);
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><div>Vive con: </div><div class=\"continer\"><input type=\"checkbox\" id=\"padres+\" value=\"padres+\"><label for=\"padres+\">Ambos Padres</label></div></div><div class=\"mt-4\"><div>Vivienda: </div><div class=\"d-flex\"><div class=\"container\"><div class=\"container-body p-0\"><input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\"><label for=\"propia\">Propia</label></div></div><div class=\"container\"><input type=\"checkbox\" id=\"renta\" value=\"renta\"><label for=\"renta\">Rentada</label></div></div></div><div class=\"d-grid mb-3\"><div>¿Quien es tu principal apoyo econimico?: </div><div class=\"d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"padre\" value=\"padre\"><label for=\"padre\">Padre</label></div><div class=\"continer\"><input type=\"checkbox\" id=\"madre\" value=\"madre\"><label for=\"madre\">Madre</label></div></div></div><div class=\"d-grid mb-3\"><div>Ingresos Familiares: </div><div class=\"d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"menos\" value=\"menos\"><label for=\"menos\">Menos de $5,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"5-10\" value=\"5-10\"><label for=\"5-10\">$5,000 A $10,000</label></div></div></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\"><label for=\"uno-padre\">Uno de los Padres</label></div><div class=\"container\"><input type=\"checkbox\" id=\"pareja\" value=\"pareja\"><label for=\"pareja\">Pareja</label></div></div><div class=\"mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"prestada\" value=\"prestada\"><label for=\"prestada\">Prestada</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"huermano\" value=\"huermano\"><label for=\"huermano\">Hermano(a)</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"solo\" value=\"solo\"><label for=\"solo\">Solo(a)</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3\"><div>Transporte: </div><div class=\"d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"propio\" value=\"propio\"><label for=\"propio\">Propia</label></div><div class=\"container\"><input type=\"checkbox\" id=\"publico\" value=\"publico\"><label for=\"publico\">Pubico</label></div></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\"><label for=\"conyuge\">Cónyuge</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"mas\" value=\"mas\"><label for=\"mas\">Más de $15,000</label></div></div></div></div>", 1);
 
 var _hoisted_40 = [_hoisted_39];
 var _hoisted_41 = {
-  "class": "container my-3"
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
 };
 
-var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex row\"><div class=\"avatar m-5 col-sm-2\"><img src=\"https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg\" alt=\"\" width=\"200\" height=\"200\"></div><div class=\"container d-flex justify-content-between col-sm-9 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mt-4\"><div>Trabajas: </div><div class=\"continer d-flex\"><input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\"><label for=\"trabajas-si\">Si</label></div></div><div class=\"d-grid mt-4\"><div>Razón por la que Trabajas : </div><div class=\"d-flex\"><input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\"><label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label></div></div><p>Empresa</p><div class=\"d-grid mt-4\"><label for=\"name\">Nombre:</label><input type=\"text\" name=\"name\" id=\"name\"></div><div class=\"d-grid mt-4\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mt-4 container\"><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">No</label></div><div class=\"mt-4\"><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div class=\"d-grid mt-4\"><label for=\"domicilio\">Domicilio:</label><input type=\"text\" name=\"domicilio\" id=\"domicilio\"></div><div class=\"d-grid mt-4\"><label for=\"puesto\">Puesto:</label><input type=\"text\" name=\"puesto\" id=\"puesto\"></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mt-4\"><div>¿Tu trabajo actual esta relacionado con tu carrera?: </div><div class=\"d-flex\"><input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\"><label for=\"tabajas-si\">Si</label><input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\"><label for=\"trabajo-no\">No</label></div></div><div class=\"mt-4\"><input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\"><label for=\"sostenerme\">Sostenerme Totalmente</label></div><div class=\"d-grid mt-4\"><input type=\"text\" name=\"total\" id=\"total\"></div><div class=\"d-grid mt-4\"><label for=\"departamento\">Departamento:</label><input type=\"text\" name=\"departamento\" id=\"departamento\"></div></div></div></div>", 1);
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"nombreBachillerato\">Nombre del bachillerato:</label><input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\"></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"tipoBachillerato\">Tipo de bachillerato:</label><input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\"></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"entidadFederativa\">Entidad Federativa:</label><input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\"></div></div></div><button>Siguiente</button>", 2);
 
-var _hoisted_43 = [_hoisted_42];
-var _hoisted_44 = {
-  "class": "container my-3"
+var _hoisted_44 = [_hoisted_42];
+var _hoisted_45 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "75%"
+  }
 };
 
-var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex row\"><div class=\"avatar m-5 col-sm-2\"><img src=\"https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg\" alt=\"\" width=\"200\" height=\"200\"></div><div class=\"container d-flex justify-content-between col-sm-9 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mt-4\"><div>Vive con: </div><div class=\"continer\"><input type=\"checkbox\" id=\"padres+\" value=\"padres+\"><label for=\"padres+\">Ambos Padres</label></div></div><div class=\"mt-4\"><div>Vivienda: </div><div class=\"d-flex\"><div class=\"container\"><div class=\"container-body p-0\"><input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\"><label for=\"propia\">Propia</label></div></div><div class=\"container\"><input type=\"checkbox\" id=\"renta\" value=\"renta\"><label for=\"renta\">Rentada</label></div></div></div><div class=\"d-grid mt-4\"><div>¿Quien es tu principal apoyo econimico?: </div><div class=\"d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"padre\" value=\"padre\"><label for=\"padre\">Padre</label></div><div class=\"continer\"><input type=\"checkbox\" id=\"madre\" value=\"madre\"><label for=\"madre\">Madre</label></div></div></div><div class=\"d-grid mt-4\"><div>Ingresos Familiares: </div><div class=\"d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"menos\" value=\"menos\"><label for=\"menos\">Menos de $5,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"5-10\" value=\"5-10\"><label for=\"5-10\">$5,000 A $10,000</label></div></div></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\"><label for=\"uno-padre\">Uno de los Padres</label></div><div class=\"container\"><input type=\"checkbox\" id=\"pareja\" value=\"pareja\"><label for=\"pareja\">Pareja</label></div></div><div class=\"mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"prestada\" value=\"prestada\"><label for=\"prestada\">Prestada</label></div></div><div class=\"d-grid mt-4 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"huermano\" value=\"huermano\"><label for=\"huermano\">Hermano(a)</label></div></div><div class=\"d-grid mt-4 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"solo\" value=\"solo\"><label for=\"solo\">Solo(a)</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mt-4\"><div>Transporte: </div><div class=\"d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"propio\" value=\"propio\"><label for=\"propio\">Propia</label></div><div class=\"container\"><input type=\"checkbox\" id=\"publico\" value=\"publico\"><label for=\"publico\">Pubico</label></div></div></div><div class=\"d-grid mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\"><label for=\"conyuge\">Cónyuge</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"mas\" value=\"mas\"><label for=\"mas\">Más de $15,000</label></div></div></div></div></div>", 1);
-
-var _hoisted_46 = [_hoisted_45];
-
-var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Escolares", -1
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Promedios ", -1
 /* HOISTED */
 );
 
-var _hoisted_48 = [_hoisted_47];
-
-var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Promedios ", -1
-/* HOISTED */
-);
-
-var _hoisted_50 = [_hoisted_49];
+var _hoisted_47 = [_hoisted_46];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Slide");
 
@@ -20025,28 +19996,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_24)]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.user.name = $event;
-    })
-  }, null, 512
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.name), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.username), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, _hoisted_31, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.user.name]])]), _hoisted_32]), _hoisted_36])])], 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Personales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, _hoisted_34, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Personales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, _hoisted_40, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Familiares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, _hoisted_37, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Familiares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, _hoisted_43, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Laborales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, _hoisted_40, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Laborales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, _hoisted_46, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Economicos']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, _hoisted_44, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Economicos']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, _hoisted_48, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Escolares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, _hoisted_47, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Escolares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, _hoisted_50, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Promedios']])], 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Promedios']])])], 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Registro general del alumno']])])])], 64
   /* STABLE_FRAGMENT */

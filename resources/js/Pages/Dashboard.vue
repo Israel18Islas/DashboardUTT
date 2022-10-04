@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -59,7 +60,7 @@
                 <Slide  v-for="usuario in usuariosArray" :key="usuario" class="mb-3">
                 <div class="carousel__item">
                     <div class="card border-0 p-2" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
-                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" height="127" class="card-img-top" alt="...">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU"  class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-title">{{ usuario.username }}</p>
                             <p class="card-text">{{ usuario.name }}</p>
@@ -80,18 +81,43 @@
 
     <div class="mx-5 mt-4 mb-5">
 
-        <div v-show="activeOption == 'Dashboard'" class="d-flex justify-content-between">
+        <div v-show="activeOption == 'Dashboard'" class="d-lg-flex justify-content-between">
 
-            <div class="card border-0" style="width:1000px; height:500px;" v-show="activeOption == 'Dashboard'">
+            <div class="card border-0 col-lg-9 mb-2" v-show="activeOption == 'Dashboard'">
                 <canvas id="barChar"></canvas>
             </div>
 
-            <div  class=" border-0" v-show="activeOption == 'Dashboard'">
-                <div class="card border-0 mb-3 d-flex " style="width:300px; height:200px;">
-                    245
-                    <i class="fa-solid fa-house"></i>
+            <div  class=" border-0 col-lg-3 ms-1 mb-2" v-show="activeOption == 'Dashboard'" >
+               
+                <div class="card card-stats mb-3 border-0" >
+                    <div class="card-body">
+                        <div class="">
+                            <div class="row d-lg-flex">
+                                <div class="col-lg-auto m-auto col-sm-2">
+                                    <span class="fw-bolder fs-4">Alumnos</span>
+                                    <div class="icon icon-shape m-auto"  style="font-size:6rem;">
+                                        <i class="fa-sharp fa-solid fa-chart-line"  style="color:#691A2D;"></i>
+                                        <!-- <i class="fas fa-chart-pie " style="color:#691A2D;"></i> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-auto my-auto me-5 col-sm-2">
+                                    <div class="col">
+                                        <h5 class="card-title text-muted mb-0">Mujeres</h5>
+                                        <span class="h2 font-weight-bold mb-0 fw-bolder" style="color:#691A2D;">5</span>
+                                    </div>
+                                    <div class="col">
+                                        <h5 class="card-title text-muted mb-0">Hombres</h5>
+                                        <span class="h2 font-weight-bold mb-0 fw-bolder" style="color:#691A2D;">23</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="card border-0" style="width:300px; height:300px;">
+
+                <div class="card border-0" >
                     <canvas id="myChart"></canvas>
                 </div>
                 
@@ -99,9 +125,9 @@
 
         </div>
 
-        <div class="card border-0" v-show="activeOption == 'Registro general del alumno'">
+        <div class=" card border-0" v-show="activeOption == 'Registro general del alumno'">
 
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs mt-4">
                 <li class="nav-item card-title" v-for="step in steps" :key="step.id" >
                     <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
                         {{ step }}
@@ -109,204 +135,210 @@
                 </li>
             </ul>
 
-            <div class="container my-3" v-show="activeStep == 'Datos Personales'">
-                <div class="container d-flex row">
+            <div class="d-lg-flex" >
 
-                    <div class="avatar m-5 col-sm-2">
-                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                    </div>
+                <div class="avatar col-sm-2 text-center m-auto" style="width:20%;" >
+                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" width="200" height="200">
+                    <p>{{user.name}}</p>
+                    <p>{{user.username}}</p>
+                </div>
 
-                    <div class="container d-flex justify-content-between col-sm-9 row ">
+                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Personales'">
 
-                        <div class="right col-4 mt-4">
+                    <div class="container d-flex justify-content-between my-4 row">
+                        
+                        <div class="right col-lg-4 col-sm-2" >
 
-                            <div class="d-grid row mt-4">
-                                <label for="date">Fecha de Nacimiento:</label>
-                                <input type="text" name="date" id="date" v-model="user.name"/>
+                            <div class="d-grid mb-3">
+                                <label for="calleNumero">Fecha de nacimiento:</label>
+                                <input type="text" name="calleNumero" id="calleNumero" />
                             </div>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>Estado civil: </div>
-                                <div class="d-flex">
-                                    <input type="checkbox" id="casado" value="casado">
-                                    <label for="casado">Casado</label>
-
-                                    <input type="checkbox" id="divorciado" value="divorciado">
-                                    <label for="divorciado">Divorciado</label>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <input type="checkbox" id="casado" value="casado">
+                                        <label for="casado">Casado</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="divorciado" value="divorciado">
+                                        <label for="divorciado">Divorciado</label>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="calleNumero">Calle y numero:</label>
                                 <input type="text" name="calleNumero" id="calleNumero" />
                             </div>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="email">Correo electronico (personal):</label>
                                 <input type="text" name="email" id="email" />
                             </div>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="movil">Movil:</label>
                                 <input type="text" name="movil" id="movil" />
                             </div>
 
                         </div>
-                        <div class="center col-4 mt-4">
 
-                            <div class="d-grid mt-4">
+                        <div class="center col-lg-4 col-sm-2">
+
+                            <div class="d-grid mb-3">
                                 <label for="date">Edad:</label>
                                 <input type="text" name="date" id="date" />
                             </div>
 
-                            <div class="mt-4">
+                            <div class="text-center mb-3">
+                                <div>.</div>
                                 <input type="checkbox" id="mike" value="Mike">
                                 <label for="mike">Soltero</label>
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="colonia">Colonia:</label>
                                 <input type="text" name="colonia" id="colonia" />
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="institucional">Correo electronico (institucional):</label>
                                 <input type="text" name="institucional" id="institucional" />
                             </div>
                         </div>
-                        <div class="left col-4 mt-4">
-                            <div class="d-grid mt-4">
+
+                        <div class="left col-lg-4 col-sm-2">
+                            <div class="d-grid mb-3">
                                 <div>Genero: </div>
-                                <div class="d-flex">
-                                    <div class="container d-flex">
-                                        <input type="checkbox" id="Femenino"  value="true" >
+                                <div class="d-flex justify-content-between">
+
+                                    <div>
+                                        <input type="checkbox" id="Femenino"  value="true">
                                         <label for="Femenino">Femenino</label>
                                     </div>
 
-                                    <div class="container d-flex">
+                                    <div>
                                         <input type="checkbox" id="masculino"  >
                                         <label for="masculino">Masculino</label>
                                     </div>
-                                    <div class="container d-flex">
-                                        <input type="checkbox" id="mike" >
-                                        <label for="mike">Otro/No </label>
+                                    <div>
+                                        <input type="checkbox" id="masculino"  >
+                                        <label for="masculino">Otro</label>
                                     </div>
+
                                 </div>
                             </div>
-                            <div class="mt-4">
-                                <input type="checkbox" id="mike" value="Mike" >
-                                <label for="mike">Union libre</label>
+                            <div class="d-grid mb-3">
+                                <div class="text-center">
+                                    <div>.</div>
+                                    <input type="checkbox" id="UnionLibre"  value="true">
+                                    <label for="UnionLibre">Union libre</label>
+                                </div>
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="municipio">Municipio:</label>
                                 <input type="text" name="municipio" id="municipio" />
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="telefono">Telefono:</label>
                                 <input type="text" name="telefono" id="telefono" />
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-            </div>
-
-            <div class="container my-3" v-show="activeStep == 'Datos Familiares'">
-                <div class="container d-flex row">
-
-                    <div class="avatar m-5 col-sm-2">
-                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
+                    <div class="">
+                        <button type="button" class="btn bg-utt text-white btn-lg"> Siguiente </button>
                     </div>
 
-                    <div class="container d-flex justify-content-between col-sm-9 row">
+                </div>          
 
-                        <div class="right col-3 mt-4">
+                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Familiares'">
 
-                            <div class="d-grid row mt-4">
+                    <div class="container d-flex justify-content-between my-4 row">
+
+                        <div class="right col-lg-4 col-sm-2 ">
+
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Nombre del padre:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Nombre de la madre:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Nombre del conyuge:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
                             <h5>En caso de emergencia</h5>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Nombre:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
 
 
                         </div>
-                        <div class="center col-3 mt-4">
 
-                            <div class="d-grid row mt-4">
+                        <div class="center col-lg-4 col-sm-2">
+
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
                         </div>
-                        <div class="left col-3 mt-4">
 
-                            <div class="d-grid row mt-4">
+                        <div class="left col-lg-4 col-sm-2">
+
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Parentesco:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Parentesco:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid mb-3 ">
                                 <label for="date">Parentesco:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
-                            <div class="d-grid row mt-4">
+                            <div class="d-grid row ">
                                 <label for="date">Parentesco:</label>
                                 <input type="text" name="date" id="date"/>
                             </div>
                         </div>
+
                     </div>
-
                 </div>
-            </div>
 
-            <div class="container my-3" v-show="activeStep == 'Datos Laborales'">
-                <div class="container d-flex row">
+                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Laborales'">
 
-                    <div class="avatar m-5 col-sm-2">
-                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                    </div>
+                    <div class="container d-flex justify-content-between my-4 row">
 
-                    <div class="container d-flex justify-content-between col-sm-9 row ">
+                        <div class="right col-lg-4 col-sm-2">
 
-                        <div class="right col-4 mt-4">
-
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>Trabajas: </div>
-                                <div class="continer d-flex">
+                                <div>
                                     <input type="checkbox" id="trabajas-si" value="trabajas-si" >
                                     <label for="trabajas-si">Si</label>
-
                                 </div>
                             </div>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>Razón por la que Trabajas : </div>
-                                <div class="d-flex">
+                                <div>
                                     <input type="checkbox" id="apoyo-eco" value="apoyo-eco" >
                                     <label for="apoyo-eco">Apoyar Económicamente a la Familia</label>
 
@@ -315,44 +347,45 @@
 
                             <p>Empresa</p>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="name">Nombre:</label>
                                 <input type="text" name="name" id="name"  />
                             </div>
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="telefono">Telefono:</label>
                                 <input type="text" name="telefono" id="telefono"  />
                             </div>
 
                         </div>
-                        <div class="center col-4 mt-4">
+                        <div class="center col-lg-4 col-sm-2">
 
-                            <div class="d-grid mt-4 container">
+                            <div>
                                 <input type="checkbox" id="mike" value="Mike" >
                                 <label for="mike">No</label>
                             </div>
 
-                            <div class="mt-4">
+                            <div>
                                 <input type="checkbox" id="familia" value="familia" >
                                 <label for="familia">Apoyar Totalmente a la Familia</label>
-
-                                <input type="checkbox" id="familia" value="familia" >
-                                <label for="familia">Apoyar Totalmente a la Familia</label>
-
                             </div>
-                            <div class="d-grid mt-4">
+                            
+                            <div>
+                                <input type="checkbox" id="familia" value="familia" >
+                                <label for="familia">Apoyar Totalmente a la Familia</label>
+                            </div>
+                            <div class="d-grid mb-3">
                                 <label for="domicilio">Domicilio:</label>
                                 <input type="text" name="domicilio" id="domicilio" />
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="puesto">Puesto:</label>
                                 <input type="text" name="puesto" id="puesto" />
                             </div>
 
                         </div>
-                        <div class="left col-4 mt-4">
-                            <div class="d-grid mt-4">
+                        <div class="left col-lg-4 col-sm-2">
+                            <div class="d-grid mb-3">
                                 <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>
                                 <div class="d-flex">
 
@@ -368,10 +401,10 @@
                                 <input type="checkbox" id="sostenerme" value="sostenerme" >
                                 <label for="sostenerme">Sostenerme Totalmente</label>
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <input type="text" name="total" id="total" />
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <label for="departamento">Departamento:</label>
                                 <input type="text" name="departamento" id="departamento" />
                             </div>
@@ -379,20 +412,14 @@
                     </div>
 
                 </div>
-            </div>
 
-            <div class="container my-3" v-show="activeStep == 'Datos Economicos'">
-                <div class="container d-flex row">
+                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Economicos'">
 
-                    <div class="avatar m-5 col-sm-2">
-                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" alt="" width="200" height="200">
-                    </div>
-
-                    <div class="container d-flex justify-content-between col-sm-9 row ">
+                    <div class="container d-flex justify-content-between  my-4 row">
 
                         <div class="right col-4 mt-4">
 
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>Vive con: </div>
                                 <div class="continer">
                                     <input type="checkbox" id="padres+" value="padres+" >
@@ -415,7 +442,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>¿Quien es tu principal apoyo econimico?: </div>
                                 <div class="d-flex">
                                     <div class="continer">
@@ -428,7 +455,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>Ingresos Familiares: </div>
                                 <div class="d-flex">
                                     <div class="continer">
@@ -445,7 +472,7 @@
                         </div>
                         <div class="center col-4 mt-4">
 
-                            <div class="d-grid mt-4 d-flex">
+                            <div class="d-grid mb-3 d-flex">
                                 <div class="container">
                                     <input type="checkbox" id="uno-padre" value="uno-padre" >
                                     <label for="uno-padre">Uno de los Padres</label>
@@ -462,13 +489,13 @@
                                     <label for="prestada">Prestada</label>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4 d-flex">
+                            <div class="d-grid mb-3 d-flex">
                                 <div class="continer">
                                     <input type="checkbox" id="huermano" value="huermano" >
                                     <label for="huermano">Hermano(a)</label>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4 d-flex">
+                            <div class="d-grid mb-3 d-flex">
                                 <div class="continer">
                                     <input type="checkbox" id="10-15" value="10-15" >
                                     <label for="10-15">$10,000 A $15,000</label>
@@ -477,7 +504,7 @@
 
                         </div>
                         <div class="left col-4 mt-4">
-                            <div class="d-grid mt-4 d-flex">
+                            <div class="d-grid mb-3 d-flex">
                                 <div class="container">
                                     <input type="checkbox" id="solo" value="solo" >
                                     <label for="solo">Solo(a)</label>
@@ -487,7 +514,7 @@
                                     <label for="otro">Otro Familiar</label>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4">
+                            <div class="d-grid mb-3">
                                 <div>Transporte: </div>
                                 <div class="d-flex">
                                     <div class="container">
@@ -500,7 +527,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4 d-flex">
+                            <div class="d-grid mb-3 d-flex">
                                 <div class="container">
                                     <input type="checkbox" id="conyuge" value="conyuge" >
                                     <label for="conyuge">Cónyuge</label>
@@ -510,7 +537,7 @@
                                     <label for="otro">Otro Familiar</label>
                                 </div>
                             </div>
-                            <div class="d-grid mt-4 d-flex">
+                            <div class="d-grid mb-3 d-flex">
                                 <div class="container">
                                     <input type="checkbox" id="10-15" value="10-15" >
                                     <label for="10-15">$10,000 A $15,000</label>
@@ -524,12 +551,45 @@
                     </div>
 
                 </div>
-            </div>
-            <div v-show="activeStep == 'Datos Escolares'">
-                <p>Escolares</p>
-            </div>
-            <div v-show="activeStep == 'Promedios'">
-                <p>Promedios    </p>
+
+                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Escolares'">
+
+                    <div class="container d-flex justify-content-between  my-4 row">
+
+                        <div class="right col-4 mt-4">
+
+                            <div class="d-grid mb-3">
+                                <label for="nombreBachillerato">Nombre del bachillerato:</label>
+                                <input type="text" name="nombreBachillerato" id="nombreBachillerato" />
+                            </div>
+
+                        </div>
+                        <div class="center col-4 mt-4">
+
+                            <div class="d-grid mb-3">
+                                <label for="tipoBachillerato">Tipo de bachillerato:</label>
+                                <input type="text" name="tipoBachillerato" id="tipoBachillerato" />
+                            </div>
+
+                        </div>
+                        <div class="left col-4 mt-4">
+
+                            <div class="d-grid mb-3">
+                                <label for="entidadFederativa">Entidad Federativa:</label>
+                                <input type="text" name="entidadFederativa" id="entidadFederativa" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <button>Siguiente</button>
+
+                </div>
+
+                
+
+                <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
+                    <p>Promedios    </p>
+                </div>
             </div>
         </div>
 
@@ -565,8 +625,8 @@ export default {
     },
     props: {
     usuariosArray: {
-		required: true,
-	},
+        required: true,
+    },
     chartId: {
       type: String,
       default: 'bar-chart'
@@ -613,9 +673,9 @@ export default {
             label: 'My First Dataset',
             data: [200, 50, 100],
             backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            'rgb(26, 105, 47)',
+            'rgb(47, 26, 105)',
+            'rgb(86, 26, 105)'
             ],
             hoverOffset: 4
         }]
@@ -638,16 +698,17 @@ export default {
                 label: '# of Votes',
                 data: [12, 19, 3, 5],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(105, 26, 45)',
+                    'rgba(166, 41, 71)',
+                    'rgba(146, 36, 63)',
+                    'rgba(125, 31, 54)',
+                    
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                    'rgba(105, 26, 45)',
+                    'rgba(166, 41, 71)',
+                    'rgba(146, 36, 63)',
+                    'rgba(125, 31, 54)',
                 ],
                 borderWidth: 1
             }]
@@ -706,21 +767,6 @@ export default {
 
   data() {
     return {
-      chartData: {
-        labels: [ 'January', 'February', 'March' ],
-        datasets: [ { 
-            data: [40, 20, 12], 
-            backgroundColor: '#691A2D',
-            width: {
-                type: Number,
-                default: 400
-            },
-            height: {
-                type: Number,
-                default: 400
-            },
-        } ]
-      },
       chartOptions: {
         responsive: true
       },
@@ -736,9 +782,13 @@ export default {
             itemsToShow: 1,
             snapAlign: 'center',
         },
+        500: {
+            itemsToShow: 2,
+            snapAlign: 'center',
+        },
         // 1024 and up
         1024: {
-            itemsToShow: 6,
+            itemsToShow: 5,
             snapAlign: 'center',
         },
       },

@@ -8,7 +8,7 @@ input{
     background-color:#F4F6FA;
     border: 2px;
     height: 42px;
-    vertical-align: middle;
+    vertical-align: middle !important;
 }
 p{
     font-size: 14px;
