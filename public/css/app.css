@@ -1,10 +1,14 @@
 *{
     color:#606060
 }
+body{
+    background-color: #F2F4F5 !important;
+}
 input{
     background-color:#F4F6FA;
     border: 2px;
     height: 42px;
+    vertical-align: middle;
 }
 p{
     font-size: 14px;
@@ -28,6 +32,10 @@ p{
     opacity: 2 !important;
 
 }
-input{
-    vertical-align: middle;
+
+.grey-bg {  
+    background-color: #F5F7FA;
 }
+
+
+
