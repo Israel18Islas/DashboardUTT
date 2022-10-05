@@ -19565,33 +19565,8 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
     usuariosArray: {
       required: true
     },
-    chartId: {
-      type: String,
-      "default": 'bar-chart'
-    },
-    datasetIdKey: {
-      type: String,
-      "default": 'label'
-    },
-    width: {
-      type: Number,
-      "default": 50
-    },
-    height: {
-      type: Number,
-      "default": 50
-    },
-    cssClasses: {
-      "default": '',
-      type: String
-    },
-    styles: {
-      type: Object,
-      "default": function _default() {}
-    },
-    plugins: {
-      type: Object,
-      "default": function _default() {}
+    alumnos: {
+      required: true
     }
   },
   mounted: function mounted() {
@@ -19605,13 +19580,34 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
         data: [200, 50, 100],
         backgroundColor: ['rgb(26, 105, 47)', 'rgb(47, 26, 105)', 'rgb(86, 26, 105)'],
         hoverOffset: 4
-      }]
+      }],
+      user: {
+        show: true
+      },
+      respuesta: {
+        show: true
+      }
     };
     var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_5__["default"](ctx, {
       type: 'doughnut',
       data: data
     });
     myChart;
+    var ctx3 = document.getElementById('PieChart');
+    var dataPie = {
+      labels: ['Red', 'Blue', 'Yellow'],
+      datasets: [{
+        label: 'My First Dataset',
+        data: [300, 50, 100],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+        hoverOffset: 4
+      }]
+    };
+    var PieChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_5__["default"](ctx3, {
+      type: 'pie',
+      data: dataPie
+    });
+    PieChart;
     var ctx2 = document.getElementById('barChar').getContext('2d');
     var barChar = new chart_js_auto__WEBPACK_IMPORTED_MODULE_5__["default"](ctx2, {
       type: 'bar',
@@ -19652,13 +19648,48 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
       onClickOption.value = option;
     };
 
+    var myOptions = {
+      layout: {
+        color: 'black',
+        backgroundColor: 'lightgray',
+        selectedColor: 'white',
+        selectedBackgroundColor: 'green',
+        borderColor: 'black',
+        fontFamily: 'Arial',
+        fontWeight: 'normal',
+        fontWeightSelected: 'bold',
+        squareCorners: false,
+        noBorder: false
+      },
+      size: {
+        fontSize: 14,
+        height: 34,
+        padding: 7,
+        width: 100
+      },
+      items: {
+        delay: .4,
+        preSelected: 'unknown',
+        disabled: false,
+        labels: [{
+          name: 'Off',
+          color: 'white',
+          backgroundColor: 'red'
+        }, {
+          name: 'On',
+          color: 'white',
+          backgroundColor: 'green'
+        }]
+      }
+    };
     return {
       steps: steps,
       activeStep: activeStep,
       onClickStep: onClickStep,
       options: options,
       activeOption: activeOption,
-      onClickOption: onClickOption
+      onClickOption: onClickOption,
+      myOptions: myOptions
     };
   },
   data: function data() {
@@ -19684,7 +19715,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
         },
         // 1024 and up
         1024: {
-          itemsToShow: 5,
+          itemsToShow: 7,
           snapAlign: 'center'
         }
       },
@@ -19695,9 +19726,18 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
   },
   methods: {
     onClickData: function onClickData(data) {
-      console.log(data);
-      this.user = data;
+      var _this = this;
+
+      console.log(data); // this.user = data
+
       this.activeOption = 'Registro general del alumno';
+      var apiUrl = "http://127.0.0.1:8080/api/alumnos/";
+      var requestUrl = apiUrl + data.matricula;
+      fetch(requestUrl).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this.user = data.data;
+      });
       console.log(this.activeOption);
     }
   }
@@ -19827,9 +19867,23 @@ var _hoisted_18 = {
   "class": "border-0 col-lg-3 ms-1 mb-2"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"card card-stats mb-3 border-0\"><div class=\"card-body\"><div class=\"\"><div class=\"row d-lg-flex\"><div class=\"col-lg-auto m-auto col-sm-2\"><span class=\"fw-bolder fs-4\">Alumnos</span><div class=\"icon icon-shape m-auto\" style=\"font-size:6rem;\"><i class=\"fa-sharp fa-solid fa-chart-line\" style=\"color:#691A2D;\"></i><!-- &lt;i class=&quot;fas fa-chart-pie &quot; style=&quot;color:#691A2D;&quot;&gt;&lt;/i&gt; --></div></div><div class=\"col-lg-auto my-auto me-5 col-sm-2\"><div class=\"col\"><h5 class=\"card-title text-muted mb-0\">Mujeres</h5><span class=\"h2 font-weight-bold mb-0 fw-bolder\" style=\"color:#691A2D;\">5</span></div><div class=\"col\"><h5 class=\"card-title text-muted mb-0\">Hombres</h5><span class=\"h2 font-weight-bold mb-0 fw-bolder\" style=\"color:#691A2D;\">23</span></div></div></div></div></div></div><div class=\"card border-0\"><canvas id=\"myChart\"></canvas></div>", 2);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card border-0 mb-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+  id: "PieChart"
+})], -1
+/* HOISTED */
+);
 
-var _hoisted_21 = [_hoisted_19];
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card border-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+  id: "myChart"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_21 = [_hoisted_19, _hoisted_20];
 var _hoisted_22 = {
   "class": "card border-0"
 };
@@ -19856,67 +19910,70 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_28 = {
+  "class": "mt-3"
+};
+var _hoisted_29 = {
   "class": "container-lg mb-3",
   style: {
     "width": "80%"
   }
 };
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"calleNumero\">Fecha de nacimiento:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mb-3\"><div>Estado civil: </div><div class=\"d-flex justify-content-between\"><div><input type=\"checkbox\" id=\"casado\" value=\"casado\"><label for=\"casado\">Casado</label></div><div><input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\"><label for=\"divorciado\">Divorciado</label></div></div></div><div class=\"d-grid mb-3\"><label for=\"calleNumero\">Calle y numero:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mb-3\"><label for=\"email\">Correo electronico (personal):</label><input type=\"text\" name=\"email\" id=\"email\"></div><div class=\"d-grid mb-3\"><label for=\"movil\">Movil:</label><input type=\"text\" name=\"movil\" id=\"movil\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Edad:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"text-center mb-3\"><div>.</div><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">Soltero</label></div><div class=\"d-grid mb-3\"><label for=\"colonia\">Colonia:</label><input type=\"text\" name=\"colonia\" id=\"colonia\"></div><div class=\"d-grid mb-3\"><label for=\"institucional\">Correo electronico (institucional):</label><input type=\"text\" name=\"institucional\" id=\"institucional\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>Genero: </div><div class=\"d-flex justify-content-between\"><div><input type=\"checkbox\" id=\"Femenino\" value=\"true\"><label for=\"Femenino\">Femenino</label></div><div><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Masculino</label></div><div><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Otro</label></div></div></div><div class=\"d-grid mb-3\"><div class=\"text-center\"><div>.</div><input type=\"checkbox\" id=\"UnionLibre\" value=\"true\"><label for=\"UnionLibre\">Union libre</label></div></div><div class=\"d-grid mb-3\"><label for=\"municipio\">Municipio:</label><input type=\"text\" name=\"municipio\" id=\"municipio\"></div><div class=\"d-grid mb-3\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div></div><div class=\"\"><button type=\"button\" class=\"btn bg-utt text-white btn-lg\"> Siguiente </button></div>", 2);
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"calleNumero\">Fecha de nacimiento:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mb-3\"><div>Estado civil: </div><div class=\"d-flex justify-content-between\"><div class=\"checkboxs\"><input type=\"checkbox\" id=\"casado\" value=\"casado\"><label for=\"casado\">Casado</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\"><label for=\"divorciado\">Divorciado</label></div></div></div><div class=\"d-grid mb-3\"><label for=\"calleNumero\">Calle y numero:</label><input type=\"text\" name=\"calleNumero\" id=\"calleNumero\"></div><div class=\"d-grid mb-3\"><label for=\"email\">Correo electronico (personal):</label><input type=\"text\" name=\"email\" id=\"email\"></div><div class=\"d-grid mb-3\"><label for=\"movil\">Movil:</label><input type=\"text\" name=\"movil\" id=\"movil\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Edad:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"text-center mb-3\"><div>.</div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">Soltero</label></div></div><div class=\"d-grid mb-3\"><label for=\"colonia\">Colonia:</label><input type=\"text\" name=\"colonia\" id=\"colonia\"></div><div class=\"d-grid mb-3\"><label for=\"institucional\">Correo electronico (institucional):</label><input type=\"text\" name=\"institucional\" id=\"institucional\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>Genero: </div><div class=\"d-flex justify-content-between\"><div class=\"checkboxs\"><input type=\"checkbox\" id=\"Femenino\" value=\"true\"><label for=\"Femenino\">Femenino</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Masculino</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"masculino\"><label for=\"masculino\">Otro</label></div></div></div><div class=\"d-grid mb-3\"><div class=\"text-center\"><div>.</div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"UnionLibre\" value=\"true\"><label for=\"UnionLibre\">Union libre</label></div></div></div><div class=\"d-grid mb-3\"><label for=\"municipio\">Municipio:</label><input type=\"text\" name=\"municipio\" id=\"municipio\"></div><div class=\"d-grid mb-3\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div></div><div class=\"\"><button type=\"button\" class=\"btn bg-utt text-white btn-lg\"> Siguiente </button></div>", 2);
 
-var _hoisted_31 = [_hoisted_29];
-var _hoisted_32 = {
+var _hoisted_32 = [_hoisted_30];
+var _hoisted_33 = {
   "class": "container-lg mb-3",
   style: {
     "width": "80%"
   }
 };
 
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Nombre del padre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Nombre de la madre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Nombre del conyuge:</label><input type=\"text\" name=\"date\" id=\"date\"></div><h5>En caso de emergencia</h5><div class=\"d-grid mb-3\"><label for=\"date\">Nombre:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div></div>", 1);
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Nombre del padre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Nombre de la madre:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Nombre del conyuge:</label><input type=\"text\" name=\"date\" id=\"date\"></div><h5>En caso de emergencia</h5><div class=\"d-grid mb-3\"><label for=\"date\">Nombre:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Telefono:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid mb-3\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div><div class=\"d-grid row\"><label for=\"date\">Parentesco:</label><input type=\"text\" name=\"date\" id=\"date\"></div></div></div>", 1);
 
-var _hoisted_34 = [_hoisted_33];
-var _hoisted_35 = {
+var _hoisted_35 = [_hoisted_34];
+var _hoisted_36 = {
   "class": "container-lg mb-3",
   style: {
     "width": "80%"
   }
 };
 
-var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>Trabajas: </div><div><input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\"><label for=\"trabajas-si\">Si</label></div></div><div class=\"d-grid mb-3\"><div>Razón por la que Trabajas : </div><div><input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\"><label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label></div></div><p>Empresa</p><div class=\"d-grid mb-3\"><label for=\"name\">Nombre:</label><input type=\"text\" name=\"name\" id=\"name\"></div><div class=\"d-grid mb-3\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">No</label></div><div><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div class=\"d-grid mb-3\"><label for=\"domicilio\">Domicilio:</label><input type=\"text\" name=\"domicilio\" id=\"domicilio\"></div><div class=\"d-grid mb-3\"><label for=\"puesto\">Puesto:</label><input type=\"text\" name=\"puesto\" id=\"puesto\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>¿Tu trabajo actual esta relacionado con tu carrera?: </div><div class=\"d-flex\"><input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\"><label for=\"tabajas-si\">Si</label><input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\"><label for=\"trabajo-no\">No</label></div></div><div class=\"mt-4\"><input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\"><label for=\"sostenerme\">Sostenerme Totalmente</label></div><div class=\"d-grid mb-3\"><input type=\"text\" name=\"total\" id=\"total\"></div><div class=\"d-grid mb-3\"><label for=\"departamento\">Departamento:</label><input type=\"text\" name=\"departamento\" id=\"departamento\"></div></div></div>", 1);
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>Trabajas: </div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\"><label for=\"trabajas-si\">Si</label></div></div><div class=\"d-grid mb-3\"><div>Razón por la que Trabajas : </div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\"><label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label></div></div><p>Empresa</p><div class=\"d-grid mb-3\"><label for=\"name\">Nombre:</label><input type=\"text\" name=\"name\" id=\"name\"></div><div class=\"d-grid mb-3\"><label for=\"telefono\">Telefono:</label><input type=\"text\" name=\"telefono\" id=\"telefono\"></div></div><div class=\"center col-lg-4 col-sm-2\"><div class=\"checkboxs\"><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">No</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div class=\"d-grid mb-3\"><label for=\"domicilio\">Domicilio:</label><input type=\"text\" name=\"domicilio\" id=\"domicilio\"></div><div class=\"d-grid mb-3\"><label for=\"puesto\">Puesto:</label><input type=\"text\" name=\"puesto\" id=\"puesto\"></div></div><div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>¿Tu trabajo actual esta relacionado con tu carrera?: </div><div class=\"d-flex\"><div class=\"checkboxs\"><input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\"><label for=\"tabajas-si\">Si</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\"><label for=\"trabajo-no\">No</label></div></div></div><div class=\"mt-4 checkboxs\"><input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\"><label for=\"sostenerme\">Sostenerme Totalmente</label></div><div class=\"d-grid mb-3\"><input type=\"text\" name=\"total\" id=\"total\"></div><div class=\"d-grid mb-3\"><label for=\"departamento\">Departamento:</label><input type=\"text\" name=\"departamento\" id=\"departamento\"></div></div></div>", 1);
 
-var _hoisted_37 = [_hoisted_36];
-var _hoisted_38 = {
+var _hoisted_38 = [_hoisted_37];
+var _hoisted_39 = {
   "class": "container-lg mb-3",
   style: {
     "width": "80%"
   }
 };
 
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><div>Vive con: </div><div class=\"continer\"><input type=\"checkbox\" id=\"padres+\" value=\"padres+\"><label for=\"padres+\">Ambos Padres</label></div></div><div class=\"mt-4\"><div>Vivienda: </div><div class=\"d-flex\"><div class=\"container\"><div class=\"container-body p-0\"><input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\"><label for=\"propia\">Propia</label></div></div><div class=\"container\"><input type=\"checkbox\" id=\"renta\" value=\"renta\"><label for=\"renta\">Rentada</label></div></div></div><div class=\"d-grid mb-3\"><div>¿Quien es tu principal apoyo econimico?: </div><div class=\"d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"padre\" value=\"padre\"><label for=\"padre\">Padre</label></div><div class=\"continer\"><input type=\"checkbox\" id=\"madre\" value=\"madre\"><label for=\"madre\">Madre</label></div></div></div><div class=\"d-grid mb-3\"><div>Ingresos Familiares: </div><div class=\"d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"menos\" value=\"menos\"><label for=\"menos\">Menos de $5,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"5-10\" value=\"5-10\"><label for=\"5-10\">$5,000 A $10,000</label></div></div></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\"><label for=\"uno-padre\">Uno de los Padres</label></div><div class=\"container\"><input type=\"checkbox\" id=\"pareja\" value=\"pareja\"><label for=\"pareja\">Pareja</label></div></div><div class=\"mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"prestada\" value=\"prestada\"><label for=\"prestada\">Prestada</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"huermano\" value=\"huermano\"><label for=\"huermano\">Hermano(a)</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"solo\" value=\"solo\"><label for=\"solo\">Solo(a)</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3\"><div>Transporte: </div><div class=\"d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"propio\" value=\"propio\"><label for=\"propio\">Propia</label></div><div class=\"container\"><input type=\"checkbox\" id=\"publico\" value=\"publico\"><label for=\"publico\">Pubico</label></div></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\"><label for=\"conyuge\">Cónyuge</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"mas\" value=\"mas\"><label for=\"mas\">Más de $15,000</label></div></div></div></div>", 1);
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><div>Vive con: </div><div class=\"continer checkboxs\"><input type=\"checkbox\" id=\"padres+\" value=\"padres+\"><label for=\"padres+\">Ambos Padres</label></div></div><div class=\"mt-4\"><div>Vivienda: </div><div class=\"d-flex\"><div class=\"container\"><div class=\"container-body p-0 checkboxs\"><input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\"><label for=\"propia\">Propia</label></div></div><div class=\"container checkboxs\"><input type=\"checkbox\" id=\"renta\" value=\"renta\"><label for=\"renta\">Rentada</label></div></div></div><div class=\"d-grid mb-3\"><div>¿Quien es tu principal apoyo econimico?: </div><div class=\"d-flex\"><div class=\"continer checkboxs\"><input type=\"checkbox\" id=\"padre\" value=\"padre\"><label for=\"padre\">Padre</label></div><div class=\"continer\"><input type=\"checkbox\" id=\"madre\" value=\"madre\"><label for=\"madre\">Madre</label></div></div></div><div class=\"d-grid mb-3\"><div>Ingresos Familiares: </div><div class=\"d-flex\"><div class=\"continer checkboxs\"><input type=\"checkbox\" id=\"menos\" value=\"menos\"><label for=\"menos\">Menos de $5,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"5-10\" value=\"5-10\"><label for=\"5-10\">$5,000 A $10,000</label></div></div></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\"><label for=\"uno-padre\">Uno de los Padres</label></div><div class=\"container\"><input type=\"checkbox\" id=\"pareja\" value=\"pareja\"><label for=\"pareja\">Pareja</label></div></div><div class=\"mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"prestada\" value=\"prestada\"><label for=\"prestada\">Prestada</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"huermano\" value=\"huermano\"><label for=\"huermano\">Hermano(a)</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"solo\" value=\"solo\"><label for=\"solo\">Solo(a)</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3\"><div>Transporte: </div><div class=\"d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"propio\" value=\"propio\"><label for=\"propio\">Propia</label></div><div class=\"container\"><input type=\"checkbox\" id=\"publico\" value=\"publico\"><label for=\"publico\">Pubico</label></div></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\"><label for=\"conyuge\">Cónyuge</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"mas\" value=\"mas\"><label for=\"mas\">Más de $15,000</label></div></div></div></div>", 1);
 
-var _hoisted_40 = [_hoisted_39];
-var _hoisted_41 = {
+var _hoisted_41 = [_hoisted_40];
+var _hoisted_42 = {
   "class": "container-lg mb-3",
   style: {
     "width": "80%"
   }
 };
 
-var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"nombreBachillerato\">Nombre del bachillerato:</label><input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\"></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"tipoBachillerato\">Tipo de bachillerato:</label><input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\"></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"entidadFederativa\">Entidad Federativa:</label><input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\"></div></div></div><button>Siguiente</button>", 2);
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"nombreBachillerato\">Nombre del bachillerato:</label><input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\"></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"tipoBachillerato\">Tipo de bachillerato:</label><input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\"></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3\"><label for=\"entidadFederativa\">Entidad Federativa:</label><input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\"></div></div></div><button>Siguiente</button>", 2);
 
-var _hoisted_44 = [_hoisted_42];
-var _hoisted_45 = {
+var _hoisted_45 = [_hoisted_43];
+var _hoisted_46 = {
   "class": "container-lg mb-3",
   style: {
     "width": "75%"
   }
 };
 
-var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Promedios ", -1
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Promedios ", -1
 /* HOISTED */
 );
 
-var _hoisted_47 = [_hoisted_46];
+var _hoisted_48 = [_hoisted_47];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Slide");
 
@@ -19925,9 +19982,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Carousel");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("body", null, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
+    "wrap-around": true,
     settings: $data.settings,
-    breakpoints: $data.breakpoints,
-    "wrap-around": true
+    breakpoints: $data.breakpoints
   }, {
     addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation, {
@@ -19937,12 +19994,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.usuariosArray, function (usuario) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Slide, {
-          key: usuario,
-          "class": "mb-3"
+          "class": "mb-3",
+          key: usuario
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
               "class": "card border-0 p-2",
+              id: "card-carrusel",
               style: {
                 "width": "180px",
                 "height": "220px"
@@ -19950,9 +20008,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: function onClick($event) {
                 return $options.onClickData(usuario);
               }
-            }, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.username), 1
+            }, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.matricula), 1
             /* TEXT */
-            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.name), 1
+            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.nombre), 1
             /* TEXT */
             )])], 8
             /* PROPS */
@@ -19996,21 +20054,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_24)]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.name), 1
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.matricula), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.username), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.nombre), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, _hoisted_31, 512
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, _hoisted_32, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Personales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, _hoisted_34, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Personales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, _hoisted_35, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Familiares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, _hoisted_37, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Familiares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, _hoisted_38, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Laborales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, _hoisted_40, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Laborales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, _hoisted_41, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Economicos']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, _hoisted_44, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Economicos']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, _hoisted_45, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Escolares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, _hoisted_47, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Escolares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, _hoisted_48, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Promedios']])])], 512
   /* NEED_PATCH */
@@ -44656,13 +44714,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _About_vue_vue_type_template_id_169e1534__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./About.vue?vue&type=template&id=169e1534 */ "./resources/js/Pages/About.vue?vue&type=template&id=169e1534");
 /* harmony import */ var _About_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./About.vue?vue&type=script&lang=js */ "./resources/js/Pages/About.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_About_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_About_vue_vue_type_template_id_169e1534__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/About.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_About_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_About_vue_vue_type_template_id_169e1534__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/About.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -44684,13 +44742,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=template&id=097ba13b */ "./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b");
 /* harmony import */ var _Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=script&lang=js */ "./resources/js/Pages/Dashboard.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Dashboard.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Dashboard.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -44759,236 +44817,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Dashboard.vue?vue&type=template&id=097ba13b */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue/dist/vue.esm-bundler.js":
-/*!**************************************************!*\
-  !*** ./node_modules/vue/dist/vue.esm-bundler.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
-/* harmony export */   "Comment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Comment),
-/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
-/* harmony export */   "Fragment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Fragment),
-/* harmony export */   "KeepAlive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
-/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
-/* harmony export */   "Static": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Static),
-/* harmony export */   "Suspense": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Suspense),
-/* harmony export */   "Teleport": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Teleport),
-/* harmony export */   "Text": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Text),
-/* harmony export */   "Transition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Transition),
-/* harmony export */   "TransitionGroup": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup),
-/* harmony export */   "VueElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.VueElement),
-/* harmony export */   "callWithAsyncErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
-/* harmony export */   "callWithErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
-/* harmony export */   "camelize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.camelize),
-/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
-/* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
-/* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
-/* harmony export */   "compile": () => (/* binding */ compileToFunction),
-/* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
-/* harmony export */   "createApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
-/* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
-/* harmony export */   "createCommentVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
-/* harmony export */   "createElementBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
-/* harmony export */   "createElementVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
-/* harmony export */   "createHydrationRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
-/* harmony export */   "createPropsRestProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
-/* harmony export */   "createRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
-/* harmony export */   "createSSRApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSSRApp),
-/* harmony export */   "createSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSlots),
-/* harmony export */   "createStaticVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
-/* harmony export */   "createTextVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
-/* harmony export */   "createVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createVNode),
-/* harmony export */   "customRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.customRef),
-/* harmony export */   "defineAsyncComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
-/* harmony export */   "defineComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
-/* harmony export */   "defineCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineCustomElement),
-/* harmony export */   "defineEmits": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
-/* harmony export */   "defineExpose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
-/* harmony export */   "defineProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineProps),
-/* harmony export */   "defineSSRCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSSRCustomElement),
-/* harmony export */   "devtools": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.devtools),
-/* harmony export */   "effect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effect),
-/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effectScope),
-/* harmony export */   "getCurrentInstance": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
-/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
-/* harmony export */   "getTransitionRawChildren": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
-/* harmony export */   "guardReactiveProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
-/* harmony export */   "h": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.h),
-/* harmony export */   "handleError": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.handleError),
-/* harmony export */   "hydrate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hydrate),
-/* harmony export */   "initCustomFormatter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
-/* harmony export */   "initDirectivesForSSR": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initDirectivesForSSR),
-/* harmony export */   "inject": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.inject),
-/* harmony export */   "isMemoSame": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
-/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isProxy),
-/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReactive),
-/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
-/* harmony export */   "isRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRef),
-/* harmony export */   "isRuntimeOnly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
-/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isShallow),
-/* harmony export */   "isVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isVNode),
-/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.markRaw),
-/* harmony export */   "mergeDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
-/* harmony export */   "mergeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
-/* harmony export */   "nextTick": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.nextTick),
-/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
-/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
-/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
-/* harmony export */   "onActivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onActivated),
-/* harmony export */   "onBeforeMount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
-/* harmony export */   "onBeforeUnmount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
-/* harmony export */   "onBeforeUpdate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
-/* harmony export */   "onDeactivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
-/* harmony export */   "onErrorCaptured": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
-/* harmony export */   "onMounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onMounted),
-/* harmony export */   "onRenderTracked": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
-/* harmony export */   "onRenderTriggered": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
-/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
-/* harmony export */   "onServerPrefetch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
-/* harmony export */   "onUnmounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
-/* harmony export */   "onUpdated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
-/* harmony export */   "openBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.openBlock),
-/* harmony export */   "popScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
-/* harmony export */   "provide": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.provide),
-/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
-/* harmony export */   "pushScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
-/* harmony export */   "queuePostFlushCb": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
-/* harmony export */   "reactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.reactive),
-/* harmony export */   "readonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.readonly),
-/* harmony export */   "ref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ref),
-/* harmony export */   "registerRuntimeCompiler": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
-/* harmony export */   "render": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "renderList": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderList),
-/* harmony export */   "renderSlot": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
-/* harmony export */   "resolveComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
-/* harmony export */   "resolveDirective": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
-/* harmony export */   "resolveDynamicComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
-/* harmony export */   "resolveFilter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
-/* harmony export */   "resolveTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
-/* harmony export */   "setBlockTracking": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
-/* harmony export */   "setDevtoolsHook": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
-/* harmony export */   "setTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
-/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
-/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
-/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
-/* harmony export */   "ssrContextKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
-/* harmony export */   "ssrUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
-/* harmony export */   "stop": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.stop),
-/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
-/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
-/* harmony export */   "toHandlers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
-/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRaw),
-/* harmony export */   "toRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRef),
-/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRefs),
-/* harmony export */   "transformVNodeArgs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
-/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
-/* harmony export */   "unref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.unref),
-/* harmony export */   "useAttrs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
-/* harmony export */   "useCssModule": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssModule),
-/* harmony export */   "useCssVars": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssVars),
-/* harmony export */   "useSSRContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
-/* harmony export */   "useSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSlots),
-/* harmony export */   "useTransitionState": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
-/* harmony export */   "vModelCheckbox": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox),
-/* harmony export */   "vModelDynamic": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelDynamic),
-/* harmony export */   "vModelRadio": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelRadio),
-/* harmony export */   "vModelSelect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelSelect),
-/* harmony export */   "vModelText": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelText),
-/* harmony export */   "vShow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vShow),
-/* harmony export */   "version": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.version),
-/* harmony export */   "warn": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.warn),
-/* harmony export */   "watch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watch),
-/* harmony export */   "watchEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
-/* harmony export */   "watchPostEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
-/* harmony export */   "watchSyncEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
-/* harmony export */   "withAsyncContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
-/* harmony export */   "withCtx": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withCtx),
-/* harmony export */   "withDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
-/* harmony export */   "withDirectives": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
-/* harmony export */   "withKeys": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withKeys),
-/* harmony export */   "withMemo": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withMemo),
-/* harmony export */   "withModifiers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
-/* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
-/* harmony export */ });
-/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
-/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
-/* harmony import */ var _vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/compiler-dom */ "./node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js");
-/* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
-
-
-
-
-
-
-function initDev() {
-    {
-        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.initCustomFormatter)();
-    }
-}
-
-// This entry is the "full-build" that includes both the runtime
-if ((true)) {
-    initDev();
-}
-const compileCache = Object.create(null);
-function compileToFunction(template, options) {
-    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.isString)(template)) {
-        if (template.nodeType) {
-            template = template.innerHTML;
-        }
-        else {
-            ( true) && (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`invalid template option: `, template);
-            return _vue_shared__WEBPACK_IMPORTED_MODULE_2__.NOOP;
-        }
-    }
-    const key = template;
-    const cached = compileCache[key];
-    if (cached) {
-        return cached;
-    }
-    if (template[0] === '#') {
-        const el = document.querySelector(template);
-        if (( true) && !el) {
-            (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`Template element not found or is empty: ${template}`);
-        }
-        // __UNSAFE__
-        // Reason: potential execution of JS expressions in in-DOM template.
-        // The user must make sure the in-DOM template is trusted. If it's rendered
-        // by the server, the template should not contain any user data.
-        template = el ? el.innerHTML : ``;
-    }
-    const { code } = (0,_vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__.compile)(template, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.extend)({
-        hoistStatic: true,
-        onError: ( true) ? onError : 0,
-        onWarn: ( true) ? e => onError(e, true) : 0
-    }, options));
-    function onError(err, asWarning = false) {
-        const message = asWarning
-            ? err.message
-            : `Template compilation error: ${err.message}`;
-        const codeFrame = err.loc &&
-            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.generateCodeFrame)(template, err.loc.start.offset, err.loc.end.offset);
-        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(codeFrame ? `${message}\n${codeFrame}` : message);
-    }
-    // The wildcard import results in a huge object with every export
-    // with keys that cannot be mangled, and can be quite heavy size-wise.
-    // In the global build we know `Vue` is available globally so we can avoid
-    // the wildcard object.
-    const render = (new Function('Vue', code)(_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__));
-    render._rc = true;
-    return (compileCache[key] = render);
-}
-(0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.registerRuntimeCompiler)(compileToFunction);
-
-
 
 
 /***/ }),
@@ -46027,6 +45855,236 @@ var index = {
     Vue.component("tabs", Tabs);
   }
 };
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue/dist/vue.esm-bundler.js":
+/*!**************************************************!*\
+  !*** ./node_modules/vue/dist/vue.esm-bundler.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
+/* harmony export */   "Comment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Comment),
+/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
+/* harmony export */   "Fragment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Fragment),
+/* harmony export */   "KeepAlive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
+/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
+/* harmony export */   "Static": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Static),
+/* harmony export */   "Suspense": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Suspense),
+/* harmony export */   "Teleport": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Teleport),
+/* harmony export */   "Text": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Text),
+/* harmony export */   "Transition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Transition),
+/* harmony export */   "TransitionGroup": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup),
+/* harmony export */   "VueElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.VueElement),
+/* harmony export */   "callWithAsyncErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
+/* harmony export */   "callWithErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
+/* harmony export */   "camelize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.camelize),
+/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
+/* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
+/* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
+/* harmony export */   "compile": () => (/* binding */ compileToFunction),
+/* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
+/* harmony export */   "createApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
+/* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
+/* harmony export */   "createCommentVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
+/* harmony export */   "createElementBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
+/* harmony export */   "createElementVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
+/* harmony export */   "createHydrationRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
+/* harmony export */   "createPropsRestProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
+/* harmony export */   "createRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
+/* harmony export */   "createSSRApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSSRApp),
+/* harmony export */   "createSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSlots),
+/* harmony export */   "createStaticVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
+/* harmony export */   "createTextVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
+/* harmony export */   "createVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createVNode),
+/* harmony export */   "customRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.customRef),
+/* harmony export */   "defineAsyncComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
+/* harmony export */   "defineComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
+/* harmony export */   "defineCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineCustomElement),
+/* harmony export */   "defineEmits": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
+/* harmony export */   "defineExpose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
+/* harmony export */   "defineProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineProps),
+/* harmony export */   "defineSSRCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSSRCustomElement),
+/* harmony export */   "devtools": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.devtools),
+/* harmony export */   "effect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effect),
+/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effectScope),
+/* harmony export */   "getCurrentInstance": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
+/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
+/* harmony export */   "getTransitionRawChildren": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
+/* harmony export */   "guardReactiveProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
+/* harmony export */   "h": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.h),
+/* harmony export */   "handleError": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.handleError),
+/* harmony export */   "hydrate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hydrate),
+/* harmony export */   "initCustomFormatter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
+/* harmony export */   "initDirectivesForSSR": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initDirectivesForSSR),
+/* harmony export */   "inject": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.inject),
+/* harmony export */   "isMemoSame": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
+/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isProxy),
+/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReactive),
+/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
+/* harmony export */   "isRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRef),
+/* harmony export */   "isRuntimeOnly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
+/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isShallow),
+/* harmony export */   "isVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isVNode),
+/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.markRaw),
+/* harmony export */   "mergeDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
+/* harmony export */   "mergeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
+/* harmony export */   "nextTick": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.nextTick),
+/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
+/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
+/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
+/* harmony export */   "onActivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onActivated),
+/* harmony export */   "onBeforeMount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
+/* harmony export */   "onBeforeUnmount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
+/* harmony export */   "onBeforeUpdate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
+/* harmony export */   "onDeactivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
+/* harmony export */   "onErrorCaptured": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
+/* harmony export */   "onMounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onMounted),
+/* harmony export */   "onRenderTracked": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
+/* harmony export */   "onRenderTriggered": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
+/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
+/* harmony export */   "onServerPrefetch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
+/* harmony export */   "onUnmounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
+/* harmony export */   "onUpdated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
+/* harmony export */   "openBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.openBlock),
+/* harmony export */   "popScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
+/* harmony export */   "provide": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.provide),
+/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
+/* harmony export */   "pushScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
+/* harmony export */   "queuePostFlushCb": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
+/* harmony export */   "reactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.reactive),
+/* harmony export */   "readonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.readonly),
+/* harmony export */   "ref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ref),
+/* harmony export */   "registerRuntimeCompiler": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
+/* harmony export */   "render": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "renderList": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderList),
+/* harmony export */   "renderSlot": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
+/* harmony export */   "resolveComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
+/* harmony export */   "resolveDirective": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
+/* harmony export */   "resolveDynamicComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
+/* harmony export */   "resolveFilter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
+/* harmony export */   "resolveTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
+/* harmony export */   "setBlockTracking": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
+/* harmony export */   "setDevtoolsHook": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
+/* harmony export */   "setTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
+/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
+/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
+/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
+/* harmony export */   "ssrContextKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
+/* harmony export */   "ssrUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
+/* harmony export */   "stop": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.stop),
+/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
+/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
+/* harmony export */   "toHandlers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
+/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRaw),
+/* harmony export */   "toRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRef),
+/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRefs),
+/* harmony export */   "transformVNodeArgs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
+/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
+/* harmony export */   "unref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.unref),
+/* harmony export */   "useAttrs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
+/* harmony export */   "useCssModule": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssModule),
+/* harmony export */   "useCssVars": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssVars),
+/* harmony export */   "useSSRContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
+/* harmony export */   "useSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSlots),
+/* harmony export */   "useTransitionState": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
+/* harmony export */   "vModelCheckbox": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox),
+/* harmony export */   "vModelDynamic": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelDynamic),
+/* harmony export */   "vModelRadio": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelRadio),
+/* harmony export */   "vModelSelect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelSelect),
+/* harmony export */   "vModelText": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelText),
+/* harmony export */   "vShow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vShow),
+/* harmony export */   "version": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.version),
+/* harmony export */   "warn": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.warn),
+/* harmony export */   "watch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watch),
+/* harmony export */   "watchEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
+/* harmony export */   "watchPostEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
+/* harmony export */   "watchSyncEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
+/* harmony export */   "withAsyncContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
+/* harmony export */   "withCtx": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withCtx),
+/* harmony export */   "withDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
+/* harmony export */   "withDirectives": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
+/* harmony export */   "withKeys": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withKeys),
+/* harmony export */   "withMemo": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withMemo),
+/* harmony export */   "withModifiers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
+/* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
+/* harmony export */ });
+/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
+/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/compiler-dom */ "./node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js");
+/* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
+
+
+
+
+
+
+function initDev() {
+    {
+        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.initCustomFormatter)();
+    }
+}
+
+// This entry is the "full-build" that includes both the runtime
+if ((true)) {
+    initDev();
+}
+const compileCache = Object.create(null);
+function compileToFunction(template, options) {
+    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.isString)(template)) {
+        if (template.nodeType) {
+            template = template.innerHTML;
+        }
+        else {
+            ( true) && (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`invalid template option: `, template);
+            return _vue_shared__WEBPACK_IMPORTED_MODULE_2__.NOOP;
+        }
+    }
+    const key = template;
+    const cached = compileCache[key];
+    if (cached) {
+        return cached;
+    }
+    if (template[0] === '#') {
+        const el = document.querySelector(template);
+        if (( true) && !el) {
+            (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`Template element not found or is empty: ${template}`);
+        }
+        // __UNSAFE__
+        // Reason: potential execution of JS expressions in in-DOM template.
+        // The user must make sure the in-DOM template is trusted. If it's rendered
+        // by the server, the template should not contain any user data.
+        template = el ? el.innerHTML : ``;
+    }
+    const { code } = (0,_vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__.compile)(template, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.extend)({
+        hoistStatic: true,
+        onError: ( true) ? onError : 0,
+        onWarn: ( true) ? e => onError(e, true) : 0
+    }, options));
+    function onError(err, asWarning = false) {
+        const message = asWarning
+            ? err.message
+            : `Template compilation error: ${err.message}`;
+        const codeFrame = err.loc &&
+            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.generateCodeFrame)(template, err.loc.start.offset, err.loc.end.offset);
+        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(codeFrame ? `${message}\n${codeFrame}` : message);
+    }
+    // The wildcard import results in a huge object with every export
+    // with keys that cannot be mangled, and can be quite heavy size-wise.
+    // In the global build we know `Vue` is available globally so we can avoid
+    // the wildcard object.
+    const render = (new Function('Vue', code)(_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__));
+    render._rc = true;
+    return (compileCache[key] = render);
+}
+(0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.registerRuntimeCompiler)(compileToFunction);
+
 
 
 

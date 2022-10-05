@@ -6,10 +6,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
 </head>
 
 <body>
+
+
     <nav class="navbar navbar-expand-lg bg-utt">
         <div class="container-md d-flex justify-content-between">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
@@ -56,14 +58,14 @@
     <div class="card mx-5 mt-3 border-0">
         <div class="card-body">
             <h5 class="card-title text-utt fw-bolder">Alumnos</h5>
-            <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true">
-                <Slide  v-for="usuario in usuariosArray" :key="usuario" class="mb-3">
-                <div class="carousel__item">
-                    <div class="card border-0 p-2" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
+            <Carousel :wrap-around="true" :settings="settings" :breakpoints="breakpoints">
+                <Slide class="mb-3" v-for="usuario in usuariosArray" :key="usuario" >
+                <div class="carousel__item" >
+                    <div class="card border-0 p-2 " id="card-carrusel" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU"  class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-title">{{ usuario.username }}</p>
-                            <p class="card-text">{{ usuario.name }}</p>
+                            <p class="card-title">{{ usuario.matricula }} </p>
+                            <p class="card-text">{{ usuario.nombre }} </p>
                         </div>
                     </div>
 
@@ -88,39 +90,15 @@
             </div>
 
             <div  class=" border-0 col-lg-3 ms-1 mb-2" v-show="activeOption == 'Dashboard'" >
-               
-                <div class="card card-stats mb-3 border-0" >
-                    <div class="card-body">
-                        <div class="">
-                            <div class="row d-lg-flex">
-                                <div class="col-lg-auto m-auto col-sm-2">
-                                    <span class="fw-bolder fs-4">Alumnos</span>
-                                    <div class="icon icon-shape m-auto"  style="font-size:6rem;">
-                                        <i class="fa-sharp fa-solid fa-chart-line"  style="color:#691A2D;"></i>
-                                        <!-- <i class="fas fa-chart-pie " style="color:#691A2D;"></i> -->
-                                    </div>
-                                </div>
-                                <div class="col-lg-auto my-auto me-5 col-sm-2">
-                                    <div class="col">
-                                        <h5 class="card-title text-muted mb-0">Mujeres</h5>
-                                        <span class="h2 font-weight-bold mb-0 fw-bolder" style="color:#691A2D;">5</span>
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="card-title text-muted mb-0">Hombres</h5>
-                                        <span class="h2 font-weight-bold mb-0 fw-bolder" style="color:#691A2D;">23</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
+
+                <div class="card border-0 mb-3" >
+                    <canvas id="PieChart"></canvas>
                 </div>
 
                 <div class="card border-0" >
                     <canvas id="myChart"></canvas>
                 </div>
-                
+
             </div>
 
         </div>
@@ -139,14 +117,14 @@
 
                 <div class="avatar col-sm-2 text-center m-auto" style="width:20%;" >
                     <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" width="200" height="200">
-                    <p>{{user.name}}</p>
-                    <p>{{user.username}}</p>
+                    <p class="mt-3">{{ user.matricula }} </p>
+                    <p>{{ user.nombre }} </p>
                 </div>
 
                 <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Personales'">
 
                     <div class="container d-flex justify-content-between my-4 row">
-                        
+
                         <div class="right col-lg-4 col-sm-2" >
 
                             <div class="d-grid mb-3">
@@ -157,11 +135,11 @@
                             <div class="d-grid mb-3">
                                 <div>Estado civil: </div>
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="checkboxs">
                                         <input type="checkbox" id="casado" value="casado">
                                         <label for="casado">Casado</label>
                                     </div>
-                                    <div>
+                                    <div class="checkboxs">
                                         <input type="checkbox" id="divorciado" value="divorciado">
                                         <label for="divorciado">Divorciado</label>
                                     </div>
@@ -194,10 +172,12 @@
 
                             <div class="text-center mb-3">
                                 <div>.</div>
-                                <input type="checkbox" id="mike" value="Mike">
-                                <label for="mike">Soltero</label>
+                                <div class="checkboxs">
+                                    <input type="checkbox" id="mike" value="Mike">
+                                    <label for="mike">Soltero</label>
+                                </div>
                             </div>
-                            <div class="d-grid mb-3">
+                            <div class="d-grid mb-3" >
                                 <label for="colonia">Colonia:</label>
                                 <input type="text" name="colonia" id="colonia" />
                             </div>
@@ -212,16 +192,16 @@
                                 <div>Genero: </div>
                                 <div class="d-flex justify-content-between">
 
-                                    <div>
+                                    <div class="checkboxs">
                                         <input type="checkbox" id="Femenino"  value="true">
                                         <label for="Femenino">Femenino</label>
                                     </div>
 
-                                    <div>
+                                    <div class="checkboxs">
                                         <input type="checkbox" id="masculino"  >
                                         <label for="masculino">Masculino</label>
                                     </div>
-                                    <div>
+                                    <div class="checkboxs">
                                         <input type="checkbox" id="masculino"  >
                                         <label for="masculino">Otro</label>
                                     </div>
@@ -231,8 +211,10 @@
                             <div class="d-grid mb-3">
                                 <div class="text-center">
                                     <div>.</div>
-                                    <input type="checkbox" id="UnionLibre"  value="true">
-                                    <label for="UnionLibre">Union libre</label>
+                                    <div class="checkboxs">
+                                        <input type="checkbox" id="UnionLibre"  value="true">
+                                        <label for="UnionLibre">Union libre</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="d-grid mb-3">
@@ -250,7 +232,7 @@
                         <button type="button" class="btn bg-utt text-white btn-lg"> Siguiente </button>
                     </div>
 
-                </div>          
+                </div>
 
                 <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Familiares'">
 
@@ -330,7 +312,7 @@
 
                             <div class="d-grid mb-3">
                                 <div>Trabajas: </div>
-                                <div>
+                                <div class="checkboxs">
                                     <input type="checkbox" id="trabajas-si" value="trabajas-si" >
                                     <label for="trabajas-si">Si</label>
                                 </div>
@@ -338,7 +320,7 @@
 
                             <div class="d-grid mb-3">
                                 <div>Razón por la que Trabajas : </div>
-                                <div>
+                                <div class="checkboxs">
                                     <input type="checkbox" id="apoyo-eco" value="apoyo-eco" >
                                     <label for="apoyo-eco">Apoyar Económicamente a la Familia</label>
 
@@ -360,17 +342,17 @@
                         </div>
                         <div class="center col-lg-4 col-sm-2">
 
-                            <div>
+                            <div class="checkboxs">
                                 <input type="checkbox" id="mike" value="Mike" >
                                 <label for="mike">No</label>
                             </div>
 
-                            <div>
+                            <div class="checkboxs">
                                 <input type="checkbox" id="familia" value="familia" >
                                 <label for="familia">Apoyar Totalmente a la Familia</label>
                             </div>
-                            
-                            <div>
+
+                            <div class="checkboxs">
                                 <input type="checkbox" id="familia" value="familia" >
                                 <label for="familia">Apoyar Totalmente a la Familia</label>
                             </div>
@@ -388,16 +370,18 @@
                             <div class="d-grid mb-3">
                                 <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>
                                 <div class="d-flex">
-
-                                    <input type="checkbox" id="tabajas-si" value="tabajas-si" >
-                                    <label for="tabajas-si">Si</label>
-
-                                    <input type="checkbox" id="trabajo-no" value="trabajo-no" >
-                                    <label for="trabajo-no">No</label>
+                                    <div class="checkboxs">
+                                        <input type="checkbox" id="tabajas-si" value="tabajas-si" >
+                                        <label for="tabajas-si">Si</label>
+                                    </div>
+                                    <div class="checkboxs">
+                                        <input type="checkbox" id="trabajo-no" value="trabajo-no" >
+                                        <label for="trabajo-no">No</label>
+                                    </div>
 
                                 </div>
                             </div>
-                            <div class="mt-4">
+                            <div class="mt-4 checkboxs">
                                 <input type="checkbox" id="sostenerme" value="sostenerme" >
                                 <label for="sostenerme">Sostenerme Totalmente</label>
                             </div>
@@ -421,7 +405,7 @@
 
                             <div class="d-grid mb-3">
                                 <div>Vive con: </div>
-                                <div class="continer">
+                                <div class="continer checkboxs">
                                     <input type="checkbox" id="padres+" value="padres+" >
                                     <label for="padres+">Ambos Padres</label>
                                 </div>
@@ -431,12 +415,12 @@
                                 <div>Vivienda: </div>
                                 <div class="d-flex">
                                     <div class="container">
-                                        <div class="container-body p-0">
+                                        <div class="container-body p-0 checkboxs">
                                             <input class="p-0" type="checkbox" id="propia" value="propia" >
                                             <label for="propia">Propia</label>
                                         </div>
                                     </div>
-                                    <div class="container">
+                                    <div class="container checkboxs">
                                         <input type="checkbox" id="renta" value="renta" >
                                         <label for="renta">Rentada</label>
                                     </div>
@@ -445,7 +429,7 @@
                             <div class="d-grid mb-3">
                                 <div>¿Quien es tu principal apoyo econimico?: </div>
                                 <div class="d-flex">
-                                    <div class="continer">
+                                    <div class="continer checkboxs">
                                         <input type="checkbox" id="padre" value="padre" >
                                         <label for="padre">Padre</label>
                                     </div>
@@ -458,7 +442,7 @@
                             <div class="d-grid mb-3">
                                 <div>Ingresos Familiares: </div>
                                 <div class="d-flex">
-                                    <div class="continer">
+                                    <div class="continer checkboxs">
                                         <input type="checkbox" id="menos" value="menos" >
                                         <label for="menos">Menos de $5,000</label>
                                     </div>
@@ -585,13 +569,15 @@
 
                 </div>
 
-                
+
 
                 <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
                     <p>Promedios    </p>
                 </div>
             </div>
         </div>
+
+
 
     </div>
 
@@ -607,7 +593,6 @@ import { Carousel, Navigation, Slide } from 'vue3-carousel';
 import { Bar } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import Chart from 'chart.js/auto';
-
 
 
 
@@ -627,36 +612,11 @@ export default {
     usuariosArray: {
         required: true,
     },
-    chartId: {
-      type: String,
-      default: 'bar-chart'
-    },
-    datasetIdKey: {
-      type: String,
-      default: 'label'
-    },
-    width: {
-      type: Number,
-      default: 50
-    },
-    height: {
-      type: Number,
-      default: 50
-    },
-    cssClasses: {
-      default: '',
-      type: String
-    },
-    styles: {
-      type: Object,
-      default: () => {}
-    },
-    plugins: {
-      type: Object,
-      default: () => {}
+    alumnos:{
+        required: true,
     }
   },
-  
+
   mounted() {
 
     console.log(this.activeOption);
@@ -678,7 +638,13 @@ export default {
             'rgb(86, 26, 105)'
             ],
             hoverOffset: 4
-        }]
+        }],
+        user:{
+            show:true
+        },
+        respuesta:{
+            show:true
+        }
     };
 
     const myChart = new Chart(ctx, {
@@ -687,6 +653,33 @@ export default {
     });
 
     myChart;
+
+    const ctx3 = document.getElementById('PieChart');
+
+    const dataPie = {
+        labels: [
+            'Red',
+            'Blue',
+            'Yellow'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const PieChart = new Chart(ctx3, {
+        type: 'pie',
+        data: dataPie,
+    });
+
+    PieChart;
 
     const ctx2 = document.getElementById('barChar').getContext('2d');
 
@@ -702,7 +695,7 @@ export default {
                     'rgba(166, 41, 71)',
                     'rgba(146, 36, 63)',
                     'rgba(125, 31, 54)',
-                    
+
                 ],
                 borderColor: [
                     'rgba(105, 26, 45)',
@@ -723,7 +716,7 @@ export default {
     });
 
     barChar;
-    
+
 
   },
   setup(props) {
@@ -753,6 +746,35 @@ export default {
         console.log(option)
         onClickOption.value = option
     }
+    const myOptions = {
+        layout: {
+            color: 'black',
+            backgroundColor: 'lightgray',
+            selectedColor: 'white',
+            selectedBackgroundColor: 'green',
+            borderColor: 'black',
+            fontFamily: 'Arial',
+            fontWeight: 'normal',
+            fontWeightSelected: 'bold',
+            squareCorners: false,
+            noBorder: false
+        },
+        size: {
+            fontSize: 14,
+            height: 34,
+            padding: 7,
+            width: 100
+        },
+        items: {
+            delay: .4,
+            preSelected: 'unknown',
+            disabled: false,
+            labels: [
+            {name: 'Off', color: 'white', backgroundColor: 'red'},
+            {name: 'On', color: 'white', backgroundColor: 'green'}
+            ]
+        }
+    };
 
     return{
         steps,
@@ -760,7 +782,8 @@ export default {
         onClickStep,
         options,
         activeOption,
-        onClickOption
+        onClickOption,
+        myOptions
     }
 
   },
@@ -788,7 +811,7 @@ export default {
         },
         // 1024 and up
         1024: {
-            itemsToShow: 5,
+            itemsToShow: 7,
             snapAlign: 'center',
         },
       },
@@ -802,8 +825,18 @@ export default {
 
     onClickData(data){
         console.log(data)
-        this.user = data
+        // this.user = data
         this.activeOption = 'Registro general del alumno'
+
+        let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
+        let requestUrl = apiUrl + data.matricula;
+
+        fetch(requestUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            this.user = data.data
+        });
+
         console.log(this.activeOption)
     }
   },
