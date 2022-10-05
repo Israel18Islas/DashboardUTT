@@ -129,7 +129,7 @@
 
                             <div class="d-grid mb-3">
                                 <label for="calleNumero">Fecha de nacimiento:</label>
-                                <input type="text" name="calleNumero" id="calleNumero" />
+                                <input type="text" name="calleNumero" id="calleNumero" :v-model="user.fechaDeNacimiento" />
                             </div>
 
                             <div class="d-grid mb-3">
@@ -148,17 +148,17 @@
 
                             <div class="d-grid mb-3">
                                 <label for="calleNumero">Calle y numero:</label>
-                                <input type="text" name="calleNumero" id="calleNumero" />
+                                <input type="text" name="calleNumero" id="calleNumero" :v-model="user.domicilio.calle"/>
                             </div>
 
                             <div class="d-grid mb-3">
                                 <label for="email">Correo electronico (personal):</label>
-                                <input type="text" name="email" id="email" />
+                                <input type="text" name="email" id="email" :v-model="user.contacto.correoElectronico.personal" />
                             </div>
 
                             <div class="d-grid mb-3">
                                 <label for="movil">Movil:</label>
-                                <input type="text" name="movil" id="movil" />
+                                <input type="text" name="movil" id="movil" :v-model="user.contacto.telefono.personal" />
                             </div>
 
                         </div>
@@ -167,23 +167,23 @@
 
                             <div class="d-grid mb-3">
                                 <label for="date">Edad:</label>
-                                <input type="text" name="date" id="date" />
+                                <input type="text" name="date" id="date" :v-model="user.datosPersonales.edad" />
                             </div>
 
                             <div class="text-center mb-3">
                                 <div>.</div>
                                 <div class="checkboxs">
-                                    <input type="checkbox" id="mike" value="Mike">
+                                    <input type="checkbox" id="mike" value="Mike" >
                                     <label for="mike">Soltero</label>
                                 </div>
                             </div>
                             <div class="d-grid mb-3" >
                                 <label for="colonia">Colonia:</label>
-                                <input type="text" name="colonia" id="colonia" />
+                                <input type="text" name="colonia" id="colonia"  :v-model="user.datosPersonales.domicilio.colonia" />
                             </div>
                             <div class="d-grid mb-3">
                                 <label for="institucional">Correo electronico (institucional):</label>
-                                <input type="text" name="institucional" id="institucional" />
+                                <input type="text" name="institucional" id="institucional" :v-model="user.datosPersonales.contacto.correoElectronico.institucional"/>
                             </div>
                         </div>
 
@@ -192,19 +192,14 @@
                                 <div>Genero: </div>
                                 <div class="d-flex justify-content-between">
 
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="Femenino"  value="true">
-                                        <label for="Femenino">Femenino</label>
-                                    </div>
+                                       <input type="radio" class="btn-check" name="options-genero" id="femenino-outlined" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="femenino-outlined">Femenino</label>
 
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="masculino"  >
-                                        <label for="masculino">Masculino</label>
-                                    </div>
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="masculino"  >
-                                        <label for="masculino">Otro</label>
-                                    </div>
+                                    <input type="radio" class="btn-check" name="options-genero" id="masculino-outlined" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="masculino-outlined">Masculino</label>
+
+                                    <input type="radio" class="btn-check" name="options-genero" id="otro-outlined" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="otro-outlined">Otro</label>
 
                                 </div>
                             </div>
@@ -219,17 +214,17 @@
                             </div>
                             <div class="d-grid mb-3">
                                 <label for="municipio">Municipio:</label>
-                                <input type="text" name="municipio" id="municipio" />
+                                <input type="text" name="municipio" id="municipio" :v-model="user.datosPersonales.domicilio.municipio.descripcion"/>
                             </div>
                             <div class="d-grid mb-3">
                                 <label for="telefono">Telefono:</label>
-                                <input type="text" name="telefono" id="telefono" />
+                                <input type="text" name="telefono" id="telefono"  :v-model="user.datosPersonales.contacto.telefono.movil" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="">
-                        <button type="button" class="btn bg-utt text-white btn-lg"> Siguiente </button>
+                    <div class="container d-lg-flex justify-content-lg-end">
+                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Familiares')"> Siguiente </button>
                     </div>
 
                 </div>
@@ -242,20 +237,20 @@
 
                             <div class="d-grid mb-3 ">
                                 <label for="date">Nombre del padre:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.padre.nombre" />
                             </div>
                             <div class="d-grid mb-3 ">
                                 <label for="date">Nombre de la madre:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.madre.nombre"/>
                             </div>
                             <div class="d-grid mb-3 ">
                                 <label for="date">Nombre del conyuge:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.conyuge.nombre"/>
                             </div>
                             <h5>En caso de emergencia</h5>
                             <div class="d-grid mb-3 ">
                                 <label for="date">Nombre:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.emergencia.nombre"/>
                             </div>
 
 
@@ -265,42 +260,45 @@
 
                             <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.padre.telefono"/>
                             </div>
                             <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.madre.telefono"/>
                             </div>
                             <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.conyuge.telefono"/>
                             </div>
                             <div class="d-grid mb-3 ">
                                 <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.emergencia.telefono"/>
                             </div>
                         </div>
 
                         <div class="left col-lg-4 col-sm-2">
 
                             <div class="d-grid mb-3 ">
-                                <label for="date">Parentesco:</label>
-                                <input type="text" name="date" id="date"/>
+                                <label for="date">Ocupación:</label>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.padre.ocupacion"/>
                             </div>
                             <div class="d-grid mb-3 ">
-                                <label for="date">Parentesco:</label>
-                                <input type="text" name="date" id="date"/>
+                                <label for="date">Ocupación:</label>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.madre.ocupacion"/>
                             </div>
                             <div class="d-grid mb-3 ">
-                                <label for="date">Parentesco:</label>
-                                <input type="text" name="date" id="date"/>
+                                <label for="date">Ocupación:</label>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.conyuge.ocupacion"/>
                             </div>
                             <div class="d-grid row ">
                                 <label for="date">Parentesco:</label>
-                                <input type="text" name="date" id="date"/>
+                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.emergencia.parentezco"/>
                             </div>
                         </div>
 
+                    </div>
+                    <div class="container d-lg-flex justify-content-lg-end">
+                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Laborales')"> Siguiente </button>
                     </div>
                 </div>
 
@@ -331,12 +329,12 @@
 
                             <div class="d-grid mb-3">
                                 <label for="name">Nombre:</label>
-                                <input type="text" name="name" id="name"  />
+                                <input type="text" name="name" id="name"  :v-model="user.datosLaborales.empresa.nombre"/>
                             </div>
 
                             <div class="d-grid mb-3">
                                 <label for="telefono">Telefono:</label>
-                                <input type="text" name="telefono" id="telefono"  />
+                                <input type="text" name="telefono" id="telefono" :v-model="user.datosLaborales.empresa.telefono" />
                             </div>
 
                         </div>
@@ -358,11 +356,11 @@
                             </div>
                             <div class="d-grid mb-3">
                                 <label for="domicilio">Domicilio:</label>
-                                <input type="text" name="domicilio" id="domicilio" />
+                                <input type="text" name="domicilio" id="domicilio" :v-model="user.datosLaborales.empresa.domicilio"/>
                             </div>
                             <div class="d-grid mb-3">
                                 <label for="puesto">Puesto:</label>
-                                <input type="text" name="puesto" id="puesto" />
+                                <input type="text" name="puesto" id="puesto" :v-model="user.datosLaborales.empresa.puesto"/>
                             </div>
 
                         </div>
@@ -394,7 +392,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="container d-lg-flex justify-content-lg-end">
+                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Economicos')"> Siguiente </button>
+                    </div>
                 </div>
 
                 <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Economicos'">
@@ -533,7 +533,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="container d-lg-flex justify-content-lg-end">
+                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Escolares')"> Siguiente </button>
+                    </div>
                 </div>
 
                 <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Escolares'">
@@ -544,36 +546,72 @@
 
                             <div class="d-grid mb-3">
                                 <label for="nombreBachillerato">Nombre del bachillerato:</label>
-                                <input type="text" name="nombreBachillerato" id="nombreBachillerato" />
+                                <input type="text" name="nombreBachillerato" id="nombreBachillerato" :v-model="user.datosEscolares.nombreBachillerato"/>
+                            </div>
+
+                        </div>
+
+                        <div class="center col-4 mt-4">
+
+                            <div class="d-grid mb-3">
+                                <label for="tipoBachillerato">Tipo de bachillerato:</label>
+                                <input type="text" name="tipoBachillerato" id="tipoBachillerato" :v-model="user.datosEscolares.tipoBachillerato.descripcion"/>
+                            </div>
+
+                        </div>
+
+                        <div class="left col-4 mt-4">
+
+                            <div class="d-grid mb-3">
+                                <label for="entidadFederativa">Entidad Federativa:</label>
+                                <input type="text" name="entidadFederativa" id="entidadFederativa" :v-model="user.datosEscolares.entidadFederativa.nombre" />
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="container d-lg-flex justify-content-lg-end">
+                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Promedios')"> Siguiente </button>
+                    </div>
+
+                </div>
+
+                <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
+                    <div class="container d-flex justify-content-between  my-4 row">
+
+                        <div class="right col-4 mt-4">
+
+                            <div class="d-grid mb-3">
+                                <label for="nombreBachillerato">Promedio de bachillerato:</label>
+                                <input type="text" name="nombreBachillerato" id="nombreBachillerato" :v-model="user.promedios.tsu.bachillerato"/>
                             </div>
 
                         </div>
                         <div class="center col-4 mt-4">
 
                             <div class="d-grid mb-3">
-                                <label for="tipoBachillerato">Tipo de bachillerato:</label>
-                                <input type="text" name="tipoBachillerato" id="tipoBachillerato" />
+                                <label for="tipoBachillerato">Nivel de Ingles:</label>
+                                <input type="text" name="tipoBachillerato" id="tipoBachillerato" :v-model="user.promedios.tsu.nivelIngles"/>
                             </div>
 
                         </div>
                         <div class="left col-4 mt-4">
 
                             <div class="d-grid mb-3">
-                                <label for="entidadFederativa">Entidad Federativa:</label>
-                                <input type="text" name="entidadFederativa" id="entidadFederativa" />
+                                <label for="entidadFederativa">Puntos del examen de Ingreso:</label>
+                                <input type="text" name="entidadFederativa" id="entidadFederativa" :v-model="user.promedios.tsu.puntosExamenIngreso" />
                             </div>
 
                         </div>
                     </div>
-                    <button>Siguiente</button>
 
+                    <div class="container d-lg-flex justify-content-lg-end">
+                        <button type="button" class="btn bg-utt text-white btn-lg" > Guardar </button>
+                    </div>
                 </div>
-
-
-
-                <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
-                    <p>Promedios    </p>
-                </div>
+                
+                
             </div>
         </div>
 
@@ -823,22 +861,22 @@ export default {
   },
   methods: {
 
-    onClickData(data){
-        console.log(data)
-        // this.user = data
-        this.activeOption = 'Registro general del alumno'
+    // onClickData(data){
+    //     console.log(data)
+    //     // this.user = data
+    //     this.activeOption = 'Registro general del alumno'
 
-        let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
-        let requestUrl = apiUrl + data.matricula;
+    //     let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
+    //     let requestUrl = apiUrl + data.matricula;
 
-        fetch(requestUrl)
-        .then((response) => response.json())
-        .then((data) => {
-            this.user = data.data
-        });
+    //     fetch(requestUrl)
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         this.user = data.data
+    //     });
 
-        console.log(this.activeOption)
-    }
+    //     console.log(this.activeOption)
+    // }
   },
 };
 </script>
