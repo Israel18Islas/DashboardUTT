@@ -16,7 +16,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
         $result = HTTP::get('http://127.0.0.1:8080/api/alumnos');
         $response = json_decode($result);
         $alumnos = $response->alumnos;
@@ -30,6 +29,12 @@ class DashboardController extends Controller
 
 
         return Inertia::render('Dashboard',compact('usuariosArray','alumnos'));
+
+        // $usuarios = HTTP::get('https://jsonplaceholder.typicode.com/users');
+        // $usuariosArray = $usuarios->json();
+        
+
+        // return Inertia::render('Dashboard',compact('usuariosArray'));
     }
 
     /**

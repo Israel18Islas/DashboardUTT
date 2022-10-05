@@ -19724,11 +19724,13 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
       }
     };
   },
-  methods: {// onClickData(data){
-    //     console.log(data)
-    //     // this.user = data
-    //     this.activeOption = 'Registro general del alumno'
-    //     let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
+  methods: {
+    onClickData: function onClickData(usuario, index) {
+      console.log(usuario, index);
+      console.log(usuario.address.city);
+      this.user = usuario.username;
+      this.activeOption = 'Registro general del alumno';
+    } //     let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
     //     let requestUrl = apiUrl + data.matricula;
     //     fetch(requestUrl)
     //     .then((response) => response.json())
@@ -19737,6 +19739,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
     //     });
     //     console.log(this.activeOption)
     // }
+
   }
 });
 
@@ -19882,530 +19885,12 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_21 = [_hoisted_19, _hoisted_20];
 var _hoisted_22 = {
-  "class": "card border-0"
+  key: 0
 };
 var _hoisted_23 = {
   "class": "nav nav-tabs mt-4"
 };
 var _hoisted_24 = ["onClick"];
-var _hoisted_25 = {
-  "class": "d-lg-flex"
-};
-var _hoisted_26 = {
-  "class": "avatar col-sm-2 text-center m-auto",
-  style: {
-    "width": "20%"
-  }
-};
-
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg",
-  width: "200",
-  height: "200"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_28 = {
-  "class": "mt-3"
-};
-var _hoisted_29 = {
-  "class": "container-lg mb-3",
-  style: {
-    "width": "80%"
-  }
-};
-var _hoisted_30 = {
-  "class": "container d-flex justify-content-between my-4 row"
-};
-var _hoisted_31 = {
-  "class": "right col-lg-4 col-sm-2"
-};
-var _hoisted_32 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "calleNumero"
-}, "Fecha de nacimiento:", -1
-/* HOISTED */
-);
-
-var _hoisted_34 = ["v-model"];
-
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>Estado civil: </div><div class=\"d-flex justify-content-between\"><div class=\"checkboxs\"><input type=\"checkbox\" id=\"casado\" value=\"casado\"><label for=\"casado\">Casado</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\"><label for=\"divorciado\">Divorciado</label></div></div></div>", 1);
-
-var _hoisted_36 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "calleNumero"
-}, "Calle y numero:", -1
-/* HOISTED */
-);
-
-var _hoisted_38 = ["v-model"];
-var _hoisted_39 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "email"
-}, "Correo electronico (personal):", -1
-/* HOISTED */
-);
-
-var _hoisted_41 = ["v-model"];
-var _hoisted_42 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "movil"
-}, "Movil:", -1
-/* HOISTED */
-);
-
-var _hoisted_44 = ["v-model"];
-var _hoisted_45 = {
-  "class": "center col-lg-4 col-sm-2"
-};
-var _hoisted_46 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Edad:", -1
-/* HOISTED */
-);
-
-var _hoisted_48 = ["v-model"];
-
-var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-center mb-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "checkboxs"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  id: "mike",
-  value: "Mike"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "mike"
-}, "Soltero")])], -1
-/* HOISTED */
-);
-
-var _hoisted_50 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "colonia"
-}, "Colonia:", -1
-/* HOISTED */
-);
-
-var _hoisted_52 = ["v-model"];
-var _hoisted_53 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "institucional"
-}, "Correo electronico (institucional):", -1
-/* HOISTED */
-);
-
-var _hoisted_55 = ["v-model"];
-var _hoisted_56 = {
-  "class": "left col-lg-4 col-sm-2"
-};
-
-var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>Genero: </div><div class=\"d-flex justify-content-between\"><input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"femenino-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"femenino-outlined\">Femenino</label><input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"masculino-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"masculino-outlined\">Masculino</label><input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"otro-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"otro-outlined\">Otro</label></div></div><div class=\"d-grid mb-3\"><div class=\"text-center\"><div>.</div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"UnionLibre\" value=\"true\"><label for=\"UnionLibre\">Union libre</label></div></div></div>", 2);
-
-var _hoisted_59 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "municipio"
-}, "Municipio:", -1
-/* HOISTED */
-);
-
-var _hoisted_61 = ["v-model"];
-var _hoisted_62 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "telefono"
-}, "Telefono:", -1
-/* HOISTED */
-);
-
-var _hoisted_64 = ["v-model"];
-var _hoisted_65 = {
-  "class": "container d-lg-flex justify-content-lg-end"
-};
-var _hoisted_66 = {
-  "class": "container-lg mb-3",
-  style: {
-    "width": "80%"
-  }
-};
-var _hoisted_67 = {
-  "class": "container d-flex justify-content-between my-4 row"
-};
-var _hoisted_68 = {
-  "class": "right col-lg-4 col-sm-2"
-};
-var _hoisted_69 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_70 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Nombre del padre:", -1
-/* HOISTED */
-);
-
-var _hoisted_71 = ["v-model"];
-var _hoisted_72 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_73 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Nombre de la madre:", -1
-/* HOISTED */
-);
-
-var _hoisted_74 = ["v-model"];
-var _hoisted_75 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_76 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Nombre del conyuge:", -1
-/* HOISTED */
-);
-
-var _hoisted_77 = ["v-model"];
-
-var _hoisted_78 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "En caso de emergencia", -1
-/* HOISTED */
-);
-
-var _hoisted_79 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_80 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Nombre:", -1
-/* HOISTED */
-);
-
-var _hoisted_81 = ["v-model"];
-var _hoisted_82 = {
-  "class": "center col-lg-4 col-sm-2"
-};
-var _hoisted_83 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Telefono:", -1
-/* HOISTED */
-);
-
-var _hoisted_85 = ["v-model"];
-var _hoisted_86 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_87 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Telefono:", -1
-/* HOISTED */
-);
-
-var _hoisted_88 = ["v-model"];
-var _hoisted_89 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_90 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Telefono:", -1
-/* HOISTED */
-);
-
-var _hoisted_91 = ["v-model"];
-var _hoisted_92 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_93 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Telefono:", -1
-/* HOISTED */
-);
-
-var _hoisted_94 = ["v-model"];
-var _hoisted_95 = {
-  "class": "left col-lg-4 col-sm-2"
-};
-var _hoisted_96 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_97 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Ocupación:", -1
-/* HOISTED */
-);
-
-var _hoisted_98 = ["v-model"];
-var _hoisted_99 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_100 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Ocupación:", -1
-/* HOISTED */
-);
-
-var _hoisted_101 = ["v-model"];
-var _hoisted_102 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_103 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Ocupación:", -1
-/* HOISTED */
-);
-
-var _hoisted_104 = ["v-model"];
-var _hoisted_105 = {
-  "class": "d-grid row"
-};
-
-var _hoisted_106 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "date"
-}, "Parentesco:", -1
-/* HOISTED */
-);
-
-var _hoisted_107 = ["v-model"];
-var _hoisted_108 = {
-  "class": "container d-lg-flex justify-content-lg-end"
-};
-var _hoisted_109 = {
-  "class": "container-lg mb-3",
-  style: {
-    "width": "80%"
-  }
-};
-var _hoisted_110 = {
-  "class": "container d-flex justify-content-between my-4 row"
-};
-var _hoisted_111 = {
-  "class": "right col-lg-4 col-sm-2"
-};
-
-var _hoisted_112 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>Trabajas: </div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\"><label for=\"trabajas-si\">Si</label></div></div><div class=\"d-grid mb-3\"><div>Razón por la que Trabajas : </div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\"><label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label></div></div><p>Empresa</p>", 3);
-
-var _hoisted_115 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_116 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "name"
-}, "Nombre:", -1
-/* HOISTED */
-);
-
-var _hoisted_117 = ["v-model"];
-var _hoisted_118 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_119 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "telefono"
-}, "Telefono:", -1
-/* HOISTED */
-);
-
-var _hoisted_120 = ["v-model"];
-var _hoisted_121 = {
-  "class": "center col-lg-4 col-sm-2"
-};
-
-var _hoisted_122 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"checkboxs\"><input type=\"checkbox\" id=\"mike\" value=\"Mike\"><label for=\"mike\">No</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"familia\" value=\"familia\"><label for=\"familia\">Apoyar Totalmente a la Familia</label></div>", 3);
-
-var _hoisted_125 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_126 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "domicilio"
-}, "Domicilio:", -1
-/* HOISTED */
-);
-
-var _hoisted_127 = ["v-model"];
-var _hoisted_128 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_129 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "puesto"
-}, "Puesto:", -1
-/* HOISTED */
-);
-
-var _hoisted_130 = ["v-model"];
-
-var _hoisted_131 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>¿Tu trabajo actual esta relacionado con tu carrera?: </div><div class=\"d-flex\"><div class=\"checkboxs\"><input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\"><label for=\"tabajas-si\">Si</label></div><div class=\"checkboxs\"><input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\"><label for=\"trabajo-no\">No</label></div></div></div><div class=\"mt-4 checkboxs\"><input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\"><label for=\"sostenerme\">Sostenerme Totalmente</label></div><div class=\"d-grid mb-3\"><input type=\"text\" name=\"total\" id=\"total\"></div><div class=\"d-grid mb-3\"><label for=\"departamento\">Departamento:</label><input type=\"text\" name=\"departamento\" id=\"departamento\"></div></div>", 1);
-
-var _hoisted_132 = {
-  "class": "container d-lg-flex justify-content-lg-end"
-};
-var _hoisted_133 = {
-  "class": "container-lg mb-3",
-  style: {
-    "width": "80%"
-  }
-};
-
-var _hoisted_134 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><div>Vive con: </div><div class=\"continer checkboxs\"><input type=\"checkbox\" id=\"padres+\" value=\"padres+\"><label for=\"padres+\">Ambos Padres</label></div></div><div class=\"mt-4\"><div>Vivienda: </div><div class=\"d-flex\"><div class=\"container\"><div class=\"container-body p-0 checkboxs\"><input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\"><label for=\"propia\">Propia</label></div></div><div class=\"container checkboxs\"><input type=\"checkbox\" id=\"renta\" value=\"renta\"><label for=\"renta\">Rentada</label></div></div></div><div class=\"d-grid mb-3\"><div>¿Quien es tu principal apoyo econimico?: </div><div class=\"d-flex\"><div class=\"continer checkboxs\"><input type=\"checkbox\" id=\"padre\" value=\"padre\"><label for=\"padre\">Padre</label></div><div class=\"continer\"><input type=\"checkbox\" id=\"madre\" value=\"madre\"><label for=\"madre\">Madre</label></div></div></div><div class=\"d-grid mb-3\"><div>Ingresos Familiares: </div><div class=\"d-flex\"><div class=\"continer checkboxs\"><input type=\"checkbox\" id=\"menos\" value=\"menos\"><label for=\"menos\">Menos de $5,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"5-10\" value=\"5-10\"><label for=\"5-10\">$5,000 A $10,000</label></div></div></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\"><label for=\"uno-padre\">Uno de los Padres</label></div><div class=\"container\"><input type=\"checkbox\" id=\"pareja\" value=\"pareja\"><label for=\"pareja\">Pareja</label></div></div><div class=\"mt-4 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"prestada\" value=\"prestada\"><label for=\"prestada\">Prestada</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"huermano\" value=\"huermano\"><label for=\"huermano\">Hermano(a)</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"continer\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"solo\" value=\"solo\"><label for=\"solo\">Solo(a)</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3\"><div>Transporte: </div><div class=\"d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"propio\" value=\"propio\"><label for=\"propio\">Propia</label></div><div class=\"container\"><input type=\"checkbox\" id=\"publico\" value=\"publico\"><label for=\"publico\">Pubico</label></div></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\"><label for=\"conyuge\">Cónyuge</label></div><div class=\"container\"><input type=\"checkbox\" id=\"otro\" value=\"otro\"><label for=\"otro\">Otro Familiar</label></div></div><div class=\"d-grid mb-3 d-flex\"><div class=\"container\"><input type=\"checkbox\" id=\"10-15\" value=\"10-15\"><label for=\"10-15\">$10,000 A $15,000</label></div><div class=\"container\"><input type=\"checkbox\" id=\"mas\" value=\"mas\"><label for=\"mas\">Más de $15,000</label></div></div></div></div>", 1);
-
-var _hoisted_135 = {
-  "class": "container d-lg-flex justify-content-lg-end"
-};
-var _hoisted_136 = {
-  "class": "container-lg mb-3",
-  style: {
-    "width": "80%"
-  }
-};
-var _hoisted_137 = {
-  "class": "container d-flex justify-content-between my-4 row"
-};
-var _hoisted_138 = {
-  "class": "right col-4 mt-4"
-};
-var _hoisted_139 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_140 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "nombreBachillerato"
-}, "Nombre del bachillerato:", -1
-/* HOISTED */
-);
-
-var _hoisted_141 = ["v-model"];
-var _hoisted_142 = {
-  "class": "center col-4 mt-4"
-};
-var _hoisted_143 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_144 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "tipoBachillerato"
-}, "Tipo de bachillerato:", -1
-/* HOISTED */
-);
-
-var _hoisted_145 = ["v-model"];
-var _hoisted_146 = {
-  "class": "left col-4 mt-4"
-};
-var _hoisted_147 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_148 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "entidadFederativa"
-}, "Entidad Federativa:", -1
-/* HOISTED */
-);
-
-var _hoisted_149 = ["v-model"];
-var _hoisted_150 = {
-  "class": "container d-lg-flex justify-content-lg-end"
-};
-var _hoisted_151 = {
-  "class": "container-lg mb-3",
-  style: {
-    "width": "75%"
-  }
-};
-var _hoisted_152 = {
-  "class": "container d-flex justify-content-between my-4 row"
-};
-var _hoisted_153 = {
-  "class": "right col-4 mt-4"
-};
-var _hoisted_154 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_155 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "nombreBachillerato"
-}, "Promedio de bachillerato:", -1
-/* HOISTED */
-);
-
-var _hoisted_156 = ["v-model"];
-var _hoisted_157 = {
-  "class": "center col-4 mt-4"
-};
-var _hoisted_158 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_159 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "tipoBachillerato"
-}, "Nivel de Ingles:", -1
-/* HOISTED */
-);
-
-var _hoisted_160 = ["v-model"];
-var _hoisted_161 = {
-  "class": "left col-4 mt-4"
-};
-var _hoisted_162 = {
-  "class": "d-grid mb-3"
-};
-
-var _hoisted_163 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "entidadFederativa"
-}, "Puntos del examen de Ingreso:", -1
-/* HOISTED */
-);
-
-var _hoisted_164 = ["v-model"];
-
-var _hoisted_165 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "container d-lg-flex justify-content-lg-end"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "button",
-  "class": "btn bg-utt text-white btn-lg"
-}, " Guardar ")], -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Slide");
 
@@ -20424,10 +19909,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       })];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.usuariosArray, function (usuario) {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.usuariosArray, function (usuario, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Slide, {
           "class": "mb-3",
-          key: usuario
+          key: index
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -20438,11 +19923,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "height": "220px"
               },
               onClick: function onClick($event) {
-                return _ctx.onClickData(usuario);
+                return $options.onClickData(usuario, index);
               }
-            }, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.matricula), 1
+            }, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.address.city), 1
             /* TEXT */
-            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.nombre), 1
+            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.username), 1
             /* TEXT */
             )])], 8
             /* PROPS */
@@ -20469,289 +19954,31 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']])], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_23, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.steps, function (step) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
-      "class": "nav-item card-title",
-      key: step.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link text-secondary", {
-        'bg-utt text-white fw-border': step == $setup.activeStep
-      }]),
-      href: "#",
-      onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-        return $setup.onClickStep(step);
-      }, ["prevent"])
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(step), 11
-    /* TEXT, CLASS, PROPS */
-    , _hoisted_24)]);
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.usuariosArray, function (usuario) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "card border-0",
+      key: usuario
+    }, [usuario.username == $data.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_23, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.steps, function (step) {
+      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+        "class": "nav-item card-title",
+        key: step.id
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link text-secondary", {
+          'bg-utt text-white fw-border': step == $setup.activeStep
+        }]),
+        href: "#",
+        onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+          return $setup.onClickStep(step);
+        }, ["prevent"])
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(step), 11
+      /* TEXT, CLASS, PROPS */
+      , _hoisted_24)]);
+    }), 128
+    /* KEYED_FRAGMENT */
+    ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"d-lg-flex\" >\n\n                <div class=\"avatar col-sm-2 text-center m-auto\" style=\"width:20%;\" >\n                    <img src=\"https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg\" width=\"200\" height=\"200\">\n                    <p class=\"mt-3\">{{ user.matricula }} </p>\n                    <p>{{ user.nombre }} </p>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Personales'\">\n\n                    <div class=\"container d-flex justify-content-between my-4 row\">\n\n                        <div class=\"right col-lg-4 col-sm-2\" >\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"calleNumero\">Fecha de nacimiento:</label>\n                                <input type=\"text\" name=\"calleNumero\" id=\"calleNumero\" :v-model=\"datosPersonales.fechaDeNacimiento\" />\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Estado civil: </div>\n                                <div class=\"d-flex justify-content-between\">\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"casado\" value=\"casado\">\n                                        <label for=\"casado\">Casado</label>\n                                    </div>\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\">\n                                        <label for=\"divorciado\">Divorciado</label>\n                                    </div>\n                                </div>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"calleNumero\">Calle y numero:</label>\n                                <input type=\"text\" name=\"calleNumero\" id=\"calleNumero\" :v-model=\"datosPersonales.domicilio.calle\"/>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"email\">Correo electronico (personal):</label>\n                                <input type=\"text\" name=\"email\" id=\"email\" :v-model=\"datosPersonales.contacto.correoElectronico.personal\" />\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"movil\">Movil:</label>\n                                <input type=\"text\" name=\"movil\" id=\"movil\" :v-model=\"datosPersonales.contacto.telefono.personal\" />\n                            </div>\n\n                        </div>\n\n                        <div class=\"center col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"date\">Edad:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"datosPersonales.datosPersonales.edad\" />\n                            </div>\n\n                            <div class=\"text-center mb-3\">\n                                <div>.</div>\n                                <div class=\"checkboxs\">\n                                    <input type=\"checkbox\" id=\"mike\" value=\"Mike\" >\n                                    <label for=\"mike\">Soltero</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\" >\n                                <label for=\"colonia\">Colonia:</label>\n                                <input type=\"text\" name=\"colonia\" id=\"colonia\"  :v-model=\"user.datosPersonales.domicilio.colonia\" />\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"institucional\">Correo electronico (institucional):</label>\n                                <input type=\"text\" name=\"institucional\" id=\"institucional\" :v-model=\"user.datosPersonales.contacto.correoElectronico.institucional\"/>\n                            </div>\n                        </div>\n\n                        <div class=\"left col-lg-4 col-sm-2\">\n                            <div class=\"d-grid mb-3\">\n                                <div>Genero: </div>\n                                <div class=\"d-flex justify-content-between\">\n\n                                       <input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"femenino-outlined\" autocomplete=\"off\">\n                                    <label class=\"btn btn-outline-secondary\" for=\"femenino-outlined\">Femenino</label>\n\n                                    <input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"masculino-outlined\" autocomplete=\"off\">\n                                    <label class=\"btn btn-outline-secondary\" for=\"masculino-outlined\">Masculino</label>\n\n                                    <input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"otro-outlined\" autocomplete=\"off\">\n                                    <label class=\"btn btn-outline-secondary\" for=\"otro-outlined\">Otro</label>\n\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div class=\"text-center\">\n                                    <div>.</div>\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"UnionLibre\"  value=\"true\">\n                                        <label for=\"UnionLibre\">Union libre</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"municipio\">Municipio:</label>\n                                <input type=\"text\" name=\"municipio\" id=\"municipio\" :v-model=\"user.datosPersonales.domicilio.municipio.descripcion\"/>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"telefono\">Telefono:</label>\n                                <input type=\"text\" name=\"telefono\" id=\"telefono\"  :v-model=\"user.datosPersonales.contacto.telefono.movil\" />\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Familiares')\"> Siguiente </button>\n                    </div>\n\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Familiares'\">\n\n                    <div class=\"container d-flex justify-content-between my-4 row\">\n\n                        <div class=\"right col-lg-4 col-sm-2 \">\n\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre del padre:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.padre.nombre\" />\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre de la madre:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.madre.nombre\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre del conyuge:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.conyuge.nombre\"/>\n                            </div>\n                            <h5>En caso de emergencia</h5>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.emergencia.nombre\"/>\n                            </div>\n\n\n                        </div>\n\n                        <div class=\"center col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.padre.telefono\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.madre.telefono\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.conyuge.telefono\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.emergencia.telefono\"/>\n                            </div>\n                        </div>\n\n                        <div class=\"left col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Ocupación:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.padre.ocupacion\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Ocupación:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.madre.ocupacion\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Ocupación:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.conyuge.ocupacion\"/>\n                            </div>\n                            <div class=\"d-grid row \">\n                                <label for=\"date\">Parentesco:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.emergencia.parentezco\"/>\n                            </div>\n                        </div>\n\n                    </div>\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Laborales')\"> Siguiente </button>\n                    </div>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Laborales'\">\n\n                    <div class=\"container d-flex justify-content-between my-4 row\">\n\n                        <div class=\"right col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Trabajas: </div>\n                                <div class=\"checkboxs\">\n                                    <input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\" >\n                                    <label for=\"trabajas-si\">Si</label>\n                                </div>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Razón por la que Trabajas : </div>\n                                <div class=\"checkboxs\">\n                                    <input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\" >\n                                    <label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label>\n\n                                </div>\n                            </div>\n\n                            <p>Empresa</p>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"name\">Nombre:</label>\n                                <input type=\"text\" name=\"name\" id=\"name\"  :v-model=\"user.datosLaborales.empresa.nombre\"/>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"telefono\">Telefono:</label>\n                                <input type=\"text\" name=\"telefono\" id=\"telefono\" :v-model=\"user.datosLaborales.empresa.telefono\" />\n                            </div>\n\n                        </div>\n                        <div class=\"center col-lg-4 col-sm-2\">\n\n                            <div class=\"checkboxs\">\n                                <input type=\"checkbox\" id=\"mike\" value=\"Mike\" >\n                                <label for=\"mike\">No</label>\n                            </div>\n\n                            <div class=\"checkboxs\">\n                                <input type=\"checkbox\" id=\"familia\" value=\"familia\" >\n                                <label for=\"familia\">Apoyar Totalmente a la Familia</label>\n                            </div>\n\n                            <div class=\"checkboxs\">\n                                <input type=\"checkbox\" id=\"familia\" value=\"familia\" >\n                                <label for=\"familia\">Apoyar Totalmente a la Familia</label>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"domicilio\">Domicilio:</label>\n                                <input type=\"text\" name=\"domicilio\" id=\"domicilio\" :v-model=\"user.datosLaborales.empresa.domicilio\"/>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"puesto\">Puesto:</label>\n                                <input type=\"text\" name=\"puesto\" id=\"puesto\" :v-model=\"user.datosLaborales.empresa.puesto\"/>\n                            </div>\n\n                        </div>\n                        <div class=\"left col-lg-4 col-sm-2\">\n                            <div class=\"d-grid mb-3\">\n                                <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\" >\n                                        <label for=\"tabajas-si\">Si</label>\n                                    </div>\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\" >\n                                        <label for=\"trabajo-no\">No</label>\n                                    </div>\n\n                                </div>\n                            </div>\n                            <div class=\"mt-4 checkboxs\">\n                                <input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\" >\n                                <label for=\"sostenerme\">Sostenerme Totalmente</label>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <input type=\"text\" name=\"total\" id=\"total\" />\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"departamento\">Departamento:</label>\n                                <input type=\"text\" name=\"departamento\" id=\"departamento\" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Economicos')\"> Siguiente </button>\n                    </div>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Economicos'\">\n\n                    <div class=\"container d-flex justify-content-between  my-4 row\">\n\n                        <div class=\"right col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Vive con: </div>\n                                <div class=\"continer checkboxs\">\n                                    <input type=\"checkbox\" id=\"padres+\" value=\"padres+\" >\n                                    <label for=\"padres+\">Ambos Padres</label>\n                                </div>\n                            </div>\n\n                            <div class=\"mt-4\">\n                                <div>Vivienda: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"container\">\n                                        <div class=\"container-body p-0 checkboxs\">\n                                            <input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\" >\n                                            <label for=\"propia\">Propia</label>\n                                        </div>\n                                    </div>\n                                    <div class=\"container checkboxs\">\n                                        <input type=\"checkbox\" id=\"renta\" value=\"renta\" >\n                                        <label for=\"renta\">Rentada</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div>¿Quien es tu principal apoyo econimico?: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"continer checkboxs\">\n                                        <input type=\"checkbox\" id=\"padre\" value=\"padre\" >\n                                        <label for=\"padre\">Padre</label>\n                                    </div>\n                                    <div class=\"continer\">\n                                        <input type=\"checkbox\" id=\"madre\" value=\"madre\" >\n                                        <label for=\"madre\">Madre</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div>Ingresos Familiares: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"continer checkboxs\">\n                                        <input type=\"checkbox\" id=\"menos\" value=\"menos\" >\n                                        <label for=\"menos\">Menos de $5,000</label>\n                                    </div>\n                                    <div class=\"container\">\n                                        <input type=\"checkbox\" id=\"5-10\" value=\"5-10\" >\n                                        <label for=\"5-10\">$5,000 A $10,000</label>\n                                    </div>\n                                </div>\n                            </div>\n\n                        </div>\n                        <div class=\"center col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\" >\n                                    <label for=\"uno-padre\">Uno de los Padres</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"pareja\" value=\"pareja\" >\n                                    <label for=\"pareja\">Pareja</label>\n                                </div>\n                            </div>\n\n                            <div class=\"mt-4 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"prestada\" value=\"prestada\" >\n                                    <label for=\"prestada\">Prestada</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"continer\">\n                                    <input type=\"checkbox\" id=\"huermano\" value=\"huermano\" >\n                                    <label for=\"huermano\">Hermano(a)</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"continer\">\n                                    <input type=\"checkbox\" id=\"10-15\" value=\"10-15\" >\n                                    <label for=\"10-15\">$10,000 A $15,000</label>\n                                </div>\n                            </div>\n\n                        </div>\n                        <div class=\"left col-4 mt-4\">\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"solo\" value=\"solo\" >\n                                    <label for=\"solo\">Solo(a)</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"otro\" value=\"otro\" >\n                                    <label for=\"otro\">Otro Familiar</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div>Transporte: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"container\">\n                                        <input type=\"checkbox\" id=\"propio\" value=\"propio\" >\n                                        <label for=\"propio\">Propia</label>\n                                    </div>\n                                    <div class=\"container\">\n                                        <input type=\"checkbox\" id=\"publico\" value=\"publico\" >\n                                        <label for=\"publico\">Pubico</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\" >\n                                    <label for=\"conyuge\">Cónyuge</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"otro\" value=\"otro\" >\n                                    <label for=\"otro\">Otro Familiar</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"10-15\" value=\"10-15\" >\n                                    <label for=\"10-15\">$10,000 A $15,000</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"mas\" value=\"mas\" >\n                                    <label for=\"mas\">Más de $15,000</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Escolares')\"> Siguiente </button>\n                    </div>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Escolares'\">\n\n                    <div class=\"container d-flex justify-content-between  my-4 row\">\n\n                        <div class=\"right col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"nombreBachillerato\">Nombre del bachillerato:</label>\n                                <input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\" :v-model=\"user.datosEscolares.nombreBachillerato\"/>\n                            </div>\n\n                        </div>\n\n                        <div class=\"center col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"tipoBachillerato\">Tipo de bachillerato:</label>\n                                <input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\" :v-model=\"user.datosEscolares.tipoBachillerato.descripcion\"/>\n                            </div>\n\n                        </div>\n\n                        <div class=\"left col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"entidadFederativa\">Entidad Federativa:</label>\n                                <input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\" :v-model=\"user.datosEscolares.entidadFederativa.nombre\" />\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Promedios')\"> Siguiente </button>\n                    </div>\n\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:75%\" v-show=\"activeStep == 'Promedios'\">\n                    <div class=\"container d-flex justify-content-between  my-4 row\">\n\n                        <div class=\"right col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"nombreBachillerato\">Promedio de bachillerato:</label>\n                                <input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\" :v-model=\"user.promedios.tsu.bachillerato\"/>\n                            </div>\n\n                        </div>\n                        <div class=\"center col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"tipoBachillerato\">Nivel de Ingles:</label>\n                                <input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\" :v-model=\"user.promedios.tsu.nivelIngles\"/>\n                            </div>\n\n                        </div>\n                        <div class=\"left col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"entidadFederativa\">Puntos del examen de Ingreso:</label>\n                                <input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\" :v-model=\"user.promedios.tsu.puntosExamenIngreso\" />\n                            </div>\n\n                        </div>\n                    </div>\n\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" > Guardar </button>\n                    </div>\n                </div>\n                \n                \n            </div> ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Registro general del alumno']]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.matricula), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.nombre), 1
-  /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "calleNumero",
-    id: "calleNumero",
-    "v-model": $data.user.fechaDeNacimiento
-  }, null, 8
-  /* PROPS */
-  , _hoisted_34)]), _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [_hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "calleNumero",
-    id: "calleNumero",
-    "v-model": $data.user.domicilio.calle
-  }, null, 8
-  /* PROPS */
-  , _hoisted_38)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "email",
-    id: "email",
-    "v-model": $data.user.contacto.correoElectronico.personal
-  }, null, 8
-  /* PROPS */
-  , _hoisted_41)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "movil",
-    id: "movil",
-    "v-model": $data.user.contacto.telefono.personal
-  }, null, 8
-  /* PROPS */
-  , _hoisted_44)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [_hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosPersonales.edad
-  }, null, 8
-  /* PROPS */
-  , _hoisted_48)]), _hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [_hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "colonia",
-    id: "colonia",
-    "v-model": $data.user.datosPersonales.domicilio.colonia
-  }, null, 8
-  /* PROPS */
-  , _hoisted_52)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [_hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "institucional",
-    id: "institucional",
-    "v-model": $data.user.datosPersonales.contacto.correoElectronico.institucional
-  }, null, 8
-  /* PROPS */
-  , _hoisted_55)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [_hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [_hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "municipio",
-    id: "municipio",
-    "v-model": $data.user.datosPersonales.domicilio.municipio.descripcion
-  }, null, 8
-  /* PROPS */
-  , _hoisted_61)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_62, [_hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "telefono",
-    id: "telefono",
-    "v-model": $data.user.datosPersonales.contacto.telefono.movil
-  }, null, 8
-  /* PROPS */
-  , _hoisted_64)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_65, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn bg-utt text-white btn-lg",
-    onClick: _cache[0] || (_cache[0] = function ($event) {
-      return $setup.onClickStep('Datos Familiares');
-    })
-  }, " Siguiente ")])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Personales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_69, [_hoisted_70, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.padre.nombre
-  }, null, 8
-  /* PROPS */
-  , _hoisted_71)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [_hoisted_73, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.madre.nombre
-  }, null, 8
-  /* PROPS */
-  , _hoisted_74)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_75, [_hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.conyuge.nombre
-  }, null, 8
-  /* PROPS */
-  , _hoisted_77)]), _hoisted_78, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_79, [_hoisted_80, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.emergencia.nombre
-  }, null, 8
-  /* PROPS */
-  , _hoisted_81)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_83, [_hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.padre.telefono
-  }, null, 8
-  /* PROPS */
-  , _hoisted_85)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_86, [_hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.madre.telefono
-  }, null, 8
-  /* PROPS */
-  , _hoisted_88)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [_hoisted_90, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.conyuge.telefono
-  }, null, 8
-  /* PROPS */
-  , _hoisted_91)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_92, [_hoisted_93, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.emergencia.telefono
-  }, null, 8
-  /* PROPS */
-  , _hoisted_94)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_95, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_96, [_hoisted_97, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.padre.ocupacion
-  }, null, 8
-  /* PROPS */
-  , _hoisted_98)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [_hoisted_100, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.madre.ocupacion
-  }, null, 8
-  /* PROPS */
-  , _hoisted_101)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_102, [_hoisted_103, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.conyuge.ocupacion
-  }, null, 8
-  /* PROPS */
-  , _hoisted_104)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_105, [_hoisted_106, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "date",
-    id: "date",
-    "v-model": $data.user.datosFamiliares.emergencia.parentezco
-  }, null, 8
-  /* PROPS */
-  , _hoisted_107)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_108, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn bg-utt text-white btn-lg",
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $setup.onClickStep('Datos Laborales');
-    })
-  }, " Siguiente ")])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Familiares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_109, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_111, [_hoisted_112, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_115, [_hoisted_116, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "name",
-    id: "name",
-    "v-model": $data.user.datosLaborales.empresa.nombre
-  }, null, 8
-  /* PROPS */
-  , _hoisted_117)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_118, [_hoisted_119, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "telefono",
-    id: "telefono",
-    "v-model": $data.user.datosLaborales.empresa.telefono
-  }, null, 8
-  /* PROPS */
-  , _hoisted_120)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_121, [_hoisted_122, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_125, [_hoisted_126, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "domicilio",
-    id: "domicilio",
-    "v-model": $data.user.datosLaborales.empresa.domicilio
-  }, null, 8
-  /* PROPS */
-  , _hoisted_127)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_128, [_hoisted_129, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "puesto",
-    id: "puesto",
-    "v-model": $data.user.datosLaborales.empresa.puesto
-  }, null, 8
-  /* PROPS */
-  , _hoisted_130)])]), _hoisted_131]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_132, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn bg-utt text-white btn-lg",
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $setup.onClickStep('Datos Economicos');
-    })
-  }, " Siguiente ")])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Laborales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_133, [_hoisted_134, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn bg-utt text-white btn-lg",
-    onClick: _cache[3] || (_cache[3] = function ($event) {
-      return $setup.onClickStep('Datos Escolares');
-    })
-  }, " Siguiente ")])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Economicos']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_136, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_137, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_139, [_hoisted_140, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "nombreBachillerato",
-    id: "nombreBachillerato",
-    "v-model": $data.user.datosEscolares.nombreBachillerato
-  }, null, 8
-  /* PROPS */
-  , _hoisted_141)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_142, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_143, [_hoisted_144, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "tipoBachillerato",
-    id: "tipoBachillerato",
-    "v-model": $data.user.datosEscolares.tipoBachillerato.descripcion
-  }, null, 8
-  /* PROPS */
-  , _hoisted_145)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_146, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_147, [_hoisted_148, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "entidadFederativa",
-    id: "entidadFederativa",
-    "v-model": $data.user.datosEscolares.entidadFederativa.nombre
-  }, null, 8
-  /* PROPS */
-  , _hoisted_149)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_150, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn bg-utt text-white btn-lg",
-    onClick: _cache[4] || (_cache[4] = function ($event) {
-      return $setup.onClickStep('Promedios');
-    })
-  }, " Siguiente ")])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Escolares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_151, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_152, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_153, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_154, [_hoisted_155, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "nombreBachillerato",
-    id: "nombreBachillerato",
-    "v-model": $data.user.promedios.tsu.bachillerato
-  }, null, 8
-  /* PROPS */
-  , _hoisted_156)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_157, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_158, [_hoisted_159, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "tipoBachillerato",
-    id: "tipoBachillerato",
-    "v-model": $data.user.promedios.tsu.nivelIngles
-  }, null, 8
-  /* PROPS */
-  , _hoisted_160)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_161, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_162, [_hoisted_163, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    name: "entidadFederativa",
-    id: "entidadFederativa",
-    "v-model": $data.user.promedios.tsu.puntosExamenIngreso
-  }, null, 8
-  /* PROPS */
-  , _hoisted_164)])])]), _hoisted_165], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Promedios']])])], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Registro general del alumno']])])])], 64
+  ))])])], 64
   /* STABLE_FRAGMENT */
   );
 }

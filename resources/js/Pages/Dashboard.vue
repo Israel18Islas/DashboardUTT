@@ -59,13 +59,13 @@
         <div class="card-body">
             <h5 class="card-title text-utt fw-bolder">Alumnos</h5>
             <Carousel :wrap-around="true" :settings="settings" :breakpoints="breakpoints">
-                <Slide class="mb-3" v-for="usuario in usuariosArray" :key="usuario" >
+                <Slide class="mb-3" v-for="(usuario, index) in usuariosArray" :key="index" >
                 <div class="carousel__item" >
-                    <div class="card border-0 p-2 " id="card-carrusel" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
+                    <div class="card border-0 p-2 " id="card-carrusel" style="width: 180px; height: 220px;" @click="onClickData(usuario,index)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU"  class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-title">{{ usuario.matricula }} </p>
-                            <p class="card-text">{{ usuario.nombre }} </p>
+                            <p class="card-title">{{ usuario.address.city }} </p>
+                            <p class="card-text">{{ usuario.username }} </p>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
 
     </div>
 
-
+   
     <div class="mx-5 mt-4 mb-5">
 
         <div v-show="activeOption == 'Dashboard'" class="d-lg-flex justify-content-between">
@@ -101,19 +101,24 @@
 
             </div>
 
-        </div>
+        </div>      
+        
+           
+        <div class=" card border-0" v-for="usuario in usuariosArray" :key="usuario" v-show="activeOption == 'Registro general del alumno'">
+            
+            <div v-if="usuario.username == user">
+                
+                <ul class="nav nav-tabs mt-4">
+                    
+                    <li class="nav-item card-title" v-for="step in steps" :key="step.id" >
+                        
+                        <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
+                            {{ step }}
+                        </a>
+                    </li>
+                </ul>
 
-        <div class=" card border-0" v-show="activeOption == 'Registro general del alumno'">
-
-            <ul class="nav nav-tabs mt-4">
-                <li class="nav-item card-title" v-for="step in steps" :key="step.id" >
-                    <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
-                        {{ step }}
-                    </a>
-                </li>
-            </ul>
-
-            <div class="d-lg-flex" >
+                <!-- <div class="d-lg-flex" >
 
                 <div class="avatar col-sm-2 text-center m-auto" style="width:20%;" >
                     <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" width="200" height="200">
@@ -129,7 +134,7 @@
 
                             <div class="d-grid mb-3">
                                 <label for="calleNumero">Fecha de nacimiento:</label>
-                                <input type="text" name="calleNumero" id="calleNumero" :v-model="user.fechaDeNacimiento" />
+                                <input type="text" name="calleNumero" id="calleNumero" :v-model="datosPersonales.fechaDeNacimiento" />
                             </div>
 
                             <div class="d-grid mb-3">
@@ -148,17 +153,17 @@
 
                             <div class="d-grid mb-3">
                                 <label for="calleNumero">Calle y numero:</label>
-                                <input type="text" name="calleNumero" id="calleNumero" :v-model="user.domicilio.calle"/>
+                                <input type="text" name="calleNumero" id="calleNumero" :v-model="datosPersonales.domicilio.calle"/>
                             </div>
 
                             <div class="d-grid mb-3">
                                 <label for="email">Correo electronico (personal):</label>
-                                <input type="text" name="email" id="email" :v-model="user.contacto.correoElectronico.personal" />
+                                <input type="text" name="email" id="email" :v-model="datosPersonales.contacto.correoElectronico.personal" />
                             </div>
 
                             <div class="d-grid mb-3">
                                 <label for="movil">Movil:</label>
-                                <input type="text" name="movil" id="movil" :v-model="user.contacto.telefono.personal" />
+                                <input type="text" name="movil" id="movil" :v-model="datosPersonales.contacto.telefono.personal" />
                             </div>
 
                         </div>
@@ -167,7 +172,7 @@
 
                             <div class="d-grid mb-3">
                                 <label for="date">Edad:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosPersonales.edad" />
+                                <input type="text" name="date" id="date" :v-model="datosPersonales.datosPersonales.edad" />
                             </div>
 
                             <div class="text-center mb-3">
@@ -612,7 +617,9 @@
                 </div>
                 
                 
+            </div> -->
             </div>
+
         </div>
 
 
@@ -861,10 +868,12 @@ export default {
   },
   methods: {
 
-    // onClickData(data){
-    //     console.log(data)
-    //     // this.user = data
-    //     this.activeOption = 'Registro general del alumno'
+    onClickData(usuario, index){
+        console.log(usuario , index)
+        console.log(usuario.address.city)
+        this.user = usuario.username
+        this.activeOption = 'Registro general del alumno'
+    }
 
     //     let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
     //     let requestUrl = apiUrl + data.matricula;
