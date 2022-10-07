@@ -33,21 +33,21 @@
                     <div class="col-sm-5 col-lg-6">
                         <div class="d-lg-flex text-sm-center">
                             <div class="fw-bolder me-3">Carrera:</div>
-                            <div>Ingeniería en Tecnologías de la Información</div>
+                            <div>{{carrera.Carrera}}</div>
                         </div>
                         <div class="d-lg-flex">
                             <div class="fw-bolder me-3">Especilidad:</div>
-                            <div>Desarrollo y Gestión de Software</div>
+                            <div>{{carrera.Especialidad}}</div>
                         </div>
                     </div>
                     <div class="col-sm-5 col-lg-6">
                         <div class="d-lg-flex ">
                             <div class="fw-bolder me-3">Periodo:</div>
-                            <div>Septiembre - Diciembre 2022</div>
+                            <div>{{carrera.Periodo}}</div>
                         </div>
                         <div class="d-lg-flex">
                             <div class="fw-bolder me-3">Grupo:</div>
-                            <div>9° A</div>
+                            <div>{{carrera.Grupo}}</div>
                         </div>
                     </div>
                 </div>
@@ -61,11 +61,11 @@
             <Carousel :wrap-around="true" :settings="settings" :breakpoints="breakpoints">
                 <Slide class="mb-3" v-for="(usuario, index) in usuariosArray" :key="index" >
                 <div class="carousel__item" >
-                    <div class="card border-0 p-2 " id="card-carrusel" style="width: 180px; height: 220px;" @click="onClickData(usuario,index)">
+                    <div class="card border-0 p-2 " id="card-carrusel" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU"  class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-title">{{ usuario.address.city }} </p>
-                            <p class="card-text">{{ usuario.username }} </p>
+                            <p class="card-title">{{ usuario.matricula }} </p>
+                            <p class="card-text">{{ usuario.nombre }} </p>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
 
     </div>
 
-   
+
     <div class="mx-5 mt-4 mb-5">
 
         <div v-show="activeOption == 'Dashboard'" class="d-lg-flex justify-content-between">
@@ -101,528 +101,501 @@
 
             </div>
 
-        </div>      
-        
-           
-        <div class=" card border-0" v-for="usuario in usuariosArray" :key="usuario" v-show="activeOption == 'Registro general del alumno'">
-            
-            <div v-if="usuario.username == user">
-                
+        </div>
+
+
+        <div class=" card border-0" v-for="usuario in alumnos" :key="usuario" v-show="activeOption == 'Registro general del alumno'">
+
+            <div v-if="usuario.matricula == user">
+
                 <ul class="nav nav-tabs mt-4">
-                    
+
                     <li class="nav-item card-title" v-for="step in steps" :key="step.id" >
-                        
+
                         <a class="nav-link text-secondary" :class="{ 'bg-utt text-white fw-border': step == activeStep}" href="#" @click.prevent="onClickStep(step)">
                             {{ step }}
                         </a>
                     </li>
                 </ul>
 
-                <!-- <div class="d-lg-flex" >
+                <div class="d-lg-flex" >
 
-                <div class="avatar col-sm-2 text-center m-auto" style="width:20%;" >
-                    <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" width="200" height="200">
-                    <p class="mt-3">{{ user.matricula }} </p>
-                    <p>{{ user.nombre }} </p>
-                </div>
+                    <div class="avatar col-sm-2 text-center m-auto" style="width:20%;" >
+                        <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" width="200" height="200">
+                        <p class="mt-3">{{ user.matricula }} </p>
+                        <p>{{ user.nombre }} </p>
+                    </div>
 
-                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Personales'">
 
-                    <div class="container d-flex justify-content-between my-4 row">
 
-                        <div class="right col-lg-4 col-sm-2" >
+                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Personales'">
 
-                            <div class="d-grid mb-3">
-                                <label for="calleNumero">Fecha de nacimiento:</label>
-                                <input type="text" name="calleNumero" id="calleNumero" :v-model="datosPersonales.fechaDeNacimiento" />
+                        <div class="container d-flex justify-content-between my-4 row">
+
+                            <div class="right col-lg-4 col-sm-2" >
+
+                                <div class="d-grid mb-3">
+                                    <label for="FechaNacimiento">Fecha de nacimiento:</label>
+                                    <input type="text" name="FechaNacimiento" id="FechaNacimiento" v-model="usuario.datosPersonales.FechaNacimiento" />
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <div>Estado civil: </div>
+                                    <div class="d-flex justify-content-between">
+                                        <input type="radio" class="btn-check btn-ms" name="options-civil" id="Casado-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-secondary"  for="Casado-outlined">Casado</label>
+
+                                        <input type="radio" class="btn-check btn-ms" name="options-civil" id="Divorciado-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="Divorciado-outlined">Divorciado</label>
+
+                                    </div>
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <label for="calleNumero">Calle y numero:</label>
+                                    <input type="text" name="calleNumero" id="calleNumero" v-model="usuario.datosPersonales.domicilio.calle"/>
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <label for="email">Correo electronico (personal):</label>
+                                    <input type="text" name="email" id="email" v-model="usuario.datosPersonales.contacto.correoElectronico.personal" />
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <label for="movil">Movil:</label>
+                                    <input type="text" name="movil" id="movil"  v-model="usuario.datosPersonales.contacto.telefono.movil" />
+                                </div>
+
                             </div>
 
-                            <div class="d-grid mb-3">
-                                <div>Estado civil: </div>
-                                <div class="d-flex justify-content-between">
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="casado" value="casado">
-                                        <label for="casado">Casado</label>
-                                    </div>
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="divorciado" value="divorciado">
-                                        <label for="divorciado">Divorciado</label>
-                                    </div>
+                            <div class="center col-lg-4 col-sm-2">
+
+                                <div class="d-grid mb-3">
+                                    <label for="date">Edad:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosPersonales.edad" />
+                                </div>
+
+                                <div class="text-center mb-3 pt-4">
+
+                                    <input type="radio" class="btn-check btn-ms" name="options-civil" id="Soltero-outlined" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Soltero-outlined">Soltero</label>
+
+                                </div>
+                                <div class="d-grid mb-3" >
+                                    <label for="colonia">Colonia:</label>
+                                    <input type="text" name="colonia" id="colonia"  v-model="usuario.datosPersonales.domicilio.colonia" />
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <label for="institucional">Correo electronico (institucional):</label>
+                                    <input type="text" name="institucional" id="institucional" v-model="usuario.datosPersonales.contacto.correoElectronico.institucional"/>
                                 </div>
                             </div>
 
-                            <div class="d-grid mb-3">
-                                <label for="calleNumero">Calle y numero:</label>
-                                <input type="text" name="calleNumero" id="calleNumero" :v-model="datosPersonales.domicilio.calle"/>
-                            </div>
+                            <div class="left col-lg-4 col-sm-2">
+                                <div class="d-grid mb-3">
+                                    <div>Genero: </div>
+                                    <div class="d-flex justify-content-between">
 
-                            <div class="d-grid mb-3">
-                                <label for="email">Correo electronico (personal):</label>
-                                <input type="text" name="email" id="email" :v-model="datosPersonales.contacto.correoElectronico.personal" />
-                            </div>
+                                        <input type="radio" class="btn-check" checked name="options-genero" id="femenino-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-secondary"  for="femenino-outlined">Femenino</label>
 
-                            <div class="d-grid mb-3">
-                                <label for="movil">Movil:</label>
-                                <input type="text" name="movil" id="movil" :v-model="datosPersonales.contacto.telefono.personal" />
-                            </div>
+                                        <input type="radio" class="btn-check" name="options-genero" id="masculino-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="masculino-outlined">Masculino</label>
 
+                                        <input type="radio" class="btn-check" name="options-genero" id="otro-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="otro-outlined">Otro</label>
+
+                                    </div>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <div class="text-center pt-4">
+                                        <input type="radio" class="btn-check btn-ms" name="options-civil" id="UnionLibre-outlined" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="UnionLibre-outlined">Union Libre</label>
+                                    </div>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <label for="municipio">Municipio:</label>
+                                    <input type="text" name="municipio" id="municipio" v-model="usuario.datosPersonales.domicilio.municipio.descripcion"/>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <label for="telefono">Telefono:</label>
+                                    <input type="text" name="telefono" id="telefono"  v-model="usuario.datosPersonales.contacto.telefono.casa" />
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="center col-lg-4 col-sm-2">
-
-                            <div class="d-grid mb-3">
-                                <label for="date">Edad:</label>
-                                <input type="text" name="date" id="date" :v-model="datosPersonales.datosPersonales.edad" />
-                            </div>
-
-                            <div class="text-center mb-3">
-                                <div>.</div>
-                                <div class="checkboxs">
-                                    <input type="checkbox" id="mike" value="Mike" >
-                                    <label for="mike">Soltero</label>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3" >
-                                <label for="colonia">Colonia:</label>
-                                <input type="text" name="colonia" id="colonia"  :v-model="user.datosPersonales.domicilio.colonia" />
-                            </div>
-                            <div class="d-grid mb-3">
-                                <label for="institucional">Correo electronico (institucional):</label>
-                                <input type="text" name="institucional" id="institucional" :v-model="user.datosPersonales.contacto.correoElectronico.institucional"/>
-                            </div>
+                        <div class="container d-lg-flex justify-content-lg-end">
+                            <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Familiares')"> Siguiente </button>
                         </div>
 
-                        <div class="left col-lg-4 col-sm-2">
-                            <div class="d-grid mb-3">
-                                <div>Genero: </div>
-                                <div class="d-flex justify-content-between">
+                    </div>
 
-                                       <input type="radio" class="btn-check" name="options-genero" id="femenino-outlined" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="femenino-outlined">Femenino</label>
+                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Familiares'">
 
-                                    <input type="radio" class="btn-check" name="options-genero" id="masculino-outlined" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="masculino-outlined">Masculino</label>
+                        <div class="container d-flex justify-content-between my-4 row">
 
-                                    <input type="radio" class="btn-check" name="options-genero" id="otro-outlined" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="otro-outlined">Otro</label>
+                            <div class="right col-lg-4 col-sm-2 ">
 
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Nombre del padre:</label>
+                                    <input type="text" name="date" id="padre_nombre" v-model="usuario.datosFamiliares.padre.nombre" />
                                 </div>
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Nombre de la madre:</label>
+                                    <input type="text" name="date" id="madre_nombre" v-model="usuario.datosFamiliares.madre.nombre"/>
+                                </div>
+                                <p>En caso de emergencia</p>
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Nombre:</label>
+                                    <input type="text" name="date" id="emergencia_nombre" v-model="usuario.datosFamiliares.emergencia.nombre"/>
+                                </div>
+
+
                             </div>
-                            <div class="d-grid mb-3">
-                                <div class="text-center">
+
+                            <div class="center col-lg-4 col-sm-2">
+
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Telefono:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.padre.telefono"/>
+                                </div>
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Telefono:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.madre.telefono"/>
+                                </div>
+                                <!-- <div class="d-grid mb-3 ">
+                                    <label for="date">Telefono:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.conyuge.telefono"/>
+                                </div> -->
+                                <div class="d-grid mb-3 ">
                                     <div>.</div>
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="UnionLibre"  value="true">
-                                        <label for="UnionLibre">Union libre</label>
-                                    </div>
+                                    <label for="date">Telefono:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.emergencia.telefono"/>
                                 </div>
                             </div>
-                            <div class="d-grid mb-3">
-                                <label for="municipio">Municipio:</label>
-                                <input type="text" name="municipio" id="municipio" :v-model="user.datosPersonales.domicilio.municipio.descripcion"/>
+
+                            <div class="left col-lg-4 col-sm-2">
+
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Ocupación:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.padre.ocupacion"/>
+                                </div>
+                                <div class="d-grid mb-3 ">
+                                    <label for="date">Ocupación:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.madre.ocupacion"/>
+                                </div>
+                                <!-- <div class="d-grid mb-3 ">
+                                    <label for="date">Ocupación:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.conyuge.ocupacion"/>
+                                </div> -->
+                                <div>.</div>
+                                <div class="d-grid row ">
+                                    <label for="date">Parentesco:</label>
+                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.emergencia.parentezco"/>
+                                </div>
                             </div>
-                            <div class="d-grid mb-3">
-                                <label for="telefono">Telefono:</label>
-                                <input type="text" name="telefono" id="telefono"  :v-model="user.datosPersonales.contacto.telefono.movil" />
-                            </div>
+
+                        </div>
+                        <div class="container d-lg-flex justify-content-lg-end">
+                            <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Laborales')"> Siguiente </button>
                         </div>
                     </div>
 
-                    <div class="container d-lg-flex justify-content-lg-end">
-                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Familiares')"> Siguiente </button>
+                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Laborales'">
+
+                        <div class="container d-flex justify-content-between my-4 row">
+
+                            <div class="right col-lg-4 col-sm-2">
+
+                                <div class="d-grid mb-3">
+                                    <div>Trabajas: </div>
+
+                                    <input type="radio" class="btn-check"  checked name="options-trabajas" id="Trabajas-si" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Trabajas-si">Si</label>
+
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <div>Razón por la que Trabajas : </div>
+
+                                    <input type="radio" class="btn-check" checked name="options-razon" id="Razon-apoyar" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Razon-apoyar">Apoyar Económicamente a la Familia</label>
+
+                                </div>
+
+                                <p>Empresa</p>
+
+                                <div class="d-grid mb-3">
+                                    <label for="name">Nombre:</label>
+                                    <input type="text" name="name" id="name"  v-model="usuario.datosLaborales.empresa.nombre"/>
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <label for="telefono">Telefono:</label>
+                                    <input type="text" name="telefono" id="telefono" v-model="usuario.datosLaborales.empresa.telefono" />
+                                </div>
+
+                            </div>
+                            <div class="center col-lg-4 col-sm-2">
+
+                                <div class="d-grid mb-3">
+                                    <div>. </div>
+
+                                    <input type="radio" class="btn-check" checked name="options-trabajas" id="Trabajas-No" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Trabajas-No">No</label>
+
+                                </div>
+
+                                <div>
+                                    <div>.</div>
+                                    <input type="radio" class="btn-check" name="options-razon" id="Razon-solventar" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Razon-solventar">Solventar Algunos Gastos Personales</label>
+
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <label for="domicilio">Domicilio:</label>
+                                    <input type="text" name="domicilio" id="domicilio" v-model="usuario.datosLaborales.empresa.domicilio"/>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <label for="puesto">Puesto:</label>
+                                    <input type="text" name="puesto" id="puesto" v-model="usuario.datosLaborales.empresa.puesto"/>
+                                </div>
+
+                            </div>
+                            <div class="left col-lg-4 col-sm-2">
+                                <div class="d-grid mb-3">
+                                    <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>
+                                    <div class="d-flex">
+
+                                        <input type="radio" class="btn-check" name="options-relacionado" id="relacionado-Si" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" checked for="relacionado-si">Si</label>
+
+                                        <input type="radio" class="btn-check" name="options-relacionado" id="relacionado-No" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="relacionado-no">No</label>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>.</div>
+                                    <input type="radio" class="btn-check" name="options-razon" id="Razon-Sostenerme" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" checked for="Razon-Sostenerme">Sostenerme Totalmente</label>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <label for="departamento">Departamento:</label>
+                                    <input type="text" name="departamento" id="departamento" />
+                                </div>
+                            </div>
+
+                            <div class="container d-lg-flex justify-content-lg-end">
+                                <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Economicos')"> Siguiente </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Economicos'">
+
+                        <div class="container d-flex justify-content-between  my-4 row">
+
+                            <div class="right col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <div>Vive con: </div>
+                                    <input type="radio" class="btn-check" name="options-vive" id="Ambos-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Ambos-padres">Ambos Padres</label>
+
+                                </div>
+
+                                <div class="mt-4">
+                                    <div>Vivienda: </div>
+                                    <div class="d-flex">
+
+                                        <input type="radio" class="btn-check" name="options-vivienda" id="propia-padres" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" checked for="rentada-padres">Propia</label>
+
+                                        <input type="radio" class="btn-check" name="options-vivienda" id="rentada-padres" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="rentada-padres">Rentada</label>
+
+                                    </div>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <div>¿Quien es tu principal apoyo economico?: </div>
+                                    <div class="d-flex">
+
+                                        <input type="radio" class="btn-check" name="options-apoyo" id="apoyo-padres" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="apoyo-padres">Padre</label>
+
+                                        <input type="radio" class="btn-check" checked name="options-apoyo" id="apoyo-madre" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="apoyo-madre">Madre</label>
+
+                                    </div>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <div>Ingresos Familiares: </div>
+                                    <div class="d-flex">
+
+                                        <input type="radio" class="btn-check" name="options-Ingresos" id="menos-Ingresos" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="menos-Ingresos">Menos de $5,000</label>
+
+                                        <input type="radio" class="btn-check" name="options-Ingresos" id="igual-Ingresos" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="igual-Ingresos">$5,000 A $10,000</label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="center col-4 mt-4">
+
+                                <div class="d-grid mb-3 d-flex pt-4">
+
+                                    <input type="radio" class="btn-check" name="options-vive" id="uno-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="uno-padres">Uno de los Padres</label>
+
+                                    <input type="radio" class="btn-check" name="options-vive" id="pareja-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="pareja-padres">Pareja</label>
+                                </div>
+
+                                <div class="mt-4 d-flex pt-4">
+
+                                    <input type="radio" class="btn-check" name="options-vivienda" id="propia-prestada" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="rentada-prestada">Prestada</label>
+
+                                </div>
+                                <div class="d-grid mb-3 d-flex pt-4">
+                                    <input type="radio" class="btn-check" name="options-apoyo" id="apoyo-hermano" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="apoyo-hermano">Hermano</label>
+                                </div>
+
+                                <div class="d-grid mb-3 d-flex pt-4">
+                                    <input type="radio" class="btn-check" name="options-Ingresos" id="menosigual-Ingresos" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" checked for="menosigual-Ingresos">$10,000 A $15,000</label>
+
+                                </div>
+
+                            </div>
+                            <div class="left col-4 mt-4">
+                                <div class="d-grid mb-3 d-flex pt-4">
+                                    <input type="radio" class="btn-check" name="options-vive" id="solo-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="solo-padres">Solo</label>
+
+                                    <input type="radio" class="btn-check" name="options-vive" id="otro-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="otro-padres">Otro Familiar</label>
+
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <div>Transporte: </div>
+                                    <div class=" d-grid d-flex">
+                                        <input type="radio" class="btn-check" name="options-trasporte" id="trasporte-propio" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="solo-padres">Propio</label>
+
+                                        <input type="radio" class="btn-check" name="options-trasporte" id="trasporte-publico" autocomplete="off">
+                                        <label class="btn btn-outline-secondary" for="trasporte-publico">Publico</label>
+
+                                    </div>
+                                </div>
+                                <div class="d-grid mb-3 d-flex">
+
+                                    <input type="radio" class="btn-check" name="options-vive" id="conyuge-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="conyuge-padres">Conyuge</label>
+
+                                    <input type="radio" class="btn-check" name="options-vive" id="otro-padres" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="Ambos-padres">Otro familiar</label>
+
+                                </div>
+                                <div class="d-grid mb-3 d-flex">
+
+                                    <input type="radio" class="btn-check" name="options-Ingresos" id="10-15" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="10-15">$10,000 A $15,000</label>
+
+                                    <input type="radio" class="btn-check" name="options-Ingresos" id="mas-15" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="mas-15">Más de $15,000</label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container d-lg-flex justify-content-lg-end">
+                            <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Escolares')"> Siguiente </button>
+                        </div>
+                    </div>
+
+                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Escolares'">
+
+                        <div class="container d-flex justify-content-between  my-4 row">
+
+                            <div class="right col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <label for="nombreBachillerato">Nombre del bachillerato:</label>
+                                    <input type="text" name="nombreBachillerato" id="nombreBachillerato" v-model="usuario.datosEscolares.nombreBachillerato"/>
+                                </div>
+
+                            </div>
+
+                            <div class="center col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <label for="tipoBachillerato">Tipo de bachillerato:</label>
+                                    <input type="text" name="tipoBachillerato" id="tipoBachillerato" v-model="usuario.datosEscolares.tipoBachillerato.descripcion"/>
+                                </div>
+
+                            </div>
+
+                            <div class="left col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <label for="entidadFederativa">Entidad Federativa:</label>
+                                    <input type="text" name="entidadFederativa" id="entidadFederativa" v-model="usuario.datosEscolares.entidadFederativa.nombre" />
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="container d-lg-flex justify-content-lg-end">
+                            <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Promedios')"> Siguiente </button>
+                        </div>
+
+                    </div>
+
+                    <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
+                        <div class="container d-flex justify-content-between  my-4 row">
+
+                            <div class="right col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <label for="nombreBachillerato">Promedio de bachillerato:</label>
+                                    <input type="text" name="nombreBachillerato" id="nombreBachillerato" v-model="usuario.promedios.tsu.bachillerato"/>
+                                </div>
+
+                            </div>
+                            <div class="center col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <label for="tipoBachillerato">Nivel de Ingles:</label>
+                                    <input type="text" name="tipoBachillerato" id="tipoBachillerato" v-model="usuario.promedios.tsu.nivelIngles"/>
+                                </div>
+
+                            </div>
+                            <div class="left col-4 mt-4">
+
+                                <div class="d-grid mb-3">
+                                    <label for="entidadFederativa">Puntos del examen de Ingreso:</label>
+                                    <input type="text" name="entidadFederativa" id="entidadFederativa" v-model="usuario.promedios.tsu.puntosExamenIngreso" />
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="container d-lg-flex justify-content-lg-end">
+                            <button type="button" class="btn bg-utt text-white btn-lg" > Guardar </button>
+                        </div>
                     </div>
 
                 </div>
 
-                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Familiares'">
-
-                    <div class="container d-flex justify-content-between my-4 row">
-
-                        <div class="right col-lg-4 col-sm-2 ">
-
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Nombre del padre:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.padre.nombre" />
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Nombre de la madre:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.madre.nombre"/>
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Nombre del conyuge:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.conyuge.nombre"/>
-                            </div>
-                            <h5>En caso de emergencia</h5>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Nombre:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.emergencia.nombre"/>
-                            </div>
-
-
-                        </div>
-
-                        <div class="center col-lg-4 col-sm-2">
-
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.padre.telefono"/>
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.madre.telefono"/>
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.conyuge.telefono"/>
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Telefono:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.emergencia.telefono"/>
-                            </div>
-                        </div>
-
-                        <div class="left col-lg-4 col-sm-2">
-
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Ocupación:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.padre.ocupacion"/>
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Ocupación:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.madre.ocupacion"/>
-                            </div>
-                            <div class="d-grid mb-3 ">
-                                <label for="date">Ocupación:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.conyuge.ocupacion"/>
-                            </div>
-                            <div class="d-grid row ">
-                                <label for="date">Parentesco:</label>
-                                <input type="text" name="date" id="date" :v-model="user.datosFamiliares.emergencia.parentezco"/>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="container d-lg-flex justify-content-lg-end">
-                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Laborales')"> Siguiente </button>
-                    </div>
-                </div>
-
-                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Laborales'">
-
-                    <div class="container d-flex justify-content-between my-4 row">
-
-                        <div class="right col-lg-4 col-sm-2">
-
-                            <div class="d-grid mb-3">
-                                <div>Trabajas: </div>
-                                <div class="checkboxs">
-                                    <input type="checkbox" id="trabajas-si" value="trabajas-si" >
-                                    <label for="trabajas-si">Si</label>
-                                </div>
-                            </div>
-
-                            <div class="d-grid mb-3">
-                                <div>Razón por la que Trabajas : </div>
-                                <div class="checkboxs">
-                                    <input type="checkbox" id="apoyo-eco" value="apoyo-eco" >
-                                    <label for="apoyo-eco">Apoyar Económicamente a la Familia</label>
-
-                                </div>
-                            </div>
-
-                            <p>Empresa</p>
-
-                            <div class="d-grid mb-3">
-                                <label for="name">Nombre:</label>
-                                <input type="text" name="name" id="name"  :v-model="user.datosLaborales.empresa.nombre"/>
-                            </div>
-
-                            <div class="d-grid mb-3">
-                                <label for="telefono">Telefono:</label>
-                                <input type="text" name="telefono" id="telefono" :v-model="user.datosLaborales.empresa.telefono" />
-                            </div>
-
-                        </div>
-                        <div class="center col-lg-4 col-sm-2">
-
-                            <div class="checkboxs">
-                                <input type="checkbox" id="mike" value="Mike" >
-                                <label for="mike">No</label>
-                            </div>
-
-                            <div class="checkboxs">
-                                <input type="checkbox" id="familia" value="familia" >
-                                <label for="familia">Apoyar Totalmente a la Familia</label>
-                            </div>
-
-                            <div class="checkboxs">
-                                <input type="checkbox" id="familia" value="familia" >
-                                <label for="familia">Apoyar Totalmente a la Familia</label>
-                            </div>
-                            <div class="d-grid mb-3">
-                                <label for="domicilio">Domicilio:</label>
-                                <input type="text" name="domicilio" id="domicilio" :v-model="user.datosLaborales.empresa.domicilio"/>
-                            </div>
-                            <div class="d-grid mb-3">
-                                <label for="puesto">Puesto:</label>
-                                <input type="text" name="puesto" id="puesto" :v-model="user.datosLaborales.empresa.puesto"/>
-                            </div>
-
-                        </div>
-                        <div class="left col-lg-4 col-sm-2">
-                            <div class="d-grid mb-3">
-                                <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>
-                                <div class="d-flex">
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="tabajas-si" value="tabajas-si" >
-                                        <label for="tabajas-si">Si</label>
-                                    </div>
-                                    <div class="checkboxs">
-                                        <input type="checkbox" id="trabajo-no" value="trabajo-no" >
-                                        <label for="trabajo-no">No</label>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="mt-4 checkboxs">
-                                <input type="checkbox" id="sostenerme" value="sostenerme" >
-                                <label for="sostenerme">Sostenerme Totalmente</label>
-                            </div>
-                            <div class="d-grid mb-3">
-                                <input type="text" name="total" id="total" />
-                            </div>
-                            <div class="d-grid mb-3">
-                                <label for="departamento">Departamento:</label>
-                                <input type="text" name="departamento" id="departamento" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container d-lg-flex justify-content-lg-end">
-                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Economicos')"> Siguiente </button>
-                    </div>
-                </div>
-
-                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Economicos'">
-
-                    <div class="container d-flex justify-content-between  my-4 row">
-
-                        <div class="right col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <div>Vive con: </div>
-                                <div class="continer checkboxs">
-                                    <input type="checkbox" id="padres+" value="padres+" >
-                                    <label for="padres+">Ambos Padres</label>
-                                </div>
-                            </div>
-
-                            <div class="mt-4">
-                                <div>Vivienda: </div>
-                                <div class="d-flex">
-                                    <div class="container">
-                                        <div class="container-body p-0 checkboxs">
-                                            <input class="p-0" type="checkbox" id="propia" value="propia" >
-                                            <label for="propia">Propia</label>
-                                        </div>
-                                    </div>
-                                    <div class="container checkboxs">
-                                        <input type="checkbox" id="renta" value="renta" >
-                                        <label for="renta">Rentada</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3">
-                                <div>¿Quien es tu principal apoyo econimico?: </div>
-                                <div class="d-flex">
-                                    <div class="continer checkboxs">
-                                        <input type="checkbox" id="padre" value="padre" >
-                                        <label for="padre">Padre</label>
-                                    </div>
-                                    <div class="continer">
-                                        <input type="checkbox" id="madre" value="madre" >
-                                        <label for="madre">Madre</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3">
-                                <div>Ingresos Familiares: </div>
-                                <div class="d-flex">
-                                    <div class="continer checkboxs">
-                                        <input type="checkbox" id="menos" value="menos" >
-                                        <label for="menos">Menos de $5,000</label>
-                                    </div>
-                                    <div class="container">
-                                        <input type="checkbox" id="5-10" value="5-10" >
-                                        <label for="5-10">$5,000 A $10,000</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="center col-4 mt-4">
-
-                            <div class="d-grid mb-3 d-flex">
-                                <div class="container">
-                                    <input type="checkbox" id="uno-padre" value="uno-padre" >
-                                    <label for="uno-padre">Uno de los Padres</label>
-                                </div>
-                                <div class="container">
-                                    <input type="checkbox" id="pareja" value="pareja" >
-                                    <label for="pareja">Pareja</label>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 d-flex">
-                                <div class="container">
-                                    <input type="checkbox" id="prestada" value="prestada" >
-                                    <label for="prestada">Prestada</label>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3 d-flex">
-                                <div class="continer">
-                                    <input type="checkbox" id="huermano" value="huermano" >
-                                    <label for="huermano">Hermano(a)</label>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3 d-flex">
-                                <div class="continer">
-                                    <input type="checkbox" id="10-15" value="10-15" >
-                                    <label for="10-15">$10,000 A $15,000</label>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="left col-4 mt-4">
-                            <div class="d-grid mb-3 d-flex">
-                                <div class="container">
-                                    <input type="checkbox" id="solo" value="solo" >
-                                    <label for="solo">Solo(a)</label>
-                                </div>
-                                <div class="container">
-                                    <input type="checkbox" id="otro" value="otro" >
-                                    <label for="otro">Otro Familiar</label>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3">
-                                <div>Transporte: </div>
-                                <div class="d-flex">
-                                    <div class="container">
-                                        <input type="checkbox" id="propio" value="propio" >
-                                        <label for="propio">Propia</label>
-                                    </div>
-                                    <div class="container">
-                                        <input type="checkbox" id="publico" value="publico" >
-                                        <label for="publico">Pubico</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3 d-flex">
-                                <div class="container">
-                                    <input type="checkbox" id="conyuge" value="conyuge" >
-                                    <label for="conyuge">Cónyuge</label>
-                                </div>
-                                <div class="container">
-                                    <input type="checkbox" id="otro" value="otro" >
-                                    <label for="otro">Otro Familiar</label>
-                                </div>
-                            </div>
-                            <div class="d-grid mb-3 d-flex">
-                                <div class="container">
-                                    <input type="checkbox" id="10-15" value="10-15" >
-                                    <label for="10-15">$10,000 A $15,000</label>
-                                </div>
-                                <div class="container">
-                                    <input type="checkbox" id="mas" value="mas" >
-                                    <label for="mas">Más de $15,000</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container d-lg-flex justify-content-lg-end">
-                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Escolares')"> Siguiente </button>
-                    </div>
-                </div>
-
-                <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Escolares'">
-
-                    <div class="container d-flex justify-content-between  my-4 row">
-
-                        <div class="right col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <label for="nombreBachillerato">Nombre del bachillerato:</label>
-                                <input type="text" name="nombreBachillerato" id="nombreBachillerato" :v-model="user.datosEscolares.nombreBachillerato"/>
-                            </div>
-
-                        </div>
-
-                        <div class="center col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <label for="tipoBachillerato">Tipo de bachillerato:</label>
-                                <input type="text" name="tipoBachillerato" id="tipoBachillerato" :v-model="user.datosEscolares.tipoBachillerato.descripcion"/>
-                            </div>
-
-                        </div>
-
-                        <div class="left col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <label for="entidadFederativa">Entidad Federativa:</label>
-                                <input type="text" name="entidadFederativa" id="entidadFederativa" :v-model="user.datosEscolares.entidadFederativa.nombre" />
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="container d-lg-flex justify-content-lg-end">
-                        <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Promedios')"> Siguiente </button>
-                    </div>
-
-                </div>
-
-                <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
-                    <div class="container d-flex justify-content-between  my-4 row">
-
-                        <div class="right col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <label for="nombreBachillerato">Promedio de bachillerato:</label>
-                                <input type="text" name="nombreBachillerato" id="nombreBachillerato" :v-model="user.promedios.tsu.bachillerato"/>
-                            </div>
-
-                        </div>
-                        <div class="center col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <label for="tipoBachillerato">Nivel de Ingles:</label>
-                                <input type="text" name="tipoBachillerato" id="tipoBachillerato" :v-model="user.promedios.tsu.nivelIngles"/>
-                            </div>
-
-                        </div>
-                        <div class="left col-4 mt-4">
-
-                            <div class="d-grid mb-3">
-                                <label for="entidadFederativa">Puntos del examen de Ingreso:</label>
-                                <input type="text" name="entidadFederativa" id="entidadFederativa" :v-model="user.promedios.tsu.puntosExamenIngreso" />
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="container d-lg-flex justify-content-lg-end">
-                        <button type="button" class="btn bg-utt text-white btn-lg" > Guardar </button>
-                    </div>
-                </div>
-                
-                
-            </div> -->
             </div>
 
         </div>
-
-
 
     </div>
 
@@ -659,7 +632,13 @@ export default {
     },
     alumnos:{
         required: true,
-    }
+    },
+    contadorEdades:{
+       show:false
+    },
+    carrera:{
+      show:false
+    },
   },
 
   mounted() {
@@ -726,12 +705,14 @@ export default {
 
     PieChart;
 
+
+
     const ctx2 = document.getElementById('barChar').getContext('2d');
 
     const barChar = new Chart(ctx2, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green'],
+            labels: [],
             datasets: [{
                 label: '# of Votes',
                 data: [12, 19, 3, 5],
@@ -870,8 +851,7 @@ export default {
 
     onClickData(usuario, index){
         console.log(usuario , index)
-        console.log(usuario.address.city)
-        this.user = usuario.username
+        this.user = usuario.matricula
         this.activeOption = 'Registro general del alumno'
     }
 

@@ -16,26 +16,36 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
         $result = HTTP::get('http://127.0.0.1:8080/api/alumnos');
+        $result2 = HTTP::get('http://127.0.0.1:8080/api/grupos');
         $response = json_decode($result);
+        $response2 = json_decode($result2);
         $alumnos = $response->alumnos;
+        $grupos = $response2->grupos;
 
         foreach($alumnos as $alumno){
             $usuariosArray[] = (object) ["nombre" => $alumno->Nombre, "matricula" => $alumno->matricula];
+            $alumnosEdades[] = $alumno->datosPersonales->edad;
         }
-        // foreach($alumnos as $alumno){
-        //     $usuariosArray[] = $alumno;
-        // }
+
+        foreach($grupos as $grupo){
+            $carrera = (object) ["Carrera" => $grupo->carrera->nombre,
+                                    "Especialidad" => $grupo->especialidad->nombre,
+                                    "Periodo" => $grupo->periodo->nombre,
+                                    "Grupo" => $grupo->cuatrimestre.=$grupo->grupo];
+        }
+
+        $count =  array_count_values($alumnosEdades);
+
+        foreach($count as $key => $value){
+            $contadorEdades[] = (object) [ "edad" => strval($key), "cantidad" => $value ];
+        }
 
 
-        return Inertia::render('Dashboard',compact('usuariosArray','alumnos'));
-
-        // $usuarios = HTTP::get('https://jsonplaceholder.typicode.com/users');
-        // $usuariosArray = $usuarios->json();
-        
-
-        // return Inertia::render('Dashboard',compact('usuariosArray'));
+        return Inertia::render('Dashboard',compact('usuariosArray', 'contadorEdades', 'carrera','alumnos'));
     }
+
 
     /**
      * Show the form for creating a new resource.

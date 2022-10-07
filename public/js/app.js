@@ -19567,6 +19567,12 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
     },
     alumnos: {
       required: true
+    },
+    contadorEdades: {
+      show: false
+    },
+    carrera: {
+      show: false
     }
   },
   mounted: function mounted() {
@@ -19612,7 +19618,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
     var barChar = new chart_js_auto__WEBPACK_IMPORTED_MODULE_5__["default"](ctx2, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green'],
+        labels: [],
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5],
@@ -19727,8 +19733,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_4__.Chart.register(chart_js__WEBPACK_IMPORTED_
   methods: {
     onClickData: function onClickData(usuario, index) {
       console.log(usuario, index);
-      console.log(usuario.address.city);
-      this.user = usuario.username;
+      this.user = usuario.matricula;
       this.activeOption = 'Registro general del alumno';
     } //     let apiUrl= "http://127.0.0.1:8080/api/alumnos/";
     //     let requestUrl = apiUrl + data.matricula;
@@ -19809,27 +19814,102 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav class=\"navbar navbar-expand-lg bg-utt\"><div class=\"container-md d-flex justify-content-between\"><!-- &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt; --><div><img src=\"/images/logo.png\" alt=\"ddd\" width=\"106\"></div><div> Login </div></div></nav><div class=\"card mx-5 mt-5 border-0\"><div class=\"card-body\"><h5 class=\"card-title text-utt fw-bolder\">Datos del grupo</h5><div class=\"card-text mt-4\"><div class=\"row\"><div class=\"col-sm-5 col-lg-6\"><div class=\"d-lg-flex text-sm-center\"><div class=\"fw-bolder me-3\">Carrera:</div><div>Ingeniería en Tecnologías de la Información</div></div><div class=\"d-lg-flex\"><div class=\"fw-bolder me-3\">Especilidad:</div><div>Desarrollo y Gestión de Software</div></div></div><div class=\"col-sm-5 col-lg-6\"><div class=\"d-lg-flex\"><div class=\"fw-bolder me-3\">Periodo:</div><div>Septiembre - Diciembre 2022</div></div><div class=\"d-lg-flex\"><div class=\"fw-bolder me-3\">Grupo:</div><div>9° A</div></div></div></div></div></div></div>", 2);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", {
+  "class": "navbar navbar-expand-lg bg-utt"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container-md d-flex justify-content-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a class=\"navbar-brand\" href=\"#\">Navbar</a> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/logo.png",
+  alt: "ddd",
+  width: "106"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, " Login ")])], -1
+/* HOISTED */
+);
 
-var _hoisted_4 = {
-  "class": "card mx-5 mt-3 border-0"
+var _hoisted_3 = {
+  "class": "card mx-5 mt-5 border-0"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "card-body"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "card-title text-utt fw-bolder"
+}, "Datos del grupo", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
+  "class": "card-text mt-4"
+};
+var _hoisted_7 = {
+  "class": "row"
+};
+var _hoisted_8 = {
+  "class": "col-sm-5 col-lg-6"
+};
+var _hoisted_9 = {
+  "class": "d-lg-flex text-sm-center"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "fw-bolder me-3"
+}, "Carrera:", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "d-lg-flex"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "fw-bolder me-3"
+}, "Especilidad:", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  "class": "col-sm-5 col-lg-6"
+};
+var _hoisted_14 = {
+  "class": "d-lg-flex"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "fw-bolder me-3"
+}, "Periodo:", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "d-lg-flex"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "fw-bolder me-3"
+}, "Grupo:", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
+  "class": "card mx-5 mt-3 border-0"
+};
+var _hoisted_19 = {
+  "class": "card-body"
+};
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
   "class": "card-title text-utt fw-bolder"
 }, "Alumnos", -1
 /* HOISTED */
 );
 
-var _hoisted_7 = {
+var _hoisted_21 = {
   "class": "carousel__item"
 };
-var _hoisted_8 = ["onClick"];
+var _hoisted_22 = ["onClick"];
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU",
   "class": "card-img-top",
   alt: "..."
@@ -19837,37 +19917,37 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_24 = {
   "class": "card-body"
 };
-var _hoisted_11 = {
+var _hoisted_25 = {
   "class": "card-title"
 };
-var _hoisted_12 = {
+var _hoisted_26 = {
   "class": "card-text"
 };
-var _hoisted_13 = {
+var _hoisted_27 = {
   "class": "mx-5 mt-4 mb-5"
 };
-var _hoisted_14 = {
+var _hoisted_28 = {
   "class": "d-lg-flex justify-content-between"
 };
-var _hoisted_15 = {
+var _hoisted_29 = {
   "class": "card border-0 col-lg-9 mb-2"
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
   id: "barChar"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_17 = [_hoisted_16];
-var _hoisted_18 = {
+var _hoisted_31 = [_hoisted_30];
+var _hoisted_32 = {
   "class": "border-0 col-lg-3 ms-1 mb-2"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "card border-0 mb-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
   id: "PieChart"
@@ -19875,7 +19955,7 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "card border-0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
   id: "myChart"
@@ -19883,14 +19963,509 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_21 = [_hoisted_19, _hoisted_20];
-var _hoisted_22 = {
+var _hoisted_35 = [_hoisted_33, _hoisted_34];
+var _hoisted_36 = {
   key: 0
 };
-var _hoisted_23 = {
+var _hoisted_37 = {
   "class": "nav nav-tabs mt-4"
 };
-var _hoisted_24 = ["onClick"];
+var _hoisted_38 = ["onClick"];
+var _hoisted_39 = {
+  "class": "d-lg-flex"
+};
+var _hoisted_40 = {
+  "class": "avatar col-sm-2 text-center m-auto",
+  style: {
+    "width": "20%"
+  }
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg",
+  width: "200",
+  height: "200"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_42 = {
+  "class": "mt-3"
+};
+var _hoisted_43 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
+var _hoisted_44 = {
+  "class": "container d-flex justify-content-between my-4 row"
+};
+var _hoisted_45 = {
+  "class": "right col-lg-4 col-sm-2"
+};
+var _hoisted_46 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "FechaNacimiento"
+}, "Fecha de nacimiento:", -1
+/* HOISTED */
+);
+
+var _hoisted_48 = ["onUpdate:modelValue"];
+
+var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>Estado civil: </div><div class=\"d-flex justify-content-between\"><input type=\"radio\" class=\"btn-check btn-ms\" name=\"options-civil\" id=\"Casado-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Casado-outlined\">Casado</label><input type=\"radio\" class=\"btn-check btn-ms\" name=\"options-civil\" id=\"Divorciado-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Divorciado-outlined\">Divorciado</label></div></div>", 1);
+
+var _hoisted_50 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "calleNumero"
+}, "Calle y numero:", -1
+/* HOISTED */
+);
+
+var _hoisted_52 = ["onUpdate:modelValue"];
+var _hoisted_53 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email"
+}, "Correo electronico (personal):", -1
+/* HOISTED */
+);
+
+var _hoisted_55 = ["onUpdate:modelValue"];
+var _hoisted_56 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "movil"
+}, "Movil:", -1
+/* HOISTED */
+);
+
+var _hoisted_58 = ["onUpdate:modelValue"];
+var _hoisted_59 = {
+  "class": "center col-lg-4 col-sm-2"
+};
+var _hoisted_60 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_61 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Edad:", -1
+/* HOISTED */
+);
+
+var _hoisted_62 = ["onUpdate:modelValue"];
+
+var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-center mb-3 pt-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "radio",
+  "class": "btn-check btn-ms",
+  name: "options-civil",
+  id: "Soltero-outlined",
+  autocomplete: "off"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "btn btn-outline-secondary",
+  "for": "Soltero-outlined"
+}, "Soltero")], -1
+/* HOISTED */
+);
+
+var _hoisted_64 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "colonia"
+}, "Colonia:", -1
+/* HOISTED */
+);
+
+var _hoisted_66 = ["onUpdate:modelValue"];
+var _hoisted_67 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "institucional"
+}, "Correo electronico (institucional):", -1
+/* HOISTED */
+);
+
+var _hoisted_69 = ["onUpdate:modelValue"];
+var _hoisted_70 = {
+  "class": "left col-lg-4 col-sm-2"
+};
+
+var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>Genero: </div><div class=\"d-flex justify-content-between\"><input type=\"radio\" class=\"btn-check\" checked name=\"options-genero\" id=\"femenino-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"femenino-outlined\">Femenino</label><input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"masculino-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"masculino-outlined\">Masculino</label><input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"otro-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"otro-outlined\">Otro</label></div></div><div class=\"d-grid mb-3\"><div class=\"text-center pt-4\"><input type=\"radio\" class=\"btn-check btn-ms\" name=\"options-civil\" id=\"UnionLibre-outlined\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"UnionLibre-outlined\">Union Libre</label></div></div>", 2);
+
+var _hoisted_73 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_74 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "municipio"
+}, "Municipio:", -1
+/* HOISTED */
+);
+
+var _hoisted_75 = ["onUpdate:modelValue"];
+var _hoisted_76 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_77 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "telefono"
+}, "Telefono:", -1
+/* HOISTED */
+);
+
+var _hoisted_78 = ["onUpdate:modelValue"];
+var _hoisted_79 = {
+  "class": "container d-lg-flex justify-content-lg-end"
+};
+var _hoisted_80 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
+var _hoisted_81 = {
+  "class": "container d-flex justify-content-between my-4 row"
+};
+var _hoisted_82 = {
+  "class": "right col-lg-4 col-sm-2"
+};
+var _hoisted_83 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Nombre del padre:", -1
+/* HOISTED */
+);
+
+var _hoisted_85 = ["onUpdate:modelValue"];
+var _hoisted_86 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_87 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Nombre de la madre:", -1
+/* HOISTED */
+);
+
+var _hoisted_88 = ["onUpdate:modelValue"];
+
+var _hoisted_89 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "En caso de emergencia", -1
+/* HOISTED */
+);
+
+var _hoisted_90 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_91 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Nombre:", -1
+/* HOISTED */
+);
+
+var _hoisted_92 = ["onUpdate:modelValue"];
+var _hoisted_93 = {
+  "class": "center col-lg-4 col-sm-2"
+};
+var _hoisted_94 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Telefono:", -1
+/* HOISTED */
+);
+
+var _hoisted_96 = ["onUpdate:modelValue"];
+var _hoisted_97 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_98 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Telefono:", -1
+/* HOISTED */
+);
+
+var _hoisted_99 = ["onUpdate:modelValue"];
+var _hoisted_100 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_101 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, ".", -1
+/* HOISTED */
+);
+
+var _hoisted_102 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Telefono:", -1
+/* HOISTED */
+);
+
+var _hoisted_103 = ["onUpdate:modelValue"];
+var _hoisted_104 = {
+  "class": "left col-lg-4 col-sm-2"
+};
+var _hoisted_105 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_106 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Ocupación:", -1
+/* HOISTED */
+);
+
+var _hoisted_107 = ["onUpdate:modelValue"];
+var _hoisted_108 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Ocupación:", -1
+/* HOISTED */
+);
+
+var _hoisted_110 = ["onUpdate:modelValue"];
+
+var _hoisted_111 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, ".", -1
+/* HOISTED */
+);
+
+var _hoisted_112 = {
+  "class": "d-grid row"
+};
+
+var _hoisted_113 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date"
+}, "Parentesco:", -1
+/* HOISTED */
+);
+
+var _hoisted_114 = ["onUpdate:modelValue"];
+var _hoisted_115 = {
+  "class": "container d-lg-flex justify-content-lg-end"
+};
+var _hoisted_116 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
+var _hoisted_117 = {
+  "class": "container d-flex justify-content-between my-4 row"
+};
+var _hoisted_118 = {
+  "class": "right col-lg-4 col-sm-2"
+};
+
+var _hoisted_119 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>Trabajas: </div><input type=\"radio\" class=\"btn-check\" checked name=\"options-trabajas\" id=\"Trabajas-si\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Trabajas-si\">Si</label></div><div class=\"d-grid mb-3\"><div>Razón por la que Trabajas : </div><input type=\"radio\" class=\"btn-check\" checked name=\"options-razon\" id=\"Razon-apoyar\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Razon-apoyar\">Apoyar Económicamente a la Familia</label></div><p>Empresa</p>", 3);
+
+var _hoisted_122 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_123 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "name"
+}, "Nombre:", -1
+/* HOISTED */
+);
+
+var _hoisted_124 = ["onUpdate:modelValue"];
+var _hoisted_125 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_126 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "telefono"
+}, "Telefono:", -1
+/* HOISTED */
+);
+
+var _hoisted_127 = ["onUpdate:modelValue"];
+var _hoisted_128 = {
+  "class": "center col-lg-4 col-sm-2"
+};
+
+var _hoisted_129 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-grid mb-3\"><div>. </div><input type=\"radio\" class=\"btn-check\" checked name=\"options-trabajas\" id=\"Trabajas-No\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Trabajas-No\">No</label></div><div><div>.</div><input type=\"radio\" class=\"btn-check\" name=\"options-razon\" id=\"Razon-solventar\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Razon-solventar\">Solventar Algunos Gastos Personales</label></div>", 2);
+
+var _hoisted_131 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_132 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "domicilio"
+}, "Domicilio:", -1
+/* HOISTED */
+);
+
+var _hoisted_133 = ["onUpdate:modelValue"];
+var _hoisted_134 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_135 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "puesto"
+}, "Puesto:", -1
+/* HOISTED */
+);
+
+var _hoisted_136 = ["onUpdate:modelValue"];
+
+var _hoisted_137 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"left col-lg-4 col-sm-2\"><div class=\"d-grid mb-3\"><div>¿Tu trabajo actual esta relacionado con tu carrera?: </div><div class=\"d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-relacionado\" id=\"relacionado-Si\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" checked for=\"relacionado-si\">Si</label><input type=\"radio\" class=\"btn-check\" name=\"options-relacionado\" id=\"relacionado-No\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"relacionado-no\">No</label></div></div><div><div>.</div><input type=\"radio\" class=\"btn-check\" name=\"options-razon\" id=\"Razon-Sostenerme\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" checked for=\"Razon-Sostenerme\">Sostenerme Totalmente</label></div><div class=\"d-grid mb-3\"><label for=\"departamento\">Departamento:</label><input type=\"text\" name=\"departamento\" id=\"departamento\"></div></div>", 1);
+
+var _hoisted_138 = {
+  "class": "container d-lg-flex justify-content-lg-end"
+};
+var _hoisted_139 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
+
+var _hoisted_140 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container d-flex justify-content-between my-4 row\"><div class=\"right col-4 mt-4\"><div class=\"d-grid mb-3\"><div>Vive con: </div><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"Ambos-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Ambos-padres\">Ambos Padres</label></div><div class=\"mt-4\"><div>Vivienda: </div><div class=\"d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-vivienda\" id=\"propia-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" checked for=\"rentada-padres\">Propia</label><input type=\"radio\" class=\"btn-check\" name=\"options-vivienda\" id=\"rentada-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"rentada-padres\">Rentada</label></div></div><div class=\"d-grid mb-3\"><div>¿Quien es tu principal apoyo economico?: </div><div class=\"d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-apoyo\" id=\"apoyo-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"apoyo-padres\">Padre</label><input type=\"radio\" class=\"btn-check\" checked name=\"options-apoyo\" id=\"apoyo-madre\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"apoyo-madre\">Madre</label></div></div><div class=\"d-grid mb-3\"><div>Ingresos Familiares: </div><div class=\"d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-Ingresos\" id=\"menos-Ingresos\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"menos-Ingresos\">Menos de $5,000</label><input type=\"radio\" class=\"btn-check\" name=\"options-Ingresos\" id=\"igual-Ingresos\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"igual-Ingresos\">$5,000 A $10,000</label></div></div></div><div class=\"center col-4 mt-4\"><div class=\"d-grid mb-3 d-flex pt-4\"><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"uno-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"uno-padres\">Uno de los Padres</label><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"pareja-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"pareja-padres\">Pareja</label></div><div class=\"mt-4 d-flex pt-4\"><input type=\"radio\" class=\"btn-check\" name=\"options-vivienda\" id=\"propia-prestada\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"rentada-prestada\">Prestada</label></div><div class=\"d-grid mb-3 d-flex pt-4\"><input type=\"radio\" class=\"btn-check\" name=\"options-apoyo\" id=\"apoyo-hermano\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"apoyo-hermano\">Hermano</label></div><div class=\"d-grid mb-3 d-flex pt-4\"><input type=\"radio\" class=\"btn-check\" name=\"options-Ingresos\" id=\"menosigual-Ingresos\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" checked for=\"menosigual-Ingresos\">$10,000 A $15,000</label></div></div><div class=\"left col-4 mt-4\"><div class=\"d-grid mb-3 d-flex pt-4\"><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"solo-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"solo-padres\">Solo</label><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"otro-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"otro-padres\">Otro Familiar</label></div><div class=\"d-grid mb-3\"><div>Transporte: </div><div class=\"d-grid d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-trasporte\" id=\"trasporte-propio\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"solo-padres\">Propio</label><input type=\"radio\" class=\"btn-check\" name=\"options-trasporte\" id=\"trasporte-publico\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"trasporte-publico\">Publico</label></div></div><div class=\"d-grid mb-3 d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"conyuge-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"conyuge-padres\">Conyuge</label><input type=\"radio\" class=\"btn-check\" name=\"options-vive\" id=\"otro-padres\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"Ambos-padres\">Otro familiar</label></div><div class=\"d-grid mb-3 d-flex\"><input type=\"radio\" class=\"btn-check\" name=\"options-Ingresos\" id=\"10-15\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"10-15\">$10,000 A $15,000</label><input type=\"radio\" class=\"btn-check\" name=\"options-Ingresos\" id=\"mas-15\" autocomplete=\"off\"><label class=\"btn btn-outline-secondary\" for=\"mas-15\">Más de $15,000</label></div></div></div>", 1);
+
+var _hoisted_141 = {
+  "class": "container d-lg-flex justify-content-lg-end"
+};
+var _hoisted_142 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "80%"
+  }
+};
+var _hoisted_143 = {
+  "class": "container d-flex justify-content-between my-4 row"
+};
+var _hoisted_144 = {
+  "class": "right col-4 mt-4"
+};
+var _hoisted_145 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_146 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "nombreBachillerato"
+}, "Nombre del bachillerato:", -1
+/* HOISTED */
+);
+
+var _hoisted_147 = ["onUpdate:modelValue"];
+var _hoisted_148 = {
+  "class": "center col-4 mt-4"
+};
+var _hoisted_149 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_150 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "tipoBachillerato"
+}, "Tipo de bachillerato:", -1
+/* HOISTED */
+);
+
+var _hoisted_151 = ["onUpdate:modelValue"];
+var _hoisted_152 = {
+  "class": "left col-4 mt-4"
+};
+var _hoisted_153 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_154 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "entidadFederativa"
+}, "Entidad Federativa:", -1
+/* HOISTED */
+);
+
+var _hoisted_155 = ["onUpdate:modelValue"];
+var _hoisted_156 = {
+  "class": "container d-lg-flex justify-content-lg-end"
+};
+var _hoisted_157 = {
+  "class": "container-lg mb-3",
+  style: {
+    "width": "75%"
+  }
+};
+var _hoisted_158 = {
+  "class": "container d-flex justify-content-between my-4 row"
+};
+var _hoisted_159 = {
+  "class": "right col-4 mt-4"
+};
+var _hoisted_160 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_161 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "nombreBachillerato"
+}, "Promedio de bachillerato:", -1
+/* HOISTED */
+);
+
+var _hoisted_162 = ["onUpdate:modelValue"];
+var _hoisted_163 = {
+  "class": "center col-4 mt-4"
+};
+var _hoisted_164 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_165 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "tipoBachillerato"
+}, "Nivel de Ingles:", -1
+/* HOISTED */
+);
+
+var _hoisted_166 = ["onUpdate:modelValue"];
+var _hoisted_167 = {
+  "class": "left col-4 mt-4"
+};
+var _hoisted_168 = {
+  "class": "d-grid mb-3"
+};
+
+var _hoisted_169 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "entidadFederativa"
+}, "Puntos del examen de Ingreso:", -1
+/* HOISTED */
+);
+
+var _hoisted_170 = ["onUpdate:modelValue"];
+
+var _hoisted_171 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container d-lg-flex justify-content-lg-end"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "btn bg-utt text-white btn-lg"
+}, " Guardar ")], -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Slide");
 
@@ -19898,7 +20473,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Carousel");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("body", null, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("body", null, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carrera.Carrera), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carrera.Especialidad), 1
+  /* TEXT */
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carrera.Periodo), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carrera.Grupo), 1
+  /* TEXT */
+  )])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
     "wrap-around": true,
     settings: $data.settings,
     breakpoints: $data.breakpoints
@@ -19915,7 +20498,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: index
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
               "class": "card border-0 p-2",
               id: "card-carrusel",
               style: {
@@ -19923,15 +20506,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "height": "220px"
               },
               onClick: function onClick($event) {
-                return $options.onClickData(usuario, index);
+                return $options.onClickData(usuario);
               }
-            }, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.address.city), 1
+            }, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.matricula), 1
             /* TEXT */
-            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.username), 1
+            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(usuario.nombre), 1
             /* TEXT */
             )])], 8
             /* PROPS */
-            , _hoisted_8)])];
+            , _hoisted_22)])];
           }),
           _: 2
           /* DYNAMIC */
@@ -19948,17 +20531,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["settings", "breakpoints"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, _hoisted_17, 512
+  , ["settings", "breakpoints"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, _hoisted_31, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, _hoisted_21, 512
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, _hoisted_35, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']])], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.usuariosArray, function (usuario) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Dashboard']]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.alumnos, function (usuario) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "card border-0",
       key: usuario
-    }, [usuario.username == $data.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_23, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.steps, function (step) {
+    }, [usuario.matricula == $data.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_37, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.steps, function (step) {
       return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
         "class": "nav-item card-title",
         key: step.id
@@ -19972,10 +20555,308 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, ["prevent"])
       }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(step), 11
       /* TEXT, CLASS, PROPS */
-      , _hoisted_24)]);
+      , _hoisted_38)]);
     }), 128
     /* KEYED_FRAGMENT */
-    ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"d-lg-flex\" >\n\n                <div class=\"avatar col-sm-2 text-center m-auto\" style=\"width:20%;\" >\n                    <img src=\"https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg\" width=\"200\" height=\"200\">\n                    <p class=\"mt-3\">{{ user.matricula }} </p>\n                    <p>{{ user.nombre }} </p>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Personales'\">\n\n                    <div class=\"container d-flex justify-content-between my-4 row\">\n\n                        <div class=\"right col-lg-4 col-sm-2\" >\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"calleNumero\">Fecha de nacimiento:</label>\n                                <input type=\"text\" name=\"calleNumero\" id=\"calleNumero\" :v-model=\"datosPersonales.fechaDeNacimiento\" />\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Estado civil: </div>\n                                <div class=\"d-flex justify-content-between\">\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"casado\" value=\"casado\">\n                                        <label for=\"casado\">Casado</label>\n                                    </div>\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"divorciado\" value=\"divorciado\">\n                                        <label for=\"divorciado\">Divorciado</label>\n                                    </div>\n                                </div>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"calleNumero\">Calle y numero:</label>\n                                <input type=\"text\" name=\"calleNumero\" id=\"calleNumero\" :v-model=\"datosPersonales.domicilio.calle\"/>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"email\">Correo electronico (personal):</label>\n                                <input type=\"text\" name=\"email\" id=\"email\" :v-model=\"datosPersonales.contacto.correoElectronico.personal\" />\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"movil\">Movil:</label>\n                                <input type=\"text\" name=\"movil\" id=\"movil\" :v-model=\"datosPersonales.contacto.telefono.personal\" />\n                            </div>\n\n                        </div>\n\n                        <div class=\"center col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"date\">Edad:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"datosPersonales.datosPersonales.edad\" />\n                            </div>\n\n                            <div class=\"text-center mb-3\">\n                                <div>.</div>\n                                <div class=\"checkboxs\">\n                                    <input type=\"checkbox\" id=\"mike\" value=\"Mike\" >\n                                    <label for=\"mike\">Soltero</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\" >\n                                <label for=\"colonia\">Colonia:</label>\n                                <input type=\"text\" name=\"colonia\" id=\"colonia\"  :v-model=\"user.datosPersonales.domicilio.colonia\" />\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"institucional\">Correo electronico (institucional):</label>\n                                <input type=\"text\" name=\"institucional\" id=\"institucional\" :v-model=\"user.datosPersonales.contacto.correoElectronico.institucional\"/>\n                            </div>\n                        </div>\n\n                        <div class=\"left col-lg-4 col-sm-2\">\n                            <div class=\"d-grid mb-3\">\n                                <div>Genero: </div>\n                                <div class=\"d-flex justify-content-between\">\n\n                                       <input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"femenino-outlined\" autocomplete=\"off\">\n                                    <label class=\"btn btn-outline-secondary\" for=\"femenino-outlined\">Femenino</label>\n\n                                    <input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"masculino-outlined\" autocomplete=\"off\">\n                                    <label class=\"btn btn-outline-secondary\" for=\"masculino-outlined\">Masculino</label>\n\n                                    <input type=\"radio\" class=\"btn-check\" name=\"options-genero\" id=\"otro-outlined\" autocomplete=\"off\">\n                                    <label class=\"btn btn-outline-secondary\" for=\"otro-outlined\">Otro</label>\n\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div class=\"text-center\">\n                                    <div>.</div>\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"UnionLibre\"  value=\"true\">\n                                        <label for=\"UnionLibre\">Union libre</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"municipio\">Municipio:</label>\n                                <input type=\"text\" name=\"municipio\" id=\"municipio\" :v-model=\"user.datosPersonales.domicilio.municipio.descripcion\"/>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"telefono\">Telefono:</label>\n                                <input type=\"text\" name=\"telefono\" id=\"telefono\"  :v-model=\"user.datosPersonales.contacto.telefono.movil\" />\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Familiares')\"> Siguiente </button>\n                    </div>\n\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Familiares'\">\n\n                    <div class=\"container d-flex justify-content-between my-4 row\">\n\n                        <div class=\"right col-lg-4 col-sm-2 \">\n\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre del padre:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.padre.nombre\" />\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre de la madre:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.madre.nombre\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre del conyuge:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.conyuge.nombre\"/>\n                            </div>\n                            <h5>En caso de emergencia</h5>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Nombre:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.emergencia.nombre\"/>\n                            </div>\n\n\n                        </div>\n\n                        <div class=\"center col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.padre.telefono\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.madre.telefono\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.conyuge.telefono\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Telefono:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.emergencia.telefono\"/>\n                            </div>\n                        </div>\n\n                        <div class=\"left col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Ocupación:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.padre.ocupacion\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Ocupación:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.madre.ocupacion\"/>\n                            </div>\n                            <div class=\"d-grid mb-3 \">\n                                <label for=\"date\">Ocupación:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.conyuge.ocupacion\"/>\n                            </div>\n                            <div class=\"d-grid row \">\n                                <label for=\"date\">Parentesco:</label>\n                                <input type=\"text\" name=\"date\" id=\"date\" :v-model=\"user.datosFamiliares.emergencia.parentezco\"/>\n                            </div>\n                        </div>\n\n                    </div>\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Laborales')\"> Siguiente </button>\n                    </div>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Laborales'\">\n\n                    <div class=\"container d-flex justify-content-between my-4 row\">\n\n                        <div class=\"right col-lg-4 col-sm-2\">\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Trabajas: </div>\n                                <div class=\"checkboxs\">\n                                    <input type=\"checkbox\" id=\"trabajas-si\" value=\"trabajas-si\" >\n                                    <label for=\"trabajas-si\">Si</label>\n                                </div>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Razón por la que Trabajas : </div>\n                                <div class=\"checkboxs\">\n                                    <input type=\"checkbox\" id=\"apoyo-eco\" value=\"apoyo-eco\" >\n                                    <label for=\"apoyo-eco\">Apoyar Económicamente a la Familia</label>\n\n                                </div>\n                            </div>\n\n                            <p>Empresa</p>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"name\">Nombre:</label>\n                                <input type=\"text\" name=\"name\" id=\"name\"  :v-model=\"user.datosLaborales.empresa.nombre\"/>\n                            </div>\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"telefono\">Telefono:</label>\n                                <input type=\"text\" name=\"telefono\" id=\"telefono\" :v-model=\"user.datosLaborales.empresa.telefono\" />\n                            </div>\n\n                        </div>\n                        <div class=\"center col-lg-4 col-sm-2\">\n\n                            <div class=\"checkboxs\">\n                                <input type=\"checkbox\" id=\"mike\" value=\"Mike\" >\n                                <label for=\"mike\">No</label>\n                            </div>\n\n                            <div class=\"checkboxs\">\n                                <input type=\"checkbox\" id=\"familia\" value=\"familia\" >\n                                <label for=\"familia\">Apoyar Totalmente a la Familia</label>\n                            </div>\n\n                            <div class=\"checkboxs\">\n                                <input type=\"checkbox\" id=\"familia\" value=\"familia\" >\n                                <label for=\"familia\">Apoyar Totalmente a la Familia</label>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"domicilio\">Domicilio:</label>\n                                <input type=\"text\" name=\"domicilio\" id=\"domicilio\" :v-model=\"user.datosLaborales.empresa.domicilio\"/>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"puesto\">Puesto:</label>\n                                <input type=\"text\" name=\"puesto\" id=\"puesto\" :v-model=\"user.datosLaborales.empresa.puesto\"/>\n                            </div>\n\n                        </div>\n                        <div class=\"left col-lg-4 col-sm-2\">\n                            <div class=\"d-grid mb-3\">\n                                <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"tabajas-si\" value=\"tabajas-si\" >\n                                        <label for=\"tabajas-si\">Si</label>\n                                    </div>\n                                    <div class=\"checkboxs\">\n                                        <input type=\"checkbox\" id=\"trabajo-no\" value=\"trabajo-no\" >\n                                        <label for=\"trabajo-no\">No</label>\n                                    </div>\n\n                                </div>\n                            </div>\n                            <div class=\"mt-4 checkboxs\">\n                                <input type=\"checkbox\" id=\"sostenerme\" value=\"sostenerme\" >\n                                <label for=\"sostenerme\">Sostenerme Totalmente</label>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <input type=\"text\" name=\"total\" id=\"total\" />\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"departamento\">Departamento:</label>\n                                <input type=\"text\" name=\"departamento\" id=\"departamento\" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Economicos')\"> Siguiente </button>\n                    </div>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Economicos'\">\n\n                    <div class=\"container d-flex justify-content-between  my-4 row\">\n\n                        <div class=\"right col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <div>Vive con: </div>\n                                <div class=\"continer checkboxs\">\n                                    <input type=\"checkbox\" id=\"padres+\" value=\"padres+\" >\n                                    <label for=\"padres+\">Ambos Padres</label>\n                                </div>\n                            </div>\n\n                            <div class=\"mt-4\">\n                                <div>Vivienda: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"container\">\n                                        <div class=\"container-body p-0 checkboxs\">\n                                            <input class=\"p-0\" type=\"checkbox\" id=\"propia\" value=\"propia\" >\n                                            <label for=\"propia\">Propia</label>\n                                        </div>\n                                    </div>\n                                    <div class=\"container checkboxs\">\n                                        <input type=\"checkbox\" id=\"renta\" value=\"renta\" >\n                                        <label for=\"renta\">Rentada</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div>¿Quien es tu principal apoyo econimico?: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"continer checkboxs\">\n                                        <input type=\"checkbox\" id=\"padre\" value=\"padre\" >\n                                        <label for=\"padre\">Padre</label>\n                                    </div>\n                                    <div class=\"continer\">\n                                        <input type=\"checkbox\" id=\"madre\" value=\"madre\" >\n                                        <label for=\"madre\">Madre</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div>Ingresos Familiares: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"continer checkboxs\">\n                                        <input type=\"checkbox\" id=\"menos\" value=\"menos\" >\n                                        <label for=\"menos\">Menos de $5,000</label>\n                                    </div>\n                                    <div class=\"container\">\n                                        <input type=\"checkbox\" id=\"5-10\" value=\"5-10\" >\n                                        <label for=\"5-10\">$5,000 A $10,000</label>\n                                    </div>\n                                </div>\n                            </div>\n\n                        </div>\n                        <div class=\"center col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"uno-padre\" value=\"uno-padre\" >\n                                    <label for=\"uno-padre\">Uno de los Padres</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"pareja\" value=\"pareja\" >\n                                    <label for=\"pareja\">Pareja</label>\n                                </div>\n                            </div>\n\n                            <div class=\"mt-4 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"prestada\" value=\"prestada\" >\n                                    <label for=\"prestada\">Prestada</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"continer\">\n                                    <input type=\"checkbox\" id=\"huermano\" value=\"huermano\" >\n                                    <label for=\"huermano\">Hermano(a)</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"continer\">\n                                    <input type=\"checkbox\" id=\"10-15\" value=\"10-15\" >\n                                    <label for=\"10-15\">$10,000 A $15,000</label>\n                                </div>\n                            </div>\n\n                        </div>\n                        <div class=\"left col-4 mt-4\">\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"solo\" value=\"solo\" >\n                                    <label for=\"solo\">Solo(a)</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"otro\" value=\"otro\" >\n                                    <label for=\"otro\">Otro Familiar</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3\">\n                                <div>Transporte: </div>\n                                <div class=\"d-flex\">\n                                    <div class=\"container\">\n                                        <input type=\"checkbox\" id=\"propio\" value=\"propio\" >\n                                        <label for=\"propio\">Propia</label>\n                                    </div>\n                                    <div class=\"container\">\n                                        <input type=\"checkbox\" id=\"publico\" value=\"publico\" >\n                                        <label for=\"publico\">Pubico</label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"conyuge\" value=\"conyuge\" >\n                                    <label for=\"conyuge\">Cónyuge</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"otro\" value=\"otro\" >\n                                    <label for=\"otro\">Otro Familiar</label>\n                                </div>\n                            </div>\n                            <div class=\"d-grid mb-3 d-flex\">\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"10-15\" value=\"10-15\" >\n                                    <label for=\"10-15\">$10,000 A $15,000</label>\n                                </div>\n                                <div class=\"container\">\n                                    <input type=\"checkbox\" id=\"mas\" value=\"mas\" >\n                                    <label for=\"mas\">Más de $15,000</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Datos Escolares')\"> Siguiente </button>\n                    </div>\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:80%\" v-show=\"activeStep == 'Datos Escolares'\">\n\n                    <div class=\"container d-flex justify-content-between  my-4 row\">\n\n                        <div class=\"right col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"nombreBachillerato\">Nombre del bachillerato:</label>\n                                <input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\" :v-model=\"user.datosEscolares.nombreBachillerato\"/>\n                            </div>\n\n                        </div>\n\n                        <div class=\"center col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"tipoBachillerato\">Tipo de bachillerato:</label>\n                                <input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\" :v-model=\"user.datosEscolares.tipoBachillerato.descripcion\"/>\n                            </div>\n\n                        </div>\n\n                        <div class=\"left col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"entidadFederativa\">Entidad Federativa:</label>\n                                <input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\" :v-model=\"user.datosEscolares.entidadFederativa.nombre\" />\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" @click=\"onClickStep('Promedios')\"> Siguiente </button>\n                    </div>\n\n                </div>\n\n                <div class=\"container-lg mb-3\" style=\"width:75%\" v-show=\"activeStep == 'Promedios'\">\n                    <div class=\"container d-flex justify-content-between  my-4 row\">\n\n                        <div class=\"right col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"nombreBachillerato\">Promedio de bachillerato:</label>\n                                <input type=\"text\" name=\"nombreBachillerato\" id=\"nombreBachillerato\" :v-model=\"user.promedios.tsu.bachillerato\"/>\n                            </div>\n\n                        </div>\n                        <div class=\"center col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"tipoBachillerato\">Nivel de Ingles:</label>\n                                <input type=\"text\" name=\"tipoBachillerato\" id=\"tipoBachillerato\" :v-model=\"user.promedios.tsu.nivelIngles\"/>\n                            </div>\n\n                        </div>\n                        <div class=\"left col-4 mt-4\">\n\n                            <div class=\"d-grid mb-3\">\n                                <label for=\"entidadFederativa\">Puntos del examen de Ingreso:</label>\n                                <input type=\"text\" name=\"entidadFederativa\" id=\"entidadFederativa\" :v-model=\"user.promedios.tsu.puntosExamenIngreso\" />\n                            </div>\n\n                        </div>\n                    </div>\n\n                    <div class=\"container d-lg-flex justify-content-lg-end\">\n                        <button type=\"button\" class=\"btn bg-utt text-white btn-lg\" > Guardar </button>\n                    </div>\n                </div>\n                \n                \n            </div> ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Registro general del alumno']]);
+    ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.matricula), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.nombre), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [_hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "FechaNacimiento",
+      id: "FechaNacimiento",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.FechaNacimiento = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_48), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.FechaNacimiento]])]), _hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [_hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "calleNumero",
+      id: "calleNumero",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.domicilio.calle = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_52), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.domicilio.calle]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [_hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "email",
+      id: "email",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.contacto.correoElectronico.personal = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_55), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.contacto.correoElectronico.personal]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [_hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "movil",
+      id: "movil",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.contacto.telefono.movil = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_58), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.contacto.telefono.movil]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, [_hoisted_61, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.edad = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_62), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.edad]])]), _hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [_hoisted_65, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "colonia",
+      id: "colonia",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.domicilio.colonia = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_66), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.domicilio.colonia]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [_hoisted_68, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "institucional",
+      id: "institucional",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.contacto.correoElectronico.institucional = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_69), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.contacto.correoElectronico.institucional]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_70, [_hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_73, [_hoisted_74, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "municipio",
+      id: "municipio",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.domicilio.municipio.descripcion = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_75), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.domicilio.municipio.descripcion]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_76, [_hoisted_77, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "telefono",
+      id: "telefono",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosPersonales.contacto.telefono.casa = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_78), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosPersonales.contacto.telefono.casa]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "btn bg-utt text-white btn-lg",
+      onClick: _cache[0] || (_cache[0] = function ($event) {
+        return $setup.onClickStep('Datos Familiares');
+      })
+    }, " Siguiente ")])], 512
+    /* NEED_PATCH */
+    ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Personales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_81, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_83, [_hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "padre_nombre",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.padre.nombre = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_85), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.padre.nombre]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_86, [_hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "madre_nombre",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.madre.nombre = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_88), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.madre.nombre]])]), _hoisted_89, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_90, [_hoisted_91, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "emergencia_nombre",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.emergencia.nombre = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_92), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.emergencia.nombre]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_93, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_94, [_hoisted_95, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.padre.telefono = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_96), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.padre.telefono]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_97, [_hoisted_98, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.madre.telefono = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_99), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.madre.telefono]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"d-grid mb-3 \">\n                                    <label for=\"date\">Telefono:</label>\n                                    <input type=\"text\" name=\"date\" id=\"date\" v-model=\"usuario.datosFamiliares.conyuge.telefono\"/>\n                                </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [_hoisted_101, _hoisted_102, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.emergencia.telefono = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_103), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.emergencia.telefono]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_105, [_hoisted_106, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.padre.ocupacion = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_107), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.padre.ocupacion]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_108, [_hoisted_109, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.madre.ocupacion = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_110), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.madre.ocupacion]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"d-grid mb-3 \">\n                                    <label for=\"date\">Ocupación:</label>\n                                    <input type=\"text\" name=\"date\" id=\"date\" v-model=\"usuario.datosFamiliares.conyuge.ocupacion\"/>\n                                </div> "), _hoisted_111, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_112, [_hoisted_113, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "date",
+      id: "date",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosFamiliares.emergencia.parentezco = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_114), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosFamiliares.emergencia.parentezco]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_115, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "btn bg-utt text-white btn-lg",
+      onClick: _cache[1] || (_cache[1] = function ($event) {
+        return $setup.onClickStep('Datos Laborales');
+      })
+    }, " Siguiente ")])], 512
+    /* NEED_PATCH */
+    ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Familiares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_116, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_117, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_118, [_hoisted_119, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_122, [_hoisted_123, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "name",
+      id: "name",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosLaborales.empresa.nombre = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_124), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosLaborales.empresa.nombre]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_125, [_hoisted_126, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "telefono",
+      id: "telefono",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosLaborales.empresa.telefono = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_127), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosLaborales.empresa.telefono]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_128, [_hoisted_129, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_131, [_hoisted_132, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "domicilio",
+      id: "domicilio",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosLaborales.empresa.domicilio = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_133), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosLaborales.empresa.domicilio]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_134, [_hoisted_135, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "puesto",
+      id: "puesto",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosLaborales.empresa.puesto = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_136), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosLaborales.empresa.puesto]])])]), _hoisted_137, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "btn bg-utt text-white btn-lg",
+      onClick: _cache[2] || (_cache[2] = function ($event) {
+        return $setup.onClickStep('Datos Economicos');
+      })
+    }, " Siguiente ")])])], 512
+    /* NEED_PATCH */
+    ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Laborales']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_139, [_hoisted_140, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_141, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "btn bg-utt text-white btn-lg",
+      onClick: _cache[3] || (_cache[3] = function ($event) {
+        return $setup.onClickStep('Datos Escolares');
+      })
+    }, " Siguiente ")])], 512
+    /* NEED_PATCH */
+    ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Economicos']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_142, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_143, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_144, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_145, [_hoisted_146, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "nombreBachillerato",
+      id: "nombreBachillerato",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosEscolares.nombreBachillerato = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_147), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosEscolares.nombreBachillerato]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_148, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_149, [_hoisted_150, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "tipoBachillerato",
+      id: "tipoBachillerato",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosEscolares.tipoBachillerato.descripcion = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_151), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosEscolares.tipoBachillerato.descripcion]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_152, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_153, [_hoisted_154, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "entidadFederativa",
+      id: "entidadFederativa",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.datosEscolares.entidadFederativa.nombre = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_155), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.datosEscolares.entidadFederativa.nombre]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_156, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "btn bg-utt text-white btn-lg",
+      onClick: _cache[4] || (_cache[4] = function ($event) {
+        return $setup.onClickStep('Promedios');
+      })
+    }, " Siguiente ")])], 512
+    /* NEED_PATCH */
+    ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Datos Escolares']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_157, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_158, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_159, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_160, [_hoisted_161, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "nombreBachillerato",
+      id: "nombreBachillerato",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.promedios.tsu.bachillerato = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_162), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.promedios.tsu.bachillerato]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_163, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_164, [_hoisted_165, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "tipoBachillerato",
+      id: "tipoBachillerato",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.promedios.tsu.nivelIngles = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_166), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.promedios.tsu.nivelIngles]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_167, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_168, [_hoisted_169, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "text",
+      name: "entidadFederativa",
+      id: "entidadFederativa",
+      "onUpdate:modelValue": function onUpdateModelValue($event) {
+        return usuario.promedios.tsu.puntosExamenIngreso = $event;
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_170), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, usuario.promedios.tsu.puntosExamenIngreso]])])])]), _hoisted_171], 512
+    /* NEED_PATCH */
+    ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeStep == 'Promedios']])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.activeOption == 'Registro general del alumno']]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])])], 64
@@ -44620,13 +45501,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _About_vue_vue_type_template_id_169e1534__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./About.vue?vue&type=template&id=169e1534 */ "./resources/js/Pages/About.vue?vue&type=template&id=169e1534");
 /* harmony import */ var _About_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./About.vue?vue&type=script&lang=js */ "./resources/js/Pages/About.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_About_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_About_vue_vue_type_template_id_169e1534__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/About.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_About_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_About_vue_vue_type_template_id_169e1534__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/About.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -44648,13 +45529,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=template&id=097ba13b */ "./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b");
 /* harmony import */ var _Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=script&lang=js */ "./resources/js/Pages/Dashboard.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Users_javiersandoval_project_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Dashboard.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_DashboardUTT_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Dashboard.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -44723,236 +45604,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_097ba13b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Dashboard.vue?vue&type=template&id=097ba13b */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue/dist/vue.esm-bundler.js":
-/*!**************************************************!*\
-  !*** ./node_modules/vue/dist/vue.esm-bundler.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
-/* harmony export */   "Comment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Comment),
-/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
-/* harmony export */   "Fragment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Fragment),
-/* harmony export */   "KeepAlive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
-/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
-/* harmony export */   "Static": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Static),
-/* harmony export */   "Suspense": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Suspense),
-/* harmony export */   "Teleport": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Teleport),
-/* harmony export */   "Text": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Text),
-/* harmony export */   "Transition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Transition),
-/* harmony export */   "TransitionGroup": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup),
-/* harmony export */   "VueElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.VueElement),
-/* harmony export */   "callWithAsyncErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
-/* harmony export */   "callWithErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
-/* harmony export */   "camelize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.camelize),
-/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
-/* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
-/* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
-/* harmony export */   "compile": () => (/* binding */ compileToFunction),
-/* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
-/* harmony export */   "createApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
-/* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
-/* harmony export */   "createCommentVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
-/* harmony export */   "createElementBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
-/* harmony export */   "createElementVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
-/* harmony export */   "createHydrationRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
-/* harmony export */   "createPropsRestProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
-/* harmony export */   "createRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
-/* harmony export */   "createSSRApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSSRApp),
-/* harmony export */   "createSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSlots),
-/* harmony export */   "createStaticVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
-/* harmony export */   "createTextVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
-/* harmony export */   "createVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createVNode),
-/* harmony export */   "customRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.customRef),
-/* harmony export */   "defineAsyncComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
-/* harmony export */   "defineComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
-/* harmony export */   "defineCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineCustomElement),
-/* harmony export */   "defineEmits": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
-/* harmony export */   "defineExpose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
-/* harmony export */   "defineProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineProps),
-/* harmony export */   "defineSSRCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSSRCustomElement),
-/* harmony export */   "devtools": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.devtools),
-/* harmony export */   "effect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effect),
-/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effectScope),
-/* harmony export */   "getCurrentInstance": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
-/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
-/* harmony export */   "getTransitionRawChildren": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
-/* harmony export */   "guardReactiveProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
-/* harmony export */   "h": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.h),
-/* harmony export */   "handleError": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.handleError),
-/* harmony export */   "hydrate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hydrate),
-/* harmony export */   "initCustomFormatter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
-/* harmony export */   "initDirectivesForSSR": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initDirectivesForSSR),
-/* harmony export */   "inject": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.inject),
-/* harmony export */   "isMemoSame": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
-/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isProxy),
-/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReactive),
-/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
-/* harmony export */   "isRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRef),
-/* harmony export */   "isRuntimeOnly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
-/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isShallow),
-/* harmony export */   "isVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isVNode),
-/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.markRaw),
-/* harmony export */   "mergeDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
-/* harmony export */   "mergeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
-/* harmony export */   "nextTick": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.nextTick),
-/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
-/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
-/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
-/* harmony export */   "onActivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onActivated),
-/* harmony export */   "onBeforeMount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
-/* harmony export */   "onBeforeUnmount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
-/* harmony export */   "onBeforeUpdate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
-/* harmony export */   "onDeactivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
-/* harmony export */   "onErrorCaptured": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
-/* harmony export */   "onMounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onMounted),
-/* harmony export */   "onRenderTracked": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
-/* harmony export */   "onRenderTriggered": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
-/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
-/* harmony export */   "onServerPrefetch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
-/* harmony export */   "onUnmounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
-/* harmony export */   "onUpdated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
-/* harmony export */   "openBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.openBlock),
-/* harmony export */   "popScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
-/* harmony export */   "provide": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.provide),
-/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
-/* harmony export */   "pushScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
-/* harmony export */   "queuePostFlushCb": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
-/* harmony export */   "reactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.reactive),
-/* harmony export */   "readonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.readonly),
-/* harmony export */   "ref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ref),
-/* harmony export */   "registerRuntimeCompiler": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
-/* harmony export */   "render": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "renderList": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderList),
-/* harmony export */   "renderSlot": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
-/* harmony export */   "resolveComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
-/* harmony export */   "resolveDirective": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
-/* harmony export */   "resolveDynamicComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
-/* harmony export */   "resolveFilter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
-/* harmony export */   "resolveTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
-/* harmony export */   "setBlockTracking": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
-/* harmony export */   "setDevtoolsHook": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
-/* harmony export */   "setTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
-/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
-/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
-/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
-/* harmony export */   "ssrContextKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
-/* harmony export */   "ssrUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
-/* harmony export */   "stop": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.stop),
-/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
-/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
-/* harmony export */   "toHandlers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
-/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRaw),
-/* harmony export */   "toRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRef),
-/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRefs),
-/* harmony export */   "transformVNodeArgs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
-/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
-/* harmony export */   "unref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.unref),
-/* harmony export */   "useAttrs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
-/* harmony export */   "useCssModule": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssModule),
-/* harmony export */   "useCssVars": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssVars),
-/* harmony export */   "useSSRContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
-/* harmony export */   "useSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSlots),
-/* harmony export */   "useTransitionState": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
-/* harmony export */   "vModelCheckbox": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox),
-/* harmony export */   "vModelDynamic": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelDynamic),
-/* harmony export */   "vModelRadio": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelRadio),
-/* harmony export */   "vModelSelect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelSelect),
-/* harmony export */   "vModelText": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelText),
-/* harmony export */   "vShow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vShow),
-/* harmony export */   "version": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.version),
-/* harmony export */   "warn": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.warn),
-/* harmony export */   "watch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watch),
-/* harmony export */   "watchEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
-/* harmony export */   "watchPostEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
-/* harmony export */   "watchSyncEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
-/* harmony export */   "withAsyncContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
-/* harmony export */   "withCtx": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withCtx),
-/* harmony export */   "withDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
-/* harmony export */   "withDirectives": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
-/* harmony export */   "withKeys": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withKeys),
-/* harmony export */   "withMemo": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withMemo),
-/* harmony export */   "withModifiers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
-/* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
-/* harmony export */ });
-/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
-/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
-/* harmony import */ var _vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/compiler-dom */ "./node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js");
-/* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
-
-
-
-
-
-
-function initDev() {
-    {
-        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.initCustomFormatter)();
-    }
-}
-
-// This entry is the "full-build" that includes both the runtime
-if ((true)) {
-    initDev();
-}
-const compileCache = Object.create(null);
-function compileToFunction(template, options) {
-    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.isString)(template)) {
-        if (template.nodeType) {
-            template = template.innerHTML;
-        }
-        else {
-            ( true) && (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`invalid template option: `, template);
-            return _vue_shared__WEBPACK_IMPORTED_MODULE_2__.NOOP;
-        }
-    }
-    const key = template;
-    const cached = compileCache[key];
-    if (cached) {
-        return cached;
-    }
-    if (template[0] === '#') {
-        const el = document.querySelector(template);
-        if (( true) && !el) {
-            (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`Template element not found or is empty: ${template}`);
-        }
-        // __UNSAFE__
-        // Reason: potential execution of JS expressions in in-DOM template.
-        // The user must make sure the in-DOM template is trusted. If it's rendered
-        // by the server, the template should not contain any user data.
-        template = el ? el.innerHTML : ``;
-    }
-    const { code } = (0,_vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__.compile)(template, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.extend)({
-        hoistStatic: true,
-        onError: ( true) ? onError : 0,
-        onWarn: ( true) ? e => onError(e, true) : 0
-    }, options));
-    function onError(err, asWarning = false) {
-        const message = asWarning
-            ? err.message
-            : `Template compilation error: ${err.message}`;
-        const codeFrame = err.loc &&
-            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.generateCodeFrame)(template, err.loc.start.offset, err.loc.end.offset);
-        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(codeFrame ? `${message}\n${codeFrame}` : message);
-    }
-    // The wildcard import results in a huge object with every export
-    // with keys that cannot be mangled, and can be quite heavy size-wise.
-    // In the global build we know `Vue` is available globally so we can avoid
-    // the wildcard object.
-    const render = (new Function('Vue', code)(_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__));
-    render._rc = true;
-    return (compileCache[key] = render);
-}
-(0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.registerRuntimeCompiler)(compileToFunction);
-
-
 
 
 /***/ }),
@@ -45991,6 +46642,236 @@ var index = {
     Vue.component("tabs", Tabs);
   }
 };
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue/dist/vue.esm-bundler.js":
+/*!**************************************************!*\
+  !*** ./node_modules/vue/dist/vue.esm-bundler.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
+/* harmony export */   "Comment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Comment),
+/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
+/* harmony export */   "Fragment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Fragment),
+/* harmony export */   "KeepAlive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
+/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
+/* harmony export */   "Static": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Static),
+/* harmony export */   "Suspense": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Suspense),
+/* harmony export */   "Teleport": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Teleport),
+/* harmony export */   "Text": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Text),
+/* harmony export */   "Transition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Transition),
+/* harmony export */   "TransitionGroup": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup),
+/* harmony export */   "VueElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.VueElement),
+/* harmony export */   "callWithAsyncErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
+/* harmony export */   "callWithErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
+/* harmony export */   "camelize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.camelize),
+/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
+/* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
+/* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
+/* harmony export */   "compile": () => (/* binding */ compileToFunction),
+/* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
+/* harmony export */   "createApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
+/* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
+/* harmony export */   "createCommentVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
+/* harmony export */   "createElementBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
+/* harmony export */   "createElementVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
+/* harmony export */   "createHydrationRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
+/* harmony export */   "createPropsRestProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
+/* harmony export */   "createRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
+/* harmony export */   "createSSRApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSSRApp),
+/* harmony export */   "createSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSlots),
+/* harmony export */   "createStaticVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
+/* harmony export */   "createTextVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
+/* harmony export */   "createVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createVNode),
+/* harmony export */   "customRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.customRef),
+/* harmony export */   "defineAsyncComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
+/* harmony export */   "defineComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
+/* harmony export */   "defineCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineCustomElement),
+/* harmony export */   "defineEmits": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
+/* harmony export */   "defineExpose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
+/* harmony export */   "defineProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineProps),
+/* harmony export */   "defineSSRCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSSRCustomElement),
+/* harmony export */   "devtools": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.devtools),
+/* harmony export */   "effect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effect),
+/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effectScope),
+/* harmony export */   "getCurrentInstance": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
+/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
+/* harmony export */   "getTransitionRawChildren": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
+/* harmony export */   "guardReactiveProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
+/* harmony export */   "h": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.h),
+/* harmony export */   "handleError": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.handleError),
+/* harmony export */   "hydrate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hydrate),
+/* harmony export */   "initCustomFormatter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
+/* harmony export */   "initDirectivesForSSR": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initDirectivesForSSR),
+/* harmony export */   "inject": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.inject),
+/* harmony export */   "isMemoSame": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
+/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isProxy),
+/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReactive),
+/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
+/* harmony export */   "isRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRef),
+/* harmony export */   "isRuntimeOnly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
+/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isShallow),
+/* harmony export */   "isVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isVNode),
+/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.markRaw),
+/* harmony export */   "mergeDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
+/* harmony export */   "mergeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
+/* harmony export */   "nextTick": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.nextTick),
+/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
+/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
+/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
+/* harmony export */   "onActivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onActivated),
+/* harmony export */   "onBeforeMount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
+/* harmony export */   "onBeforeUnmount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
+/* harmony export */   "onBeforeUpdate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
+/* harmony export */   "onDeactivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
+/* harmony export */   "onErrorCaptured": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
+/* harmony export */   "onMounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onMounted),
+/* harmony export */   "onRenderTracked": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
+/* harmony export */   "onRenderTriggered": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
+/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
+/* harmony export */   "onServerPrefetch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
+/* harmony export */   "onUnmounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
+/* harmony export */   "onUpdated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
+/* harmony export */   "openBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.openBlock),
+/* harmony export */   "popScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
+/* harmony export */   "provide": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.provide),
+/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
+/* harmony export */   "pushScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
+/* harmony export */   "queuePostFlushCb": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
+/* harmony export */   "reactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.reactive),
+/* harmony export */   "readonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.readonly),
+/* harmony export */   "ref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ref),
+/* harmony export */   "registerRuntimeCompiler": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
+/* harmony export */   "render": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "renderList": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderList),
+/* harmony export */   "renderSlot": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
+/* harmony export */   "resolveComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
+/* harmony export */   "resolveDirective": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
+/* harmony export */   "resolveDynamicComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
+/* harmony export */   "resolveFilter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
+/* harmony export */   "resolveTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
+/* harmony export */   "setBlockTracking": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
+/* harmony export */   "setDevtoolsHook": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
+/* harmony export */   "setTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
+/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
+/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
+/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
+/* harmony export */   "ssrContextKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
+/* harmony export */   "ssrUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
+/* harmony export */   "stop": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.stop),
+/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
+/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
+/* harmony export */   "toHandlers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
+/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRaw),
+/* harmony export */   "toRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRef),
+/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRefs),
+/* harmony export */   "transformVNodeArgs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
+/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
+/* harmony export */   "unref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.unref),
+/* harmony export */   "useAttrs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
+/* harmony export */   "useCssModule": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssModule),
+/* harmony export */   "useCssVars": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssVars),
+/* harmony export */   "useSSRContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
+/* harmony export */   "useSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSlots),
+/* harmony export */   "useTransitionState": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
+/* harmony export */   "vModelCheckbox": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox),
+/* harmony export */   "vModelDynamic": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelDynamic),
+/* harmony export */   "vModelRadio": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelRadio),
+/* harmony export */   "vModelSelect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelSelect),
+/* harmony export */   "vModelText": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelText),
+/* harmony export */   "vShow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vShow),
+/* harmony export */   "version": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.version),
+/* harmony export */   "warn": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.warn),
+/* harmony export */   "watch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watch),
+/* harmony export */   "watchEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
+/* harmony export */   "watchPostEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
+/* harmony export */   "watchSyncEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
+/* harmony export */   "withAsyncContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
+/* harmony export */   "withCtx": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withCtx),
+/* harmony export */   "withDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
+/* harmony export */   "withDirectives": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
+/* harmony export */   "withKeys": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withKeys),
+/* harmony export */   "withMemo": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withMemo),
+/* harmony export */   "withModifiers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
+/* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
+/* harmony export */ });
+/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
+/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/compiler-dom */ "./node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js");
+/* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
+
+
+
+
+
+
+function initDev() {
+    {
+        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.initCustomFormatter)();
+    }
+}
+
+// This entry is the "full-build" that includes both the runtime
+if ((true)) {
+    initDev();
+}
+const compileCache = Object.create(null);
+function compileToFunction(template, options) {
+    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.isString)(template)) {
+        if (template.nodeType) {
+            template = template.innerHTML;
+        }
+        else {
+            ( true) && (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`invalid template option: `, template);
+            return _vue_shared__WEBPACK_IMPORTED_MODULE_2__.NOOP;
+        }
+    }
+    const key = template;
+    const cached = compileCache[key];
+    if (cached) {
+        return cached;
+    }
+    if (template[0] === '#') {
+        const el = document.querySelector(template);
+        if (( true) && !el) {
+            (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`Template element not found or is empty: ${template}`);
+        }
+        // __UNSAFE__
+        // Reason: potential execution of JS expressions in in-DOM template.
+        // The user must make sure the in-DOM template is trusted. If it's rendered
+        // by the server, the template should not contain any user data.
+        template = el ? el.innerHTML : ``;
+    }
+    const { code } = (0,_vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__.compile)(template, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.extend)({
+        hoistStatic: true,
+        onError: ( true) ? onError : 0,
+        onWarn: ( true) ? e => onError(e, true) : 0
+    }, options));
+    function onError(err, asWarning = false) {
+        const message = asWarning
+            ? err.message
+            : `Template compilation error: ${err.message}`;
+        const codeFrame = err.loc &&
+            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.generateCodeFrame)(template, err.loc.start.offset, err.loc.end.offset);
+        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(codeFrame ? `${message}\n${codeFrame}` : message);
+    }
+    // The wildcard import results in a huge object with every export
+    // with keys that cannot be mangled, and can be quite heavy size-wise.
+    // In the global build we know `Vue` is available globally so we can avoid
+    // the wildcard object.
+    const render = (new Function('Vue', code)(_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__));
+    render._rc = true;
+    return (compileCache[key] = render);
+}
+(0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.registerRuntimeCompiler)(compileToFunction);
+
 
 
 
