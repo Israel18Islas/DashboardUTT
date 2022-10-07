@@ -62,7 +62,8 @@
                 <Slide class="mb-3" v-for="(usuario, index) in usuariosArray" :key="index" >
                 <div class="carousel__item" >
                     <div class="card border-0 p-2 " id="card-carrusel" style="width: 180px; height: 220px;" @click="onClickData(usuario)">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU"  class="card-img-top" alt="...">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU"  class="card-img-top" alt="..."> 
+                        <!-- <img src="{{usuario.foto}}" class="card-img-top"> -->
                         <div class="card-body">
                             <p class="card-title">{{ usuario.matricula }} </p>
                             <p class="card-text">{{ usuario.nombre }} </p>
@@ -86,16 +87,19 @@
         <div v-show="activeOption == 'Dashboard'" class="d-lg-flex justify-content-between">
 
             <div class="card border-0 col-lg-9 mb-2" v-show="activeOption == 'Dashboard'">
-                <canvas id="barChar"></canvas>
+                <div class="card-header text-center fs-3 fw-bolder">Grafica de edades</div>
+                <canvas id="barChar" class="mt-5"></canvas>
             </div>
 
             <div  class=" border-0 col-lg-3 ms-1 mb-2" v-show="activeOption == 'Dashboard'" >
 
                 <div class="card border-0 mb-3" >
+                    <div class="card-header text-center fs-3 fw-bolder">Grafica de genero</div>
                     <canvas id="PieChart"></canvas>
                 </div>
 
                 <div class="card border-0" >
+                    <div class="card-header text-center fs-3 fw-bolder">Grafica de ingresos</div>
                     <canvas id="myChart"></canvas>
                 </div>
 
@@ -122,107 +126,17 @@
 
                     <div class="avatar col-sm-2 text-center m-auto" style="width:20%;" >
                         <img src="https://static3.depositphotos.com/1004996/215/i/600/depositphotos_2155791-stock-photo-glowing-font-shiny-letter-l.jpg" width="200" height="200">
-                        <p class="mt-3">{{ user.matricula }} </p>
-                        <p>{{ user.nombre }} </p>
+                        <!-- <img src="{{usuario.foto}}" class="card-img-top"> -->
+
+                        <p>{{ usuario.matricula }} </p>
+                        <p>{{ usuario.Nombre }} </p>
                     </div>
-
-
 
                     <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Personales'">
 
-                        <div class="container d-flex justify-content-between my-4 row">
-
-                            <div class="right col-lg-4 col-sm-2" >
-
-                                <div class="d-grid mb-3">
-                                    <label for="FechaNacimiento">Fecha de nacimiento:</label>
-                                    <input type="text" name="FechaNacimiento" id="FechaNacimiento" v-model="usuario.datosPersonales.FechaNacimiento" />
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <div>Estado civil: </div>
-                                    <div class="d-flex justify-content-between">
-                                        <input type="radio" class="btn-check btn-ms" name="options-civil" id="Casado-outlined" autocomplete="off">
-                                        <label class="btn btn-outline-secondary"  for="Casado-outlined">Casado</label>
-
-                                        <input type="radio" class="btn-check btn-ms" name="options-civil" id="Divorciado-outlined" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="Divorciado-outlined">Divorciado</label>
-
-                                    </div>
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <label for="calleNumero">Calle y numero:</label>
-                                    <input type="text" name="calleNumero" id="calleNumero" v-model="usuario.datosPersonales.domicilio.calle"/>
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <label for="email">Correo electronico (personal):</label>
-                                    <input type="text" name="email" id="email" v-model="usuario.datosPersonales.contacto.correoElectronico.personal" />
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <label for="movil">Movil:</label>
-                                    <input type="text" name="movil" id="movil"  v-model="usuario.datosPersonales.contacto.telefono.movil" />
-                                </div>
-
-                            </div>
-
-                            <div class="center col-lg-4 col-sm-2">
-
-                                <div class="d-grid mb-3">
-                                    <label for="date">Edad:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosPersonales.edad" />
-                                </div>
-
-                                <div class="text-center mb-3 pt-4">
-
-                                    <input type="radio" class="btn-check btn-ms" name="options-civil" id="Soltero-outlined" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Soltero-outlined">Soltero</label>
-
-                                </div>
-                                <div class="d-grid mb-3" >
-                                    <label for="colonia">Colonia:</label>
-                                    <input type="text" name="colonia" id="colonia"  v-model="usuario.datosPersonales.domicilio.colonia" />
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <label for="institucional">Correo electronico (institucional):</label>
-                                    <input type="text" name="institucional" id="institucional" v-model="usuario.datosPersonales.contacto.correoElectronico.institucional"/>
-                                </div>
-                            </div>
-
-                            <div class="left col-lg-4 col-sm-2">
-                                <div class="d-grid mb-3">
-                                    <div>Genero: </div>
-                                    <div class="d-flex justify-content-between">
-
-                                        <input type="radio" class="btn-check" checked name="options-genero" id="femenino-outlined" autocomplete="off">
-                                        <label class="btn btn-outline-secondary"  for="femenino-outlined">Femenino</label>
-
-                                        <input type="radio" class="btn-check" name="options-genero" id="masculino-outlined" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="masculino-outlined">Masculino</label>
-
-                                        <input type="radio" class="btn-check" name="options-genero" id="otro-outlined" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="otro-outlined">Otro</label>
-
-                                    </div>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <div class="text-center pt-4">
-                                        <input type="radio" class="btn-check btn-ms" name="options-civil" id="UnionLibre-outlined" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="UnionLibre-outlined">Union Libre</label>
-                                    </div>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <label for="municipio">Municipio:</label>
-                                    <input type="text" name="municipio" id="municipio" v-model="usuario.datosPersonales.domicilio.municipio.descripcion"/>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <label for="telefono">Telefono:</label>
-                                    <input type="text" name="telefono" id="telefono"  v-model="usuario.datosPersonales.contacto.telefono.casa" />
-                                </div>
-                            </div>
-                        </div>
+                        <DatosPersonales
+                        :usuario="usuario">
+                        </DatosPersonales>
 
                         <div class="container d-lg-flex justify-content-lg-end">
                             <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Familiares')"> Siguiente </button>
@@ -232,324 +146,45 @@
 
                     <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Familiares'">
 
-                        <div class="container d-flex justify-content-between my-4 row">
+                        <DatosFamiliares
+                        :usuario="usuario">
+                        </DatosFamiliares>
 
-                            <div class="right col-lg-4 col-sm-2 ">
-
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Nombre del padre:</label>
-                                    <input type="text" name="date" id="padre_nombre" v-model="usuario.datosFamiliares.padre.nombre" />
-                                </div>
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Nombre de la madre:</label>
-                                    <input type="text" name="date" id="madre_nombre" v-model="usuario.datosFamiliares.madre.nombre"/>
-                                </div>
-                                <p>En caso de emergencia</p>
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Nombre:</label>
-                                    <input type="text" name="date" id="emergencia_nombre" v-model="usuario.datosFamiliares.emergencia.nombre"/>
-                                </div>
-
-
-                            </div>
-
-                            <div class="center col-lg-4 col-sm-2">
-
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Telefono:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.padre.telefono"/>
-                                </div>
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Telefono:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.madre.telefono"/>
-                                </div>
-                                <!-- <div class="d-grid mb-3 ">
-                                    <label for="date">Telefono:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.conyuge.telefono"/>
-                                </div> -->
-                                <div class="d-grid mb-3 ">
-                                    <div>.</div>
-                                    <label for="date">Telefono:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.emergencia.telefono"/>
-                                </div>
-                            </div>
-
-                            <div class="left col-lg-4 col-sm-2">
-
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Ocupación:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.padre.ocupacion"/>
-                                </div>
-                                <div class="d-grid mb-3 ">
-                                    <label for="date">Ocupación:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.madre.ocupacion"/>
-                                </div>
-                                <!-- <div class="d-grid mb-3 ">
-                                    <label for="date">Ocupación:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.conyuge.ocupacion"/>
-                                </div> -->
-                                <div>.</div>
-                                <div class="d-grid row ">
-                                    <label for="date">Parentesco:</label>
-                                    <input type="text" name="date" id="date" v-model="usuario.datosFamiliares.emergencia.parentezco"/>
-                                </div>
-                            </div>
-
-                        </div>
                         <div class="container d-lg-flex justify-content-lg-end">
                             <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Laborales')"> Siguiente </button>
                         </div>
-                    </div>
-
-                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Laborales'">
-
-                        <div class="container d-flex justify-content-between my-4 row">
-
-                            <div class="right col-lg-4 col-sm-2">
-
-                                <div class="d-grid mb-3">
-                                    <div>Trabajas: </div>
-
-                                    <input type="radio" class="btn-check"  checked name="options-trabajas" id="Trabajas-si" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Trabajas-si">Si</label>
-
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <div>Razón por la que Trabajas : </div>
-
-                                    <input type="radio" class="btn-check" checked name="options-razon" id="Razon-apoyar" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Razon-apoyar">Apoyar Económicamente a la Familia</label>
-
-                                </div>
-
-                                <p>Empresa</p>
-
-                                <div class="d-grid mb-3">
-                                    <label for="name">Nombre:</label>
-                                    <input type="text" name="name" id="name"  v-model="usuario.datosLaborales.empresa.nombre"/>
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <label for="telefono">Telefono:</label>
-                                    <input type="text" name="telefono" id="telefono" v-model="usuario.datosLaborales.empresa.telefono" />
-                                </div>
-
-                            </div>
-                            <div class="center col-lg-4 col-sm-2">
-
-                                <div class="d-grid mb-3">
-                                    <div>. </div>
-
-                                    <input type="radio" class="btn-check" checked name="options-trabajas" id="Trabajas-No" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Trabajas-No">No</label>
-
-                                </div>
-
-                                <div>
-                                    <div>.</div>
-                                    <input type="radio" class="btn-check" name="options-razon" id="Razon-solventar" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Razon-solventar">Solventar Algunos Gastos Personales</label>
-
-                                </div>
-
-                                <div class="d-grid mb-3">
-                                    <label for="domicilio">Domicilio:</label>
-                                    <input type="text" name="domicilio" id="domicilio" v-model="usuario.datosLaborales.empresa.domicilio"/>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <label for="puesto">Puesto:</label>
-                                    <input type="text" name="puesto" id="puesto" v-model="usuario.datosLaborales.empresa.puesto"/>
-                                </div>
-
-                            </div>
-                            <div class="left col-lg-4 col-sm-2">
-                                <div class="d-grid mb-3">
-                                    <div>¿Tu trabajo actual esta relacionado con tu carrera?: </div>
-                                    <div class="d-flex">
-
-                                        <input type="radio" class="btn-check" name="options-relacionado" id="relacionado-Si" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" checked for="relacionado-si">Si</label>
-
-                                        <input type="radio" class="btn-check" name="options-relacionado" id="relacionado-No" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="relacionado-no">No</label>
-
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>.</div>
-                                    <input type="radio" class="btn-check" name="options-razon" id="Razon-Sostenerme" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" checked for="Razon-Sostenerme">Sostenerme Totalmente</label>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <label for="departamento">Departamento:</label>
-                                    <input type="text" name="departamento" id="departamento" />
-                                </div>
-                            </div>
-
-                            <div class="container d-lg-flex justify-content-lg-end">
-                                <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Economicos')"> Siguiente </button>
-                            </div>
-                        </div>
 
                     </div>
-                    <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Economicos'">
 
-                        <div class="container d-flex justify-content-between  my-4 row">
+                     <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Laborales'">
 
-                            <div class="right col-4 mt-4">
+                        <DatosLaborales
+                        :usuario="usuario">
+                        </DatosLaborales>
 
-                                <div class="d-grid mb-3">
-                                    <div>Vive con: </div>
-                                    <input type="radio" class="btn-check" name="options-vive" id="Ambos-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Ambos-padres">Ambos Padres</label>
-
-                                </div>
-
-                                <div class="mt-4">
-                                    <div>Vivienda: </div>
-                                    <div class="d-flex">
-
-                                        <input type="radio" class="btn-check" name="options-vivienda" id="propia-padres" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" checked for="rentada-padres">Propia</label>
-
-                                        <input type="radio" class="btn-check" name="options-vivienda" id="rentada-padres" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="rentada-padres">Rentada</label>
-
-                                    </div>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <div>¿Quien es tu principal apoyo economico?: </div>
-                                    <div class="d-flex">
-
-                                        <input type="radio" class="btn-check" name="options-apoyo" id="apoyo-padres" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="apoyo-padres">Padre</label>
-
-                                        <input type="radio" class="btn-check" checked name="options-apoyo" id="apoyo-madre" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="apoyo-madre">Madre</label>
-
-                                    </div>
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <div>Ingresos Familiares: </div>
-                                    <div class="d-flex">
-
-                                        <input type="radio" class="btn-check" name="options-Ingresos" id="menos-Ingresos" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="menos-Ingresos">Menos de $5,000</label>
-
-                                        <input type="radio" class="btn-check" name="options-Ingresos" id="igual-Ingresos" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="igual-Ingresos">$5,000 A $10,000</label>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="center col-4 mt-4">
-
-                                <div class="d-grid mb-3 d-flex pt-4">
-
-                                    <input type="radio" class="btn-check" name="options-vive" id="uno-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="uno-padres">Uno de los Padres</label>
-
-                                    <input type="radio" class="btn-check" name="options-vive" id="pareja-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="pareja-padres">Pareja</label>
-                                </div>
-
-                                <div class="mt-4 d-flex pt-4">
-
-                                    <input type="radio" class="btn-check" name="options-vivienda" id="propia-prestada" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="rentada-prestada">Prestada</label>
-
-                                </div>
-                                <div class="d-grid mb-3 d-flex pt-4">
-                                    <input type="radio" class="btn-check" name="options-apoyo" id="apoyo-hermano" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="apoyo-hermano">Hermano</label>
-                                </div>
-
-                                <div class="d-grid mb-3 d-flex pt-4">
-                                    <input type="radio" class="btn-check" name="options-Ingresos" id="menosigual-Ingresos" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" checked for="menosigual-Ingresos">$10,000 A $15,000</label>
-
-                                </div>
-
-                            </div>
-                            <div class="left col-4 mt-4">
-                                <div class="d-grid mb-3 d-flex pt-4">
-                                    <input type="radio" class="btn-check" name="options-vive" id="solo-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="solo-padres">Solo</label>
-
-                                    <input type="radio" class="btn-check" name="options-vive" id="otro-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="otro-padres">Otro Familiar</label>
-
-                                </div>
-                                <div class="d-grid mb-3">
-                                    <div>Transporte: </div>
-                                    <div class=" d-grid d-flex">
-                                        <input type="radio" class="btn-check" name="options-trasporte" id="trasporte-propio" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="solo-padres">Propio</label>
-
-                                        <input type="radio" class="btn-check" name="options-trasporte" id="trasporte-publico" autocomplete="off">
-                                        <label class="btn btn-outline-secondary" for="trasporte-publico">Publico</label>
-
-                                    </div>
-                                </div>
-                                <div class="d-grid mb-3 d-flex">
-
-                                    <input type="radio" class="btn-check" name="options-vive" id="conyuge-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="conyuge-padres">Conyuge</label>
-
-                                    <input type="radio" class="btn-check" name="options-vive" id="otro-padres" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="Ambos-padres">Otro familiar</label>
-
-                                </div>
-                                <div class="d-grid mb-3 d-flex">
-
-                                    <input type="radio" class="btn-check" name="options-Ingresos" id="10-15" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="10-15">$10,000 A $15,000</label>
-
-                                    <input type="radio" class="btn-check" name="options-Ingresos" id="mas-15" autocomplete="off">
-                                    <label class="btn btn-outline-secondary" for="mas-15">Más de $15,000</label>
-
-                                </div>
-                            </div>
-                        </div>
                         <div class="container d-lg-flex justify-content-lg-end">
                             <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Escolares')"> Siguiente </button>
                         </div>
-                    </div>
+
+                    </div> 
+
+                    <!-- <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Economicos'">
+
+                        <DatosEconomicos
+                        :usuario="usuario">
+                        </DatosEconomicos>
+
+                        <div class="container d-lg-flex justify-content-lg-end">
+                            <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Datos Escolares')"> Siguiente </button>
+                        </div>
+
+                    </div> -->
 
                     <div class="container-lg mb-3" style="width:80%" v-show="activeStep == 'Datos Escolares'">
 
-                        <div class="container d-flex justify-content-between  my-4 row">
-
-                            <div class="right col-4 mt-4">
-
-                                <div class="d-grid mb-3">
-                                    <label for="nombreBachillerato">Nombre del bachillerato:</label>
-                                    <input type="text" name="nombreBachillerato" id="nombreBachillerato" v-model="usuario.datosEscolares.nombreBachillerato"/>
-                                </div>
-
-                            </div>
-
-                            <div class="center col-4 mt-4">
-
-                                <div class="d-grid mb-3">
-                                    <label for="tipoBachillerato">Tipo de bachillerato:</label>
-                                    <input type="text" name="tipoBachillerato" id="tipoBachillerato" v-model="usuario.datosEscolares.tipoBachillerato.descripcion"/>
-                                </div>
-
-                            </div>
-
-                            <div class="left col-4 mt-4">
-
-                                <div class="d-grid mb-3">
-                                    <label for="entidadFederativa">Entidad Federativa:</label>
-                                    <input type="text" name="entidadFederativa" id="entidadFederativa" v-model="usuario.datosEscolares.entidadFederativa.nombre" />
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <DatosEscolares
+                        :usuario="usuario">
+                        </DatosEscolares>
 
                         <div class="container d-lg-flex justify-content-lg-end">
                             <button type="button" class="btn bg-utt text-white btn-lg" @click="onClickStep('Promedios')"> Siguiente </button>
@@ -558,37 +193,15 @@
                     </div>
 
                     <div class="container-lg mb-3" style="width:75%" v-show="activeStep == 'Promedios'">
-                        <div class="container d-flex justify-content-between  my-4 row">
 
-                            <div class="right col-4 mt-4">
-
-                                <div class="d-grid mb-3">
-                                    <label for="nombreBachillerato">Promedio de bachillerato:</label>
-                                    <input type="text" name="nombreBachillerato" id="nombreBachillerato" v-model="usuario.promedios.tsu.bachillerato"/>
-                                </div>
-
-                            </div>
-                            <div class="center col-4 mt-4">
-
-                                <div class="d-grid mb-3">
-                                    <label for="tipoBachillerato">Nivel de Ingles:</label>
-                                    <input type="text" name="tipoBachillerato" id="tipoBachillerato" v-model="usuario.promedios.tsu.nivelIngles"/>
-                                </div>
-
-                            </div>
-                            <div class="left col-4 mt-4">
-
-                                <div class="d-grid mb-3">
-                                    <label for="entidadFederativa">Puntos del examen de Ingreso:</label>
-                                    <input type="text" name="entidadFederativa" id="entidadFederativa" v-model="usuario.promedios.tsu.puntosExamenIngreso" />
-                                </div>
-
-                            </div>
-                        </div>
+                        <Promedios
+                        :usuario="usuario">
+                        </Promedios>
 
                         <div class="container d-lg-flex justify-content-lg-end">
-                            <button type="button" class="btn bg-utt text-white btn-lg" > Guardar </button>
+                            <button type="button" class="btn bg-utt text-white btn-lg"> Guardar </button>
                         </div>
+
                     </div>
 
                 </div>
@@ -611,6 +224,12 @@ import { Carousel, Navigation, Slide } from 'vue3-carousel';
 import { Bar } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import Chart from 'chart.js/auto';
+import DatosPersonales from '../Components/DatosPersonales.vue'
+import DatosFamiliares from '../Components/DatosFamiliares.vue'
+import DatosEscolares from '../Components/DatosEscolares.vue'
+import DatosEconomicos from '../Components/DatosEconomicos.vue'
+import DatosLaborales from '../Components/DatosLaborales.vue'
+import Promedios from '../Components/Promedios.vue'
 
 
 
@@ -624,8 +243,15 @@ export default {
         Carousel,
         Slide,
         Navigation,
-        Bar
+        Bar,
+        DatosPersonales,
+        DatosFamiliares,
+        DatosEscolares,
+        DatosLaborales,
+        DatosEconomicos ,
+        Promedios,
     },
+
     props: {
     usuariosArray: {
         required: true,
@@ -639,6 +265,12 @@ export default {
     carrera:{
       show:false
     },
+    edades: {
+    required: true,
+    },
+    cantidades: {
+        required: true,
+    },
   },
 
   mounted() {
@@ -649,9 +281,9 @@ export default {
 
     const data = {
         labels: [
-            'Red',
-            'Blue',
-            'Yellow'
+            '10,000 - 15,000',
+            'Mas - 15,000',
+            'Menos- 15,000'
         ],
         datasets: [{
             label: 'My First Dataset',
@@ -669,6 +301,7 @@ export default {
         respuesta:{
             show:true
         }
+
     };
 
     const myChart = new Chart(ctx, {
@@ -682,16 +315,16 @@ export default {
 
     const dataPie = {
         labels: [
-            'Red',
-            'Blue',
-            'Yellow'
+            'Femmenino',
+            'Masculino',
+            'Otro'
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: [3, 15, 1],
             backgroundColor: [
             'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
+            'rgba(105, 26, 45)',
             'rgb(255, 205, 86)'
             ],
             hoverOffset: 4
@@ -712,10 +345,10 @@ export default {
     const barChar = new Chart(ctx2, {
         type: 'bar',
         data: {
-            labels: [],
+            labels: this.edades,
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5],
+                data: this.cantidades,
                 backgroundColor: [
                     'rgba(105, 26, 45)',
                     'rgba(166, 41, 71)',
@@ -750,7 +383,7 @@ export default {
         'Datos Personales',
         'Datos Familiares',
         'Datos Laborales',
-        'Datos Economicos',
+        // 'Datos Economicos',
         'Datos Escolares',
         'Promedios',
 

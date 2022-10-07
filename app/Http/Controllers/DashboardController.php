@@ -30,7 +30,7 @@ class DashboardController extends Controller
         }
 
         foreach($grupos as $grupo){
-            $carrera = (object) ["Carrera" => $grupo->carrera->nombre,
+            $carrera = (object) ["Carrera" => $grupo->carrera->nombre, 
                                     "Especialidad" => $grupo->especialidad->nombre,
                                     "Periodo" => $grupo->periodo->nombre,
                                     "Grupo" => $grupo->cuatrimestre.=$grupo->grupo];
@@ -40,10 +40,12 @@ class DashboardController extends Controller
 
         foreach($count as $key => $value){
             $contadorEdades[] = (object) [ "edad" => strval($key), "cantidad" => $value ];
+            $edades[] = strval($key);
+            $cantidades[] = $value;
         }
 
 
-        return Inertia::render('Dashboard',compact('usuariosArray', 'contadorEdades', 'carrera','alumnos'));
+        return Inertia::render('Dashboard',compact('usuariosArray', 'contadorEdades', 'carrera', 'edades','cantidades','alumnos'));
     }
 
 
